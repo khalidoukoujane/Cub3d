@@ -1,19 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub.h                                              :+:      :+:    :+:   */
+/*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: khoukouj <khoukouj@student.42.fr>          #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/03 12:59:53 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/05/20 16:30:39 by ioulkhir         ###   ########.fr       */
+/*   Created: 2025-05-24 13:35:34 by khoukouj          #+#    #+#             */
+/*   Updated: 2025-05-24 13:35:34 by khoukouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB_H
-# define CUB_H
+#include "../cub.h"
+#include <stdio.h>
 
-# include "general_utils/utils.h"
-# include "structs.h"
+int	check_dot_cub(char  *str)
+{
+	int		i;
 
-#endif
+	i = 0;
+	while(str[i] && str[i] != '.')
+		i++;
+	if (i == 0)
+		return (0);
+	if (!ft_strcmp(&str[i], ".cub"))
+		return (1);
+	return (0);
+}
