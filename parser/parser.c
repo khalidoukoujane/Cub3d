@@ -13,16 +13,25 @@
 #include "../cub.h"
 #include <stdio.h>
 
-int	check_dot_cub(char  *str)
+int	check_dot_cub(char *str)
 {
 	int		i;
 
 	i = 0;
-	while(str[i] && str[i] != '.')
+	while (str[i] && str[i] != '.')
 		i++;
 	if (i == 0)
 		return (0);
 	if (!ft_strcmp(&str[i], ".cub"))
 		return (1);
 	return (0);
+}
+
+int	ft_parser(int ac, char **av)
+{
+	if (ac != 2)
+		return (ft_error("Invalid number of arguments"), 0);
+	if (!check_dot_cub(av[1]))
+		return (ft_error("Invalid or missing file extension"), 0);
+	return (1);
 }

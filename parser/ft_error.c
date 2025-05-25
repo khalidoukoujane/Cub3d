@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub.h                                              :+:      :+:    :+:   */
+/*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: khoukouj <khoukouj@student.42.fr>          #+#  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/03 12:59:53 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/05/20 16:30:39 by ioulkhir         ###   ########.fr       */
+/*   Created: 2025-05-25 15:56:25 by khoukouj          #+#    #+#             */
+/*   Updated: 2025-05-25 15:56:25 by khoukouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB_H
-# define CUB_H
+#include "../cub.h"
 
-# include "general_utils/utils.h"
-# include "structs.h"
-
-void	ft_error(char *arg);
-
-#endif
+void	ft_error(char *arg)
+{
+	ft_putendl_fd("Error", 2);
+	ft_putendl_fd(arg, 2);
+}
