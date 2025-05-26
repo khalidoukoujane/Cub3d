@@ -1,0 +1,20 @@
+
+
+
+Δ:
+    basically learning raycasting
+
+γ:
+    project foundation
+    ---structs
+    ---roadmap
+    ---strong utilities
+    start();
+
+τ:
+    build project
+    finish();
+
+λ + β:
+    testing & problem solving
+    push()
