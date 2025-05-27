@@ -6,7 +6,7 @@
 /*   By: test <test@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:59:53 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/05/27 12:56:23 by test             ###   ########.fr       */
+/*   Updated: 2025/05/27 13:07:24 by test             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,16 @@ typedef struct s_player
 	double		angle;
 }				t_player;
 
+typedef struct s_parsed
+{
+	// dakxi dyal parsers okda
+}				t_parsed;
+
 typedef struct s_vars
 {
 	void		*mlx;
 	void		*win;
+	t_parsed	data;
 	t_img		img;
 	t_player	player;
 }				t_vars;
