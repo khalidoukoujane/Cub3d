@@ -3,16 +3,46 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: test <test@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:59:53 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/05/20 16:27:45 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/05/27 12:56:23 by test             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTS_H
 # define STRUCTS_H
 
+# define WIDTH
+# define HEIGHT
 
+typedef struct s_img
+{
+	void	*ptr;
+	void	*px_buffer;
+	int		bpp;
+	int		line_len;
+	int		endian;
+}				t_img;
+
+typedef struct s_coord
+{
+	double		x;
+	double		y;
+}				t_coord;
+
+typedef struct s_player
+{
+	t_coord		position;
+	double		angle;
+}				t_player;
+
+typedef struct s_vars
+{
+	void		*mlx;
+	void		*win;
+	t_img		img;
+	t_player	player;
+}				t_vars;
 
 #endif
