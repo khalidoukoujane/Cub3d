@@ -9,6 +9,11 @@ int main(int ac, char **av)
 		return (ft_error("faild to allocate"), 1);
 	if (!ft_parser(ac, av, &vars.data))
 		return (1);
+	while (1)
+	{
+		printf("%s\n", get_next_line(0));
+	}
+	
     // parsing
     // init
     // render
