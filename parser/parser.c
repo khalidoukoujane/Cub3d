@@ -26,11 +26,18 @@ int	check_dot_cub(char *str)
 	return (0);
 }
 
+char	**get_file_content(char *filename)
+{
+	int	fd;
+
+}
+
 int	ft_parser(int ac, char **av, t_parsed **data)
 {
 	if (ac != 2)
 		return (ft_error("Invalid number of arguments"), 0);
 	if (!check_dot_cub(av[1]))
 		return (ft_error("Invalid or missing file extension"), 0);
+	
 	return (1);
 }
