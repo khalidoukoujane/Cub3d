@@ -35,7 +35,7 @@ int	get_content_len(char *file)
 	count = 0;
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
-		return (ft_error("failed to open"), -1);
+		return (-1);
 	line = get_next_line(fd);
 	while (line)
 	{
@@ -54,6 +54,8 @@ char	**get_file_content(char *filename)
 
 	i = 0;
 	l = get_content_len(filename);
+	if (l == -1)
+		return (ft_error("Open: file doesn't exist"), NULL);
 	content = malloc(sizeof(char *) * (l + 1));
 	if (!content)
 		return (NULL);
