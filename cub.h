@@ -20,7 +20,9 @@
 # include "general_utils/utils.h"
 # include "structs.h"
 # include <limits.h>
-#include <stdio.h> // need to remove later 
+# include <stdio.h> // need to remove later
+# include <fcntl.h>
+
 
 void	ft_error(char *arg);
 int		ft_parser(int ac, char **av, t_parsed **data);

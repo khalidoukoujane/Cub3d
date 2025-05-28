@@ -26,10 +26,43 @@ int	check_dot_cub(char *str)
 	return (0);
 }
 
+int	get_content_len(char *file)
+{
+	int		count;
+	int		fd;
+	char	*line;
+
+	count = 0;
+	fd = open(file, O_RDONLY);
+	if (fd == -1)
+		return (ft_error("failed to open"), -1);
+	line = get_next_line(fd);
+	while (line)
+	{
+		count += (free(line), 1);
+		line = get_next_line(fd);
+	}
+	return (close(fd), count);
+}
+
 char	**get_file_content(char *filename)
 {
-	int	fd;
+	int		fd;
+	int		l;
+	int		i;
+	char	**content;
 
+	i = 0;
+	l = get_content_len(filename);
+	content = malloc(sizeof(char *) * (l + 1));
+	if (!content)
+		return (NULL);
+	fd = open(filename, O_RDONLY);
+	content[i] = get_next_line(fd);
+	while (i < l && content[i++])
+		content[i] = get_next_line(fd);
+	content[i] = NULL;
+	return (close(fd), content);
 }
 
 int	ft_parser(int ac, char **av, t_parsed **data)
@@ -38,6 +71,11 @@ int	ft_parser(int ac, char **av, t_parsed **data)
 		return (ft_error("Invalid number of arguments"), 0);
 	if (!check_dot_cub(av[1]))
 		return (ft_error("Invalid or missing file extension"), 0);
-	
+	(*data)->file_content = get_file_content(av[1]);
+	if (!(*data)->file_content)
+		return (-1);
+	int i = 0;
+	while ((*data)->file_content[i])
+		printf("%s", (*data)->file_content[i++]);
 	return (1);
 }
