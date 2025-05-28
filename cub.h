@@ -15,7 +15,9 @@
 
 # include "general_utils/utils.h"
 # include "structs.h"
+#include <stdio.h> // need to remove later 
 
 void	ft_error(char *arg);
+int		ft_parser(int ac, char **av, t_parsed **data);
 
 #endif

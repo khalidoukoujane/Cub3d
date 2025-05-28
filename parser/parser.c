@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "../cub.h"
-#include <stdio.h>
 
 int	check_dot_cub(char *str)
 {
@@ -27,7 +26,7 @@ int	check_dot_cub(char *str)
 	return (0);
 }
 
-int	ft_parser(int ac, char **av)
+int	ft_parser(int ac, char **av, t_parsed **data)
 {
 	if (ac != 2)
 		return (ft_error("Invalid number of arguments"), 0);

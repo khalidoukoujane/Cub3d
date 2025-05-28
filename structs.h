@@ -25,6 +25,13 @@ typedef struct s_img
 	int		endian;
 }				t_img;
 
+typedef struct s_color
+{
+	int		r;
+	int		g;
+	int		b;
+}				t_color;
+
 typedef struct s_coord
 {
 	double		x;
@@ -39,14 +46,20 @@ typedef struct s_player
 
 typedef struct s_parsed
 {
-	// dakxi dyal parsers okda
+	char	*no_texture;
+	char	*so_texture;
+	char	*we_texture;
+	char	*ea_texture;
+	t_color	floor_color;
+	t_color	ceiling_color;
+	char	**file_content;
 }				t_parsed;
 
 typedef struct s_vars
 {
 	void		*mlx;
 	void		*win;
-	t_parsed	data;
+	t_parsed	*data;
 	t_img		img;
 	t_player	player;
 }				t_vars;
