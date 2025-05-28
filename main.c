@@ -13,7 +13,7 @@ int main(int ac, char **av)
 	{
 		printf("%s\n", get_next_line(0));
 	}
-	
+	printf("h");
     // parsing
     // init
     // render
