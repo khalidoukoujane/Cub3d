@@ -82,4 +82,5 @@ int check_config(char  **content)
     skip_newlines(content, &i);
     if (!content[i])
         return (ft_error("Map is messing"), -1);
+	return (0);
 }
