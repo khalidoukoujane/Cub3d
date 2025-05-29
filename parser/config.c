@@ -35,9 +35,9 @@ static int check_textures(char **content, int *i)
         (*i)++;
     }
     if ((no_t + so_t + we_t + ea_t) != 4)
-        return (ft_error("Error: Invalid or incomplete texture definitions"), -1);
+        return (ft_error("Invalid or incomplete texture definitions"), -1);
     if (*i == 0)
-        return (ft_error("Error: Configuration file is empty."), -1);
+        return (ft_error("Configuration file is empty."), -1);
     return (0);
 }
 
