@@ -75,6 +75,8 @@ int	ft_parser(int ac, char **av, t_parsed **data)
 		return (ft_error("Invalid or missing file extension"), 0);
 	(*data)->file_content = get_file_content(av[1]);
 	if (!(*data)->file_content)
-		return (-1);
+		return (0);
+	if (check_config((*data)->file_content) == -1)
+		return (0);
 	return (1);
 }

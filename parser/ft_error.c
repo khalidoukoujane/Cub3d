@@ -15,5 +15,7 @@
 void	ft_error(char *arg)
 {
 	ft_putendl_fd("Error", 2);
+	ft_putstr_fd(RED, 2);
 	ft_putendl_fd(arg, 2);
+	ft_putstr_fd(RESET, 2);
 }

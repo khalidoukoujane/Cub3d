@@ -13,6 +13,9 @@
 #ifndef CUB_H
 # define CUB_H
 
+# define RED "\033[31m"
+# define RESET "\033[0m"
+
 # include "general_utils/utils.h"
 # include "structs.h"
 # include <limits.h>
@@ -23,5 +26,6 @@
 void	ft_error(char *arg);
 int		ft_parser(int ac, char **av, t_parsed **data);
 char	*get_next_line(int fd);
+int     check_config(char  **content);
 
 #endif
