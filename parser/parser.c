@@ -76,8 +76,5 @@ int	ft_parser(int ac, char **av, t_parsed **data)
 	(*data)->file_content = get_file_content(av[1]);
 	if (!(*data)->file_content)
 		return (-1);
-	int i = 0;
-	while ((*data)->file_content[i])
-		printf("%s", (*data)->file_content[i++]);
 	return (1);
 }

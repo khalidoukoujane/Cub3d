@@ -13,10 +13,6 @@
 #ifndef CUB_H
 # define CUB_H
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 25
-# endif
-
 # include "general_utils/utils.h"
 # include "structs.h"
 # include <limits.h>
