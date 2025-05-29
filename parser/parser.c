@@ -61,8 +61,11 @@ char	**get_file_content(char *filename)
 		return (NULL);
 	fd = open(filename, O_RDONLY);
 	content[i] = get_next_line(fd);
-	while (i < l && content[i++])
+	while (i < l && content[i])
+	{
+		i++;
 		content[i] = get_next_line(fd);
+	}
 	content[i] = NULL;
 	return (close(fd), content);
 }
