@@ -81,6 +81,6 @@ int check_config(char  **content)
     return (-1);
     skip_newlines(content, &i);
     if (!content[i])
-        return (ft_error("Map is messing"), -1);
+        return (ft_error("Map is missing"), -1);
 	return (0);
 }
