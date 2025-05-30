@@ -53,6 +53,7 @@ typedef struct s_parsed
 	t_color	floor_color;
 	t_color	ceiling_color;
 	char	**file_content;
+	char	**map;
 }				t_parsed;
 
 typedef struct s_vars
