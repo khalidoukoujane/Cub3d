@@ -12,6 +12,22 @@
 
 #include "../cub.h"
 
+int	count_player(char *line)
+{
+	int	i;
+	int	count;
+
+	i = 0;
+	count = 0;
+	while (line[i])
+	{
+		if (is_player(line[i]))
+			count++;
+		i++;
+	}
+	return (count);
+}
+
 int	check_map(char **content, int start)
 {
 	int	i;
@@ -21,9 +37,15 @@ int	check_map(char **content, int start)
 	count = 0;
 	while (content[i])
 	{
-		if (ft_strchr(content[i], "\t"))
-			return (ft_error("Map error: found tab"), -1);
+		if (ft_strchr(content[i], '\t'))
+			return (ft_error("Map error: found tab: line"), -1);
 		count += count_player(content[i]);
-		
+		if (!valid_line(content[i]))
+			return (ft_error("Map error: invalid element in the map"), -1);
+		i++;
 	}
+	if (count > 1)
+		return (ft_error("Map error: Duplicated Player"), -1);
+	else if (count == 0)
+		return (ft_error("Map error: player Not found"), -1);
 }
