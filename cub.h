@@ -27,5 +27,7 @@ void	ft_error(char *arg);
 int		ft_parser(int ac, char **av, t_parsed **data);
 char	*get_next_line(int fd);
 int     check_config(char  **content);
-
+int		check_map(char **content, int start);
+int		is_player(char c);
+int		valid_line(char *line);
 #endif
