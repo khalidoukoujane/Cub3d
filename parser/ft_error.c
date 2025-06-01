@@ -45,3 +45,28 @@ int valid_line(char *line)
 	}
 	return (1);
 }
+
+int	is_surrounded(char **content, int i)
+{
+	int	j;
+	int	len;
+
+	j = 0;
+	len = ft_strlen(content[i]);
+	while (content[i][j])
+	{
+		if (is_player(content[i][j]))
+		{
+			if (i == 0 || content[i - 1][j] == ' ')
+				return (0);
+			if (!content[i + 1] || content[i + 1][j] == ' ')
+				return (0);
+			if (j == 0 || content[i][j - 1] == ' ')
+				return (0);
+			if (j == len - 1 || content[i][j + 1] == ' ')
+				return (0);
+		}
+		j++;
+	}
+	return (1);
+}

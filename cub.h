@@ -30,4 +30,5 @@ int     check_config(char  **content);
 int		check_map(char **content, int start);
 int		is_player(char c);
 int		valid_line(char *line);
+int		is_surrounded(char **content, int i);
 #endif
