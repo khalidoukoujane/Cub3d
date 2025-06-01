@@ -44,8 +44,7 @@ int	check_map(char **content, int start)
 			return (ft_error("Map error: invalid element in the map"), -1);
 		i++;
 	}
-	if (count > 1)
-		return (ft_error("Map error: Duplicated Player"), -1);
-	else if (count == 0)
-		return (ft_error("Map error: player Not found"), -1);
+	if (count > 1 || count == 0)
+		return (ft_error("Map error: Player error"), -1);
+	return (0);
 }
