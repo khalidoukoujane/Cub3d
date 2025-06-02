@@ -12,55 +12,50 @@
 
 #include "../cub.h"
 
-static int check_textures(char **content, int *i)
+static void	do_checks(char **content, int *i, t_local_vars *v)
 {
-    int no_t;
-    int so_t;
-    int we_t;
-    int ea_t;
-
-    1 && (no_t = 0, so_t = 0, we_t = 0, ea_t = 0);
-    while (content[*i])
-    {
-        if (!ft_strncmp(content[*i], "SO ", 3))
-            so_t++;
-        else if (!ft_strncmp(content[*i], "NO ", 3))
-            no_t++;
-        else if (!ft_strncmp(content[*i], "WE ", 3))
-            we_t++;
-        else if (!ft_strncmp(content[*i], "EA ", 3))
-            ea_t++;
-        else
-            break;
-        (*i)++;
-    }
-    if ((no_t + so_t + we_t + ea_t) != 4)
-        return (ft_error("Invalid or incomplete texture definitions"), -1);
-    if (*i == 0)
-        return (ft_error("Configuration file is empty."), -1);
-    return (0);
+	if (!ft_strncmp(content[*i], "SO ", 3))
+		v->so_t++;
+	else if (!ft_strncmp(content[*i], "NO ", 3))
+		v->no_t++;
+	else if(!ft_strncmp(content[*i], "WE ", 3))
+		v->we_t++;
+	else if (!ft_strncmp (content[*i], "EA ", 3))
+		v->ea_t++;
+	else if (!ft_strncmp(content[*i], "F ", 2))
+		v->f_color++;
+	else if (!ft_strncmp(content[*i], "C ", 2))
+		v->c_color++;
+	(*i)++;
+}
+void	init_local_vars(t_local_vars *vars)
+{
+	vars->c_color = 0;
+	vars->f_color = 0;
+	vars->ea_t = 0;
+	vars->no_t = 0;
+	vars->so_t = 0;
+	vars->we_t = 0;
 }
 
-static int check_colors(char **content, int *i)
+static int check_textures_n_colors(char **content, int *i)
 {
-    int f_color;
-    int c_color;
+	t_local_vars	v;
 
-    f_color = 0;
-    c_color = 0;
-    while (content[*i])
-    {
-        if (!ft_strncmp(content[*i], "F ", 2))
-            f_color++;
-        else if (!ft_strncmp(content[*i], "C ", 2))
-            c_color++;
-        else
-            break;
-        (*i)++;
-    }
-    if (f_color + c_color != 2)
-        return (ft_error("colors error"), -1);
-    return (0);
+	init_local_vars(&v);
+	while (content[*i] && (is_config_line(content[*i])
+		|| is_newline(content[*i])))
+	{
+		if (is_config_line(content[*i]))
+			do_checks(content, i, &v);
+		else if (is_newline(content[*i]))
+			(*i)++;
+	}
+	if (v.ea_t + v.no_t + v.so_t + v.we_t != 4)
+		return (ft_error("textures error"), -1);
+	if (v.c_color + v.f_color != 2)
+		return (ft_error("colors error"), -1);
+	return (0);
 }
 
 static void    skip_newlines(char **content, int *i)
@@ -74,11 +69,9 @@ int check_config(char  **content)
     int i;
 
     i = 0;
-    if (check_textures(content, &i) == -1)
-        return (-1);
     skip_newlines(content, &i);
-    if (check_colors(content, &i) == -1)
-    return (-1);
+    if (check_textures_n_colors(content, &i) == -1)
+        return (-1);
     skip_newlines(content, &i);
     if (!content[i])
         return (ft_error("Map is missing"), -1);

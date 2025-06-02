@@ -13,8 +13,8 @@
 #ifndef STRUCTS_H
 # define STRUCTS_H
 
-# define WIDTH
-# define HEIGHT
+# define WIDTH 800
+# define HEIGHT 600
 
 typedef struct s_img
 {
@@ -43,6 +43,16 @@ typedef struct s_player
 	t_coord		position;
 	double		angle;
 }				t_player;
+
+typedef	struct s_local_vars
+{
+	int	no_t;
+    int	so_t;
+    int	we_t;
+    int	ea_t;
+	int	f_color;
+    int	c_color;
+}		t_local_vars;
 
 typedef struct s_parsed
 {

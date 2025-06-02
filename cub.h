@@ -31,4 +31,8 @@ int		check_map(char **content, int start);
 int		is_player(char c);
 int		valid_line(char *line);
 int		is_surrounded(char **content, int i);
+int		is_config_line(char *line);
+int		is_color_line(char *line);
+int		is_texture_line(char *line);
+int		is_newline(char *line);
 #endif
