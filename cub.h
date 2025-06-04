@@ -22,6 +22,11 @@
 # include <stdio.h> // need to remove later
 # include <fcntl.h>
 
+# define TOP_DIR 0
+# define BTM_DIR 1
+# define R_DIR 2
+# define L_DIR 3
+
 
 void	ft_error(char *arg);
 int		ft_parser(int ac, char **av, t_parsed **data);
