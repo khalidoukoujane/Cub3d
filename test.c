@@ -39,8 +39,9 @@ int is_wall(int x, int y) {
 }
 
 void draw_vert(t_game *g, int x, int start, int end, int color) {
-    for (int y = start; y <= end; y++)
-        mlx_pixel_put(g->mlx, g->win, x, y, color);
+    for (int i = x; i <= x+1; i++)
+        for (int y = start; y <= end; y++)
+            mlx_pixel_put(g->mlx, g->win, i, y, color);
 }
 
 int render(t_game *g) {
@@ -98,27 +99,35 @@ int render(t_game *g) {
         if (drawEnd >= HEIGHT) drawEnd = HEIGHT - 1;
 
         int color = side ? 0xAAAAAA : 0xFFFFFF;
+        // color = 1 ? 0xAAAAAA : 0xFFFFFF;
         draw_vert(g, x, drawStart, drawEnd, color);
     }
     return 0;
 }
 
 int key_hook(int keycode, t_game *g) {
-    if (keycode == 53) // ESC
+
+    // keycodde --> 65362
+    // keycodde --> 65364
+    // keycodde --> 65361
+    // keycodde --> 65363
+    // keycodde --> 65307
+
+    if (keycode == 65307) // ESC
         exit(0);
-    if (keycode == 13) { // W
+    if (keycode == 65362) { // W
         if (!is_wall((int)(g->posX + g->dirX * SPEED), (int)g->posY))
             g->posX += g->dirX * SPEED;
         if (!is_wall((int)g->posX, (int)(g->posY + g->dirY * SPEED)))
             g->posY += g->dirY * SPEED;
     }
-    if (keycode == 1) { // S
+    if (keycode == 65364) { // S
         if (!is_wall((int)(g->posX - g->dirX * SPEED), (int)g->posY))
             g->posX -= g->dirX * SPEED;
         if (!is_wall((int)g->posX, (int)(g->posY - g->dirY * SPEED)))
             g->posY -= g->dirY * SPEED;
     }
-    if (keycode == 0) { // A
+    if (keycode == 65361) { // A
         double oldDirX = g->dirX;
         g->dirX = g->dirX * cos(ROTATE) - g->dirY * sin(ROTATE);
         g->dirY = oldDirX * sin(ROTATE) + g->dirY * cos(ROTATE);
@@ -126,7 +135,7 @@ int key_hook(int keycode, t_game *g) {
         g->planeX = g->planeX * cos(ROTATE) - g->planeY * sin(ROTATE);
         g->planeY = oldPlaneX * sin(ROTATE) + g->planeY * cos(ROTATE);
     }
-    if (keycode == 2) { // D
+    if (keycode == 65363) { // D
         double oldDirX = g->dirX;
         g->dirX = g->dirX * cos(-ROTATE) - g->dirY * sin(-ROTATE);
         g->dirY = oldDirX * sin(-ROTATE) + g->dirY * cos(-ROTATE);

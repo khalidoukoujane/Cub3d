@@ -6,7 +6,7 @@
 /*   By: test <test@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:59:53 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/05/27 13:07:24 by test             ###   ########.fr       */
+/*   Updated: 2025/06/07 17:57:36 by test             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,15 @@ typedef struct s_color
 	int		b;
 }				t_color;
 
-typedef struct s_coord
+typedef struct s_vector
 {
-	double		x;
-	double		y;
-}				t_coord;
+	double	x;
+	double	y;
+}	t_vector;
 
 typedef struct s_player
 {
-	t_coord		position;
+	t_vector	position;
 	double		angle;
 }				t_player;
 
@@ -74,5 +74,17 @@ typedef struct s_vars
 	t_img		img;
 	t_player	player;
 }				t_vars;
+
+typedef struct s_ray
+{
+	t_vector	origin;
+	t_vector	direction;
+	t_vector	delta_dist;
+	t_vector	side_dist;
+	t_vector	step;
+	t_vector	map;
+	int			hit;
+	int			side;
+}	t_ray;
 
 #endif
