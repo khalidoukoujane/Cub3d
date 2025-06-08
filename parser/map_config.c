@@ -91,14 +91,14 @@ int	check_map(char **content, int start)
 	while (content[i])
 	{
 		if (ft_strchr(content[i], '\t'))
-		return (ft_error("Map error: found tab: line"), -1);
+			return (ft_error("Map error: found tab: line"), -1);
 		count += count_player(content[i]);
 		if (!valid_line(content[i]))
-		return (ft_error("Map error: invalid element in the map"), -1);
+			return (ft_error("Map error: invalid element in the map"), -1);
 		if (count > 1)
-		return (ft_error("Map error: Player error"), -1);
+			return (ft_error("Map error: Player error"), -1);
 		if (count == 1 && !is_surrounded(content, i))
-		return (ft_error("Map error: Player error"), -1);
+			return (ft_error("Map error: Player error"), -1);
 		i++;
 	}
 	if (is_map_closed(content, start) == -1)
