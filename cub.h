@@ -39,5 +39,6 @@ int		is_surrounded(char **content, int i);
 int		is_config_line(char *line);
 int		is_color_line(char *line);
 int		is_texture_line(char *line);
-int		is_newline(char *line);
+int		is_whitespace(char c);
+int		is_only_whitespace(char *str);
 #endif

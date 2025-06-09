@@ -44,11 +44,11 @@ static int check_textures_n_colors(char **content, int *i)
 
 	init_local_vars(&v);
 	while (content[*i] && (is_config_line(content[*i])
-		|| is_newline(content[*i])))
+		|| is_only_whitespace(content[*i])))
 	{
 		if (is_config_line(content[*i]))
 			do_checks(content, i, &v);
-		else if (is_newline(content[*i]))
+		else if (is_only_whitespace(content[*i]))
 			(*i)++;
 	}
 	if (v.ea_t + v.no_t + v.so_t + v.we_t != 4)
@@ -60,7 +60,7 @@ static int check_textures_n_colors(char **content, int *i)
 
 static void    skip_newlines(char **content, int *i)
 {
-    while (content[*i] && !ft_strcmp(content[*i], "\n"))
+    while (content[*i] && is_only_whitespace(content[*i]))
         (*i)++;
 }
 

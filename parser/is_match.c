@@ -28,7 +28,18 @@ int	is_config_line(char *line)
 	return (is_texture_line(line) || is_color_line(line));
 }
 
-int	is_newline(char *line)
+int	is_only_whitespace(char *str)
 {
-	return (!ft_strcmp(line, "\n"));
+	int	i;
+
+	if (!str || !*str)
+		return (1);
+	i = 0;
+	while (str[i])
+	{
+		if (!is_whitespace(str[i]))
+			return (0);
+		i++;
+	}
+	return (1);
 }

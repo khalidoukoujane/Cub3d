@@ -79,6 +79,12 @@ int	is_map_closed(char **content, int start)
 			}
 		i++;
 	}
+	return (0);
+}
+
+int	is_whitespace(char c)
+{
+	return (c == ' ' || c == '\t' || c == '\n');
 }
 
 int	check_map(char **content, int start)
