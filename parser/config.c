@@ -51,6 +51,8 @@ static int check_textures_n_colors(char **content, int *i)
 		else if (is_only_whitespace(content[*i]))
 			(*i)++;
 	}
+	if (v.ea_t > 1 || v.so_t > 1 || v.no_t > 1 || v.we_t > 1)
+		return (ft_error("duplicated textures"), -1);
 	if (v.ea_t + v.no_t + v.so_t + v.we_t != 4)
 		return (ft_error("textures error"), -1);
 	if (v.c_color + v.f_color != 2)
