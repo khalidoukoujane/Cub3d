@@ -62,7 +62,7 @@ static int check_textures_n_colors(char **content, int *i)
 	return (0);
 }
 
-static void    skip_newlines(char **content, int *i)
+void	skip_newlines(char **content, int *i)
 {
     while (content[*i] && is_only_whitespace(content[*i]))
         (*i)++;
