@@ -22,15 +22,32 @@ static int	count_splited(char **s)
 	return (i);
 }
 
+int	put_data(t_parsed **info, char *line, int* i)
+{
+	char	**data;
+
+	data = ft_split(line, ' ');
+	if (!data || !*data)
+		return (-1);
+	if (is_texture_line(line) && count_splited(data) != 2)
+		return (ft_error("invalid textures"), -1);
+	else if (is_color_line(line) && count_splited(data) != 4)
+		return (ft_error("invalid colors"), -1);
+	(*i)++;
+	return (0);
+}
+
 static int	get_textures_and_colors(t_parsed **data, char **file, int *i)
 {
-	char	**splited;
-
-	if (!file)
-		return (-1);
 	while (file[*i] && (is_config_line(file[*i]) || is_only_whitespace(file[*i])))
 	{
-		
+		if (is_config_line(file[*i]))
+		{
+			if (put_data(data, file[*i], i) == -1)
+				return (-1);
+		}
+		else if (is_only_whitespace(file[*i]))
+			(*i)++;
 	}
 	return (0);
 }
