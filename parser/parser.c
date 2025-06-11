@@ -81,5 +81,7 @@ int	ft_parser(int ac, char **av, t_parsed **data)
 		return (0);
 	if (check_config((*data)->file_content) == -1)
 		return (0);
+	if (grep_data(data) == -1)
+		return (0);
 	return (1);
 }

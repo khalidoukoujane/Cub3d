@@ -22,24 +22,26 @@ static int	count_splited(char **s)
 	return (i);
 }
 
-static int	get_textures(t_parsed **data, char **file, int *i)
+static int	get_textures_and_colors(t_parsed **data, char **file, int *i)
 {
 	char	**splited;
 
-	while (file[*i])
+	if (!file)
+		return (-1);
+	while (file[*i] && (is_config_line(file[*i]) || is_only_whitespace(file[*i])))
 	{
+		
 	}
+	return (0);
 }
 
 int	grep_data(t_parsed **data)
 {
 	int	i;
-	char	**file;
 
 	i = 0;
-	file = (*data)->file_content;
-	skip_newlines(file, &i);
-	if (get_textures(data, file, &i) == -1)
+	skip_newlines((*data)->file_content, &i);
+	if (get_textures_and_colors(data, (*data)->file_content, &i) == -1)
 		return (-1);
-	
+	return (0);
 }

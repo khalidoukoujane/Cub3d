@@ -41,4 +41,6 @@ int		is_color_line(char *line);
 int		is_texture_line(char *line);
 int		is_whitespace(char c);
 int		is_only_whitespace(char *str);
+void	skip_newlines(char **content, int *i);
+int		grep_data(t_parsed **data);
 #endif
