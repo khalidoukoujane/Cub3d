@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: test <test@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:59:53 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/05/20 16:30:39 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/06/11 23:01:18 by test             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,14 @@
 # include <limits.h>
 # include <stdio.h> // need to remove later
 # include <fcntl.h>
+# include <math.h>
 
 # define TOP_DIR 0
 # define BTM_DIR 1
 # define R_DIR 2
 # define L_DIR 3
 
+# define PI 3.14159265
 
 void	ft_error(char *arg);
 int		ft_parser(int ac, char **av, t_parsed **data);
@@ -43,4 +45,5 @@ int		is_whitespace(char c);
 int		is_only_whitespace(char *str);
 void	skip_newlines(char **content, int *i);
 int		grep_data(t_parsed **data);
+
 #endif
