@@ -50,7 +50,7 @@ void	ray_cast(t_vars *vars, t_ray *ray)
 			ray->side = 1;
 		}
 
-		if (vars->data.map[(int)ray->map.y][(int)ray->map.x] == '1')
+		if (vars->data->map[(int)ray->map.y][(int)ray->map.x] == '1')
 			ray->hit = 1;
 	}
 	if (ray->side == 0)

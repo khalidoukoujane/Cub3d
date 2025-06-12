@@ -6,7 +6,7 @@
 /*   By: test <test@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:59:53 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/06/12 01:14:48 by test             ###   ########.fr       */
+/*   Updated: 2025/06/12 02:51:44 by test             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ typedef struct s_vars
 {
 	void		*mlx;
 	void		*win;
-	t_parsed	data;
+	t_parsed	*data;
 	t_img		img;
 	t_player	player;
 }				t_vars;
