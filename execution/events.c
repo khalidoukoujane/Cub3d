@@ -10,14 +10,14 @@ int	key_hook(int keycode, void *param)
 		vars->player.angle += 0.1;
 	else if (keycode == LEFT)
 		vars->player.angle -= 0.1;
-	else if (keycode == W)
-		vars->player.position.y += 1;
-	else if (keycode == S)
-		vars->player.position.y -= 1;
 	else if (keycode == D)
-		vars->player.position.x += 1;
+		vars->player.position.y += 0.5;
 	else if (keycode == A)
-		vars->player.position.x -= 1;
+		vars->player.position.y -= 0.5;
+	else if (keycode == W)
+		vars->player.position.x += 0.5;
+	else if (keycode == S)
+		vars->player.position.x -= 0.5;
 	render(vars);
 	return (0);
 }
