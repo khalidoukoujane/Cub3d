@@ -6,7 +6,7 @@
 /*   By: test <test@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:59:53 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/06/12 00:06:52 by test             ###   ########.fr       */
+/*   Updated: 2025/06/12 01:14:48 by test             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ typedef struct s_ray
 	t_vector	direction;
 	t_vector	step;
 	t_vector	map;
-	t_vector	delta_dist;
+	t_vector	map_unit;
 	t_vector	side_dist;
 	double		distance;
 	int			hit;
