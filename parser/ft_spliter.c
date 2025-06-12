@@ -77,11 +77,11 @@ char	**ft_spliter(char *str, char *charset)
 {
 	int		i;
 	char	**split;
-	int		num_of_words;
 
+	if (!str)
+		return (NULL);
 	i = 0;
-	num_of_words = count_words(str, charset);
-	split = (char **)malloc(sizeof(char *) * (num_of_words + 1));
+	split = malloc(sizeof(char *) * (count_words(str, charset) + 1));
 	if (NULL == split)
 		return (NULL);
 	while (*str)

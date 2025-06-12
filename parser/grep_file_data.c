@@ -26,7 +26,7 @@ int	put_data(t_parsed **info, char *line, int* i)
 {
 	char	**data;
 
-	data = ft_split(line, ' ');
+	data = ft_spliter(line, " \t,\n");
 	if (!data || !*data)
 		return (-1);
 	if (is_texture_line(line) && count_splited(data) != 2)
