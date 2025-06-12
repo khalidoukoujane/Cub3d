@@ -6,7 +6,7 @@
 /*   By: test <test@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:59:53 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/06/12 17:44:37 by test             ###   ########.fr       */
+/*   Updated: 2025/06/12 17:51:10 by test             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int		is_whitespace(char c);
 int		is_only_whitespace(char *str);
 void	skip_newlines(char **content, int *i);
 int		grep_data(t_parsed **data);
+char	**ft_spliter(char *str, char *charset);
 
 // init
 void	failure_detect(t_status status);

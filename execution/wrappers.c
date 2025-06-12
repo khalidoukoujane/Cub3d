@@ -4,7 +4,7 @@ void	*ft_mlx_init(t_status *status)
 {
 	void	*result;
 
-	result = 0;//mlx_init();
+	result = mlx_init();
 	status->fail |= result == NULL;
 	status->sucesses += result != NULL;
     failure_detect(*status);

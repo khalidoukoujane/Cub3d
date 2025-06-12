@@ -7,23 +7,33 @@ int	main(int ac, char **av)
 	vars.data = malloc(sizeof(t_parsed));
 	if (!vars.data)
 		return (ft_error("faild to allocate"), 1);
-	if (!ft_parser(ac, av, &vars.data))
-		return (1);
-	// char *map[] = {
-	// 	"10000000000000001",
-	// 	"10000000001000001",
-	// 	"10000000000000001",
-	// 	"10000000000000001",
-	// 	"10000000000010001",
-	// };
-	// vars.data->map = map;
-	// vars.player.position.x = 1;
-	// vars.player.position.y = 2;
+	// if (!ft_parser(ac, av, &vars.data))
+	// 	return (1);
+	char *map[] = {
+		"11111111111111111",
+		"10000000000000001",
+		"10000000001000001",
+		"10000000000000001",
+		"10000000000000001",
+		"10000000000010001",
+		"10000000000010001",
+		"10000000000010001",
+		"10000000000010001",
+		"10000100000000001",
+		"10000000000010001",
+		"10000000000010001",
+		"10000000000010001",
+		"11111111111111111",
+	};
+	vars.data->map = map;
+	vars.player.position.x = 1;
+	vars.player.position.y = 7;
 	// init
 	init_program(&vars);
 	// render
 	render(&vars);
 	// hook
+	mlx_key_hook(vars.win, key_hook, &vars);
 	mlx_loop(vars.mlx);
 	// cleanup
 	return (EXIT_SUCCESS);
