@@ -6,7 +6,7 @@
 /*   By: test <test@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:59:53 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/06/12 00:02:17 by test             ###   ########.fr       */
+/*   Updated: 2025/06/12 02:26:16 by test             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,9 @@ void	init_program(t_vars *vars);
 void	*ft_mlx_init(t_status *status);
 void	*ft_mlx_new_window(t_status *status);
 void	*ft_mlx_new_image(t_status *status);
+
+void	ray_init(t_ray *ray, t_vector origin, double theta);
+void	ray_cast(t_vars *vars, t_ray *ray);
+void	render(t_vars *vars);
 
 #endif

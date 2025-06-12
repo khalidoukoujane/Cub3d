@@ -33,7 +33,7 @@ int		is_wall(t_vector map)
 	return (0);
 }
 
-void	ray_trace(t_vars *vars, t_ray *ray)
+void	ray_cast(t_vars *vars, t_ray *ray)
 {
 	while (!ray->hit)
 	{
