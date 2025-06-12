@@ -28,7 +28,12 @@ void	ray_init(t_ray *ray, t_vector origin, double theta)
 
 }
 
-void	ray_trace(t_ray *ray)
+int		is_wall(t_vector map)
+{
+	return (0);
+}
+
+void	ray_trace(t_vars *vars, t_ray *ray)
 {
 	while (!ray->hit)
 	{
@@ -45,7 +50,7 @@ void	ray_trace(t_ray *ray)
 			ray->side = 1;
 		}
 
-		if (get_map(ray->map.x, ray->map.y) == 1)
+		if (vars->data.map[(int)ray->map.y][(int)ray->map.x] == '1')
 			ray->hit = 1;
 	}
 	if (ray->side == 0)
