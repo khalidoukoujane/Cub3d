@@ -6,7 +6,7 @@
 /*   By: test <test@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:59:53 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/06/12 02:26:16 by test             ###   ########.fr       */
+/*   Updated: 2025/06/12 17:44:37 by test             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,21 @@ void	*ft_mlx_init(t_status *status);
 void	*ft_mlx_new_window(t_status *status);
 void	*ft_mlx_new_image(t_status *status);
 
+// ray casting
 void	ray_init(t_ray *ray, t_vector origin, double theta);
 void	ray_cast(t_vars *vars, t_ray *ray);
 void	render(t_vars *vars);
+
+// events
+# define ESC 65307
+# define RIGHT 65363
+# define LEFT 65361
+
+# define W 119
+# define A 97
+# define S 115
+# define D 100
+
+int	    key_hook(int keycode, void *param);
 
 #endif

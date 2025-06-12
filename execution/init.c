@@ -11,6 +11,8 @@ void	failure_detect(t_status status)
 	if (status.sucesses-- > 0)
 		mlx_destroy_display(status.vars->mlx);
 		// free
+	ft_error("mlx failure !");
+	exit(EXIT_FAILURE);
 }
 
 void	init_program(t_vars *vars)
