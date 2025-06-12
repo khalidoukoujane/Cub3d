@@ -19,14 +19,14 @@ int	main(int ac, char **av)
 		"10000000000010001",
 		"10000000000010001",
 		"10000000000010001",
-		"10000100000000001",
+		"10000100000010001",
 		"10000000000010001",
 		"10000000000010001",
 		"10000000000010001",
 		"11111111111111111",
 	};
 	vars.data->map = map;
-	vars.player.position.x = 1;
+	vars.player.position.x = 7;
 	vars.player.position.y = 7;
 	// init
 	init_program(&vars);
