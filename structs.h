@@ -6,7 +6,7 @@
 /*   By: test <test@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:59:53 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/06/07 17:57:36 by test             ###   ########.fr       */
+/*   Updated: 2025/06/12 00:06:52 by test             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,19 +70,27 @@ typedef struct s_vars
 {
 	void		*mlx;
 	void		*win;
-	t_parsed	*data;
+	t_parsed	data;
 	t_img		img;
 	t_player	player;
 }				t_vars;
+
+typedef struct s_status
+{
+	int			sucesses;
+	int			fail;
+	t_vars		*vars;
+}				t_status;
 
 typedef struct s_ray
 {
 	t_vector	origin;
 	t_vector	direction;
-	t_vector	delta_dist;
-	t_vector	side_dist;
 	t_vector	step;
 	t_vector	map;
+	t_vector	delta_dist;
+	t_vector	side_dist;
+	double		distance;
 	int			hit;
 	int			side;
 }	t_ray;

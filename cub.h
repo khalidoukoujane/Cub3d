@@ -6,7 +6,7 @@
 /*   By: test <test@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:59:53 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/06/11 23:01:18 by test             ###   ########.fr       */
+/*   Updated: 2025/06/12 00:02:17 by test             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 
 # include "general_utils/utils.h"
 # include "structs.h"
+# include "./minilibx-linux/mlx.h"
 # include <limits.h>
 # include <stdio.h> // need to remove later
 # include <fcntl.h>
@@ -45,5 +46,14 @@ int		is_whitespace(char c);
 int		is_only_whitespace(char *str);
 void	skip_newlines(char **content, int *i);
 int		grep_data(t_parsed **data);
+
+// init
+void	failure_detect(t_status status);
+void	init_program(t_vars *vars);
+
+// exec
+void	*ft_mlx_init(t_status *status);
+void	*ft_mlx_new_window(t_status *status);
+void	*ft_mlx_new_image(t_status *status);
 
 #endif
