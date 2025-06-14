@@ -10,8 +10,10 @@ void	failure_detect(t_status status)
 		mlx_destroy_window(status.vars->mlx, status.vars->win);
 	if (status.sucesses-- > 0)
 		mlx_destroy_display(status.vars->mlx);
-		// free
-	ft_error("mlx failure !");
+		// or free, i dont know
+	ft_error(status.err_msg);
+	free(status.err_msg);
+	status.err_msg = NULL;
 	exit(EXIT_FAILURE);
 }
 
@@ -25,4 +27,8 @@ void	init_program(t_vars *vars)
 	vars->mlx = ft_mlx_init(&status);
 	vars->win = ft_mlx_new_window(&status);
 	vars->img.ptr = ft_mlx_new_image(&status);
+	ft_mlx_xpm_file_to_image(&status, vars->data->ea_texture, &vars->textures[0]);
+	ft_mlx_xpm_file_to_image(&status, vars->data->no_texture, &vars->textures[1]);
+	ft_mlx_xpm_file_to_image(&status, vars->data->so_texture, &vars->textures[2]);
+	ft_mlx_xpm_file_to_image(&status, vars->data->we_texture, &vars->textures[3]);
 }

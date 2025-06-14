@@ -6,7 +6,7 @@
 /*   By: test <test@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:59:53 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/06/12 17:51:10 by test             ###   ########.fr       */
+/*   Updated: 2025/06/14 17:29:54 by test             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 # define RED "\033[31m"
 # define RESET "\033[0m"
+
+# define err_msg1 "MLX connection failure !"
+# define err_msg2 "Window creation failure !"
+# define err_msg3 "Image creation failure !"
 
 # include "general_utils/utils.h"
 # include "structs.h"
@@ -52,10 +56,11 @@ char	**ft_spliter(char *str, char *charset);
 void	failure_detect(t_status status);
 void	init_program(t_vars *vars);
 
-// exec
+// wrappers
 void	*ft_mlx_init(t_status *status);
 void	*ft_mlx_new_window(t_status *status);
 void	*ft_mlx_new_image(t_status *status);
+void	*ft_mlx_xpm_file_to_image(t_status *status, char *filename, t_tex *tex);
 
 // ray casting
 void	ray_init(t_ray *ray, t_vector origin, double theta);
