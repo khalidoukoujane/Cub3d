@@ -28,6 +28,10 @@ int	main(int ac, char **av)
 	vars.data->map = map;
 	vars.player.position.x = 7;
 	vars.player.position.y = 7;
+	vars.data->ea_texture = "wall.xpm";
+	vars.data->no_texture = "wall.xpm";
+	vars.data->so_texture = "wall.xpm";
+	vars.data->we_texture = "wall.xpm";
 	// init
 	init_program(&vars);
 	// render
