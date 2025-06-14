@@ -54,9 +54,17 @@ int	get_wall_color(int side, int y, int wall_height, int tex_x, int tex_width, i
 	return color;
 }
 
+void	my_mlx_pixel_put(t_img *data, int x, int y, int color)
+{
+	char	*dst;
+
+	dst = data->px_buffer + (y * data->line_len + x * (data->bpp / 8));
+	*(unsigned int*)dst = color;
+}
+
 void draw_line(t_vars *vars, int x, t_ray ray, int tex_x, int tex_width, int tex_height, int *wall_data)
 {
-	int start, end, length, color;
+	int start, end, length, color, y;
 
 	if (ray.distance < 0.0001)
 		ray.distance = 0.0001;
@@ -72,12 +80,17 @@ void draw_line(t_vars *vars, int x, t_ray ray, int tex_x, int tex_width, int tex
 	if (start < 0) start = 0;
 	if (end > HEIGHT) end = HEIGHT;
 
-	while (start < end)
+	y = 0;
+	while (y < start)
+		my_mlx_pixel_put(&vars->img, x, y++, 0x3dbfff);
+	while (y < end)
 	{
-		color = get_wall_color(ray.side, start, length, tex_x, tex_width, tex_height, wall_data);
-		mlx_pixel_put(vars->mlx, vars->win, x, start, color);
-		start++;
+		color = get_wall_color(ray.side, y, length, tex_x, tex_width, tex_height, wall_data);
+		my_mlx_pixel_put(&vars->img, x, y, color);
+		y++;
 	}
+	while (y < HEIGHT)
+		my_mlx_pixel_put(&vars->img, x, y++, 0x134761);
 }
 
 void render(t_vars *vars)
@@ -113,6 +126,7 @@ void render(t_vars *vars)
 		draw_line(vars, x, ray, tex_x, vars->textures[0].width, vars->textures[0].height, vars->textures[0].data);
 		x++;
 	}
+	mlx_put_image_to_window(vars->mlx, vars->win, vars->img.ptr, 0, 0);
 }
 
 

@@ -41,4 +41,6 @@ void	init_program(t_vars *vars)
 	ft_mlx_xpm_file_to_image(&status, vars->data->we_texture, &vars->textures[3]);
 	vars->win = ft_mlx_new_window(&status);
 	vars->img.ptr = ft_mlx_new_image(&status);
+	vars->img.px_buffer = mlx_get_data_addr(vars->img.ptr, &vars->img.bpp,
+			&vars->img.line_len, &vars->img.endian);
 }
