@@ -39,6 +39,9 @@ void	*ft_mlx_new_image(t_status *status)
 void	*ft_mlx_xpm_file_to_image(t_status *status, char *filename, t_tex *tex)
 {
 	void	*result;
+	int		bpp;
+	int		sl;
+	int		endian;
 
 	result = mlx_xpm_file_to_image(status->vars->mlx, filename, &tex->width, &tex->height);
 	status->fail |= result == NULL;
@@ -46,5 +49,9 @@ void	*ft_mlx_xpm_file_to_image(t_status *status, char *filename, t_tex *tex)
 	status->err_msg = ft_strjoin(filename, ": Failed to load texture");
     failure_detect(*status);
 	tex->ptr = result;
+	tex->data = (int *)mlx_get_data_addr(result, &bpp, &sl, &endian);
+	(void)bpp;
+	(void)sl;
+	(void)endian;
 	return (result);
 }

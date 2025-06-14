@@ -84,19 +84,6 @@ void render(t_vars *vars)
 	t_ray ray;
 	int x = 0;
 
-	int *wall_data;
-	void *wall_img;
-	int bpp, size_line, endian;
-	int tex_width, tex_height;
-
-	wall_img = mlx_xpm_file_to_image(vars->mlx, "wall.xpm", &tex_width, &tex_height);
-	if (!wall_img)
-	{
-		perror("Failed to load wall texture");
-		exit(EXIT_FAILURE);
-	}
-
-	wall_data = (int *)mlx_get_data_addr(wall_img, &bpp, &size_line, &endian);
 
 	mlx_clear_window(vars->mlx, vars->win);
 
@@ -116,13 +103,13 @@ void render(t_vars *vars)
 			wall_x = ray.origin.x + ray.distance * ray.direction.x;
 
 		wall_x -= floor(wall_x); // keep only the fractional part
-		int tex_x = (int)(wall_x * tex_width);
+		int tex_x = (int)(wall_x * vars->textures[0].width);
 
 		// Flip tex_x if needed to avoid mirrored textures
 		if ((ray.side == 0 && ray.direction.x > 0) || (ray.side == 1 && ray.direction.y < 0))
-			tex_x = tex_width - tex_x - 1;
+			tex_x = vars->textures[0].width - tex_x - 1;
 
-		draw_line(vars, x, ray, tex_x, tex_width, tex_height, wall_data);
+		draw_line(vars, x, ray, tex_x, vars->textures[0].width, vars->textures[0].height, vars->textures[0].data);
 		x++;
 	}
 }

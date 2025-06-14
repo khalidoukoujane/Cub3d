@@ -6,7 +6,7 @@
 /*   By: test <test@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:59:53 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/06/14 17:27:09 by test             ###   ########.fr       */
+/*   Updated: 2025/06/14 17:51:41 by test             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ typedef struct s_parsed
 typedef struct s_tex
 {
 	void		*ptr;
+	int			*data;
 	int			width;
 	int			height;
 }				t_tex;
