@@ -65,6 +65,7 @@ void draw_line(t_vars *vars, int x, t_ray ray, int tex_x, int tex_width, int tex
 	if (length > HEIGHT)
 		length = HEIGHT;
 
+	// length *= cos(ray.direction.x - vars->player.angle);
 	start = (HEIGHT - length) / 2;
 	end = start + length;
 
