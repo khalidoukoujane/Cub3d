@@ -6,7 +6,7 @@
 /*   By: test <test@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:59:53 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/06/14 17:29:54 by test             ###   ########.fr       */
+/*   Updated: 2025/06/15 18:52:01 by test             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@
 # define L_DIR 3
 
 # define PI 3.14159265
+# define FOV 0.66
 
 void	ft_error(char *arg);
 int		ft_parser(int ac, char **av, t_parsed **data);
@@ -61,6 +62,12 @@ void	*ft_mlx_init(t_status *status);
 void	*ft_mlx_new_window(t_status *status);
 void	*ft_mlx_new_image(t_status *status);
 void	*ft_mlx_xpm_file_to_image(t_status *status, char *filename, t_tex *tex);
+void	my_mlx_pixel_put(t_img *data, int x, int y, int color);
+
+// small utils
+
+double	decimal_part(double num);
+double	zero_protect(double x);
 
 // ray casting
 void	ray_init(t_ray *ray, t_vector origin, double theta);

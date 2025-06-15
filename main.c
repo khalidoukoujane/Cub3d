@@ -27,7 +27,8 @@ int	main(int ac, char **av)
 	};
 	vars.data->map = map;
 	vars.player.position.x = 7;
-	vars.player.position.y = 7;
+	vars.player.position.y = 6;
+	vars.player.angle = 2;
 	vars.data->ea_texture = "wall.xpm";
 	vars.data->no_texture = "wall.xpm";
 	vars.data->so_texture = "wall.xpm";

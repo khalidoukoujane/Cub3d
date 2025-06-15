@@ -1,123 +1,58 @@
 #include "../cub.h"
 
-// void	draw_line(t_vars *vars, int x, t_ray ray)
-// {
-// 	int		start;
-// 	int		end;
-// 	int		length;
-
-// 	length = HEIGHT / ray.distance;
-// 	if (length > HEIGHT) length = HEIGHT;
-// 	start = (HEIGHT - length) / 2;
-// 	end = HEIGHT - start;
-// 	while (start < end)
-// 	{
-// 		// color is f(side)
-// 		mlx_pixel_put(vars->mlx, vars->win, x, start, 0xFFFFFF);
-// 		start++;
-// 	}
-// }
-
-// void	render(t_vars *vars)
-// {
-// 	t_ray		ray;
-// 	int			x;
-
-// 	x = 0;
-// 	while (x < HEIGHT)
-// 	{
-// 		ray_init(&ray, vars->player.position, vars->player.angle + (x / HEIGHT * 360));
-// 		ray_cast(vars, &ray);
-// 		draw_line(vars, x, ray);
-// 		x++;
-// 	}
-// }
-
-
-#include "../cub.h"
-
-#define FOV 0.66
-
-int	get_wall_color(int side, int y, int wall_height, int tex_x, int tex_width, int tex_height, int *wall_data)
+int	get_wall_color()
 {
-	int tex_y = (y * tex_height) / wall_height;
-
-	if (tex_y < 0) tex_y = 0;
-	if (tex_y >= tex_height) tex_y = tex_height - 1;
-
-	int color = wall_data[tex_y * tex_width + tex_x];
-
-	if (side == 1)
-		color = (color >> 1) & 0x7F7F7F;
-
-	return color;
+	return 0;
 }
 
-void draw_line(t_vars *vars, int x, t_ray ray, int tex_x, int tex_width, int tex_height, int *wall_data)
+void	get_line_len(int *start, int *end, t_ray ray)
 {
-	int start, end, length, color, y;
+	int	line_length;
 
-	if (ray.distance < 0.0001)
-		ray.distance = 0.0001;
+	if (ray.distance < 0.00001)
+		ray.distance = 0.00001;
+	line_length = HEIGHT / ray.distance;
+	if (line_length > HEIGHT)
+		line_length = HEIGHT;
+	*start = (HEIGHT - line_length) / 2;
+	*end = *start + line_length;
+	if (*end > HEIGHT) *end = HEIGHT;
+}
 
-	length = HEIGHT / ray.distance;
-	if (length > HEIGHT)
-		length = HEIGHT;
-
-	// length *= cos(ray.direction.x - vars->player.angle);
-	start = (HEIGHT - length) / 2;
-	end = start + length;
-
-	if (start < 0) start = 0;
-	if (end > HEIGHT) end = HEIGHT;
+void	draw_line(t_vars *vars, int x, t_ray ray)
+{
+	int	y;
+	int	color;
+	int	start;
+	int	end;
 
 	y = 0;
+	get_line_len(&start, &end, ray);
 	while (y < start)
-		my_mlx_pixel_put(&vars->img, x, y++, 0x3dbfff);
+		my_mlx_pixel_put(&vars->img, x, y++, 0x0000ee);
 	while (y < end)
-	{
-		color = get_wall_color(ray.side, y, length, tex_x, tex_width, tex_height, wall_data);
-		my_mlx_pixel_put(&vars->img, x, y, color);
-		y++;
-	}
+		my_mlx_pixel_put(&vars->img, x, y++, ray.side * 0x220000 + 0x111111);
 	while (y < HEIGHT)
-		my_mlx_pixel_put(&vars->img, x, y++, 0x134761);
+		my_mlx_pixel_put(&vars->img, x, y++, 0x0000aa);
 }
 
-void render(t_vars *vars)
+void	render(t_vars *vars)
 {
-	t_ray ray;
-	int x = 0;
+	t_ray	ray;
+	double	x;
+	double	theta;
 
-
+	x = 0;
 	mlx_clear_window(vars->mlx, vars->win);
-
 	while (x < WIDTH)
 	{
 		double camera_x = 2 * x / (double)WIDTH - 1;
-		double ray_angle = vars->player.angle + atan(camera_x * FOV);
+		theta = vars->player.angle + atan(camera_x * FOV);
 
-		ray_init(&ray, vars->player.position, ray_angle);
+		ray_init(&ray, vars->player.position, theta);
 		ray_cast(vars, &ray);
-
-		// Compute texture X coordinate
-		double wall_x;
-		if (ray.side == 0)
-			wall_x = ray.origin.y + ray.distance * ray.direction.y;
-		else
-			wall_x = ray.origin.x + ray.distance * ray.direction.x;
-
-		wall_x -= floor(wall_x); // keep only the fractional part
-		int tex_x = (int)(wall_x * vars->textures[0].width);
-
-		// Flip tex_x if needed to avoid mirrored textures
-		if ((ray.side == 0 && ray.direction.x > 0) || (ray.side == 1 && ray.direction.y < 0))
-			tex_x = vars->textures[0].width - tex_x - 1;
-
-		draw_line(vars, x, ray, tex_x, vars->textures[0].width, vars->textures[0].height, vars->textures[0].data);
+		draw_line(vars, x, ray);
 		x++;
 	}
 	mlx_put_image_to_window(vars->mlx, vars->win, vars->img.ptr, 0, 0);
 }
-
-
