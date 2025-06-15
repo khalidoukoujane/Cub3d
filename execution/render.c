@@ -35,7 +35,6 @@
 
 
 #include "../cub.h"
-#include <math.h>
 
 #define FOV 0.66
 
@@ -52,14 +51,6 @@ int	get_wall_color(int side, int y, int wall_height, int tex_x, int tex_width, i
 		color = (color >> 1) & 0x7F7F7F;
 
 	return color;
-}
-
-void	my_mlx_pixel_put(t_img *data, int x, int y, int color)
-{
-	char	*dst;
-
-	dst = data->px_buffer + (y * data->line_len + x * (data->bpp / 8));
-	*(unsigned int*)dst = color;
 }
 
 void draw_line(t_vars *vars, int x, t_ray ray, int tex_x, int tex_width, int tex_height, int *wall_data)
