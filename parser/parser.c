@@ -83,5 +83,9 @@ int	ft_parser(int ac, char **av, t_parsed **data)
 		return (0);
 	if (grep_data(data) == -1)
 		return (0);
+	printf("%s\n", (*data)->no_texture);
+	printf("%s\n", (*data)->so_texture);
+	printf("%s\n", (*data)->we_texture);
+	printf("%s\n", (*data)->ea_texture);
 	return (1);
 }

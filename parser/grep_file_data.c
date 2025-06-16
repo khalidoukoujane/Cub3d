@@ -22,6 +22,21 @@ static int	count_splited(char **s)
 	return (i);
 }
 
+static int	fill_data(t_parsed **info, char **data, char *line)
+{
+	if (!data || !*data)
+		return (-1);
+	if (!ft_strcmp(data[0], "NO"))
+		(*info)->no_texture = ft_strdup(data[1]);
+	else if (!ft_strcmp(data[0], "SO"))
+		(*info)->so_texture = ft_strdup(data[1]);
+	else if (!ft_strcmp(data[0], "WE"))
+		(*info)->we_texture = ft_strdup(data[1]);
+	else if (!ft_strcmp(data[0], "EA"))
+		(*info)->ea_texture = ft_strdup(data[1]);
+	return (0);
+}
+
 int	put_data(t_parsed **info, char *line, int* i)
 {
 	char	**data;
@@ -36,6 +51,8 @@ int	put_data(t_parsed **info, char *line, int* i)
 		return (ft_error("invalid textures"), -1);
 	else if (is_color_line(line) && count_splited(data) != 4)
 		return (ft_error("invalid colors"), -1);
+	if (fill_data(info, data, line) == -1)
+		return (-1);
 	(*i)++;
 	return (0);
 }
