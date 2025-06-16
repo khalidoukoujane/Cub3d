@@ -87,5 +87,7 @@ int	ft_parser(int ac, char **av, t_parsed **data)
 	printf("%s\n", (*data)->so_texture);
 	printf("%s\n", (*data)->we_texture);
 	printf("%s\n", (*data)->ea_texture);
+	printf("%d %d %d\n", (*data)->ceiling_color.r, (*data)->ceiling_color.g, (*data)->ceiling_color.b);
+	printf("%d %d %d\n", (*data)->floor_color.r, (*data)->floor_color.g, (*data)->floor_color.b);
 	return (1);
 }

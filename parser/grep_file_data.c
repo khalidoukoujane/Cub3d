@@ -34,6 +34,10 @@ static int	fill_data(t_parsed **info, char **data, char *line)
 		(*info)->we_texture = ft_strdup(data[1]);
 	else if (!ft_strcmp(data[0], "EA"))
 		(*info)->ea_texture = ft_strdup(data[1]);
+	else if (!ft_strcmp(data[0], "F"))
+		fill_colors(data + 1, &(*info)->floor_color);
+	else if (!ft_strcmp(data[0], "C"))
+		fill_colors(data + 1, &(*info)->ceiling_color);
 	return (0);
 }
 

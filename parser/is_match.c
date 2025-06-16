@@ -43,3 +43,10 @@ int	is_only_whitespace(char *str)
 	}
 	return (1);
 }
+
+void	fill_colors(char **data, t_color *color)
+{
+	color->r = ft_atoi(data[0]);
+	color->g = ft_atoi(data[1]);
+	color->b = ft_atoi(data[2]);
+}
