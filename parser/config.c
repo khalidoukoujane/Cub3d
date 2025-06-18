@@ -76,7 +76,6 @@ int check_config(char  **content)
     skip_newlines(content, &i);
     if (check_textures_n_colors(content, &i) == -1)
         return (-1);
-    skip_newlines(content, &i);
     if (!content[i])
         return (ft_error("Map is missing"), -1);
 	if (check_map(content, i) == -1)
