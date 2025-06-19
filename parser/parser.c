@@ -45,6 +45,16 @@ int	get_content_len(char *file)
 	return (close(fd), count);
 }
 
+int	free_splited(char **ss)
+{
+	int	i;
+
+	i = -1;
+	while (ss[++i])
+		free(ss[i]);
+	free(ss);
+}
+
 char	**get_file_content(char *filename)
 {
 	int		fd;

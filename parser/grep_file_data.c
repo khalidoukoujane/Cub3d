@@ -57,6 +57,7 @@ int	put_data(t_parsed **info, char *line, int* i)
 		return (ft_error("invalid colors"), -1);
 	if (fill_data(info, data, line) == -1)
 		return (-1);
+	free_splited(data);
 	(*i)++;
 	return (0);
 }

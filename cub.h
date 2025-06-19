@@ -53,6 +53,7 @@ void	skip_newlines(char **content, int *i);
 int		grep_data(t_parsed **data);
 char	**ft_spliter(char *str, char *charset);
 void	fill_colors(char **data, t_color *color);
+int		free_splited(char **ss);
 
 // init
 void	failure_detect(t_status status);
