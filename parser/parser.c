@@ -53,6 +53,7 @@ int	free_splited(char **ss)
 	while (ss[++i])
 		free(ss[i]);
 	free(ss);
+	return (0);
 }
 
 char	**get_file_content(char *filename)
