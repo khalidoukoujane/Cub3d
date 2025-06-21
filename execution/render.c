@@ -12,15 +12,8 @@ int	get_wall_color(t_vars *vars, int px_x, int px_y, t_ray *ray)
 	decoder = (ray->direction.x < 0) * 2 + (ray->side == 1);
 	texture = vars->textures[decoder];
 	line_length = ray->end - ray->start;
-	y = (double)px_y / line_length * texture.height;
 
-
-	y = (int)(((double)(px_y - ray->start) / line_length) * texture.height);
-	if (y < 0)
-		y = 0;
-	if (y >= texture.height)
-		y = texture.height - 1;
-
+	y = (int)(((double)(px_y - ray->start) / line_length) * (texture.height - 1));
 	if (ray->side == 1)
 		x = (int)(decimal_part(ray->side_dist.y) * texture.width);
 	else
