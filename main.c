@@ -29,10 +29,10 @@ int	main(int ac, char **av)
 	vars.player.position.x = 7;
 	vars.player.position.y = 6;
 	vars.player.angle = 2;
-	vars.data->ea_texture = "wall.xpm";
-	vars.data->no_texture = "wall.xpm";
-	vars.data->so_texture = "wall.xpm";
-	vars.data->we_texture = "wall.xpm";
+	vars.data->ea_texture = "texture/east_texture.xpm";
+	vars.data->no_texture = "texture/north_texture.xpm";
+	vars.data->so_texture = "texture/south_texture.xpm";
+	vars.data->we_texture = "texture/west_texture.xpm";
 	// init
 	init_program(&vars);
 	// render
