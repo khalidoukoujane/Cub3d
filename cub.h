@@ -22,7 +22,7 @@
 
 # include "general_utils/utils.h"
 # include "structs.h"
-# include "./minilibx-linux/mlx.h"
+# include "./mlx/mlx.h"
 # include <limits.h>
 # include <stdio.h> // need to remove later
 # include <fcntl.h>
