@@ -13,8 +13,8 @@
 #ifndef STRUCTS_H
 # define STRUCTS_H
 
-# define WIDTH 800
-# define HEIGHT 600
+# define WIDTH 1024
+# define HEIGHT 900
 
 enum {
 	ON_KEYDOWN = 2,
@@ -113,6 +113,9 @@ typedef struct s_ray
 	double		distance;
 	int			hit;
 	int			side;
+
+	int			start;
+	int			end;
 }	t_ray;
 
 #endif
