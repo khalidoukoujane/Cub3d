@@ -100,7 +100,7 @@ int	check_map(char **content, int start)
 			return (ft_error("Map error: found tab: line"), -1);
 		count += count_player(content[i]);
 		if (!valid_line(content[i]))
-			return (ft_error("Map error: invalid element in the map"), -1);
+			return (ft_error("Map error: invalid element in or after the map"), -1);
 		if (count > 1)
 			return (ft_error("Map error: Player error"), -1);
 		if (count == 1 && !is_surrounded(content, i))
