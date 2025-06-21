@@ -22,6 +22,12 @@
 // 	return (color);
 // }
 
+#define EAST_TEXTURE 0
+#define SOUTH_TEXTURE 1
+#define WEST_TEXTURE 2
+#define NORTH_TEXTURE 3
+
+
 int	get_wall_color(t_vars *vars, int px_y, t_ray *ray)
 {
 	t_tex	texture;
@@ -32,7 +38,24 @@ int	get_wall_color(t_vars *vars, int px_y, t_ray *ray)
 	int		line_length;
 
 	// Select correct texture based on ray direction and side
-	decoder = (ray->direction.y < 0) * 2 + (ray->side == 1);
+	// decoder = (ray->direction.y < 0) * 2 + (ray->side == 1);
+
+	if (ray->side == 0) // vertical wall
+	{
+		if (ray->direction.x > 0)
+			decoder = EAST_TEXTURE;  // define this as 0 or whatever index
+		else
+			decoder = WEST_TEXTURE;  // define this as 2
+	}
+	else // horizontal wall
+	{
+		if (ray->direction.y > 0)
+			decoder = SOUTH_TEXTURE; // e.g., 1
+		else
+			decoder = NORTH_TEXTURE; // e.g., 3
+	}
+
+
 	texture = vars->textures[decoder];
 
 	// Prevent division by zero in line length
