@@ -30,6 +30,14 @@ static double	ray_distance(t_ray ray)
 {
 	double	result;
 
+	// if (ray.side == 0)
+	// {
+	// 	result = ray.side_dist.x - ray.step.x;
+	// }
+	// else
+	// {
+	// 	result = ray.side_dist.y - ray.step.y;
+	// }
 	if (ray.side == 0)
 	{
 		result = ray.map.x - ray.origin.x;
