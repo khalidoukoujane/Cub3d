@@ -28,30 +28,30 @@ int	count_player(char *line)
 	return (count);
 }
 
-int	check_wall(char **content, int row, int col, int dir)
+int	check_wall(char **content, int i, int j, int dir)
 {
 	if (dir == TOP_DIR)
 	{
-		while (col && (content[row][col] == '0' || is_player(content[row][col])))
-			col--;
+		while (j && (content[j][i] == '0' || is_player(content[j][i])))
+			j--;
 	}
 	else if (dir == BTM_DIR)
 	{
-		while (content[row] && content[row + 1] && (content[row][col] == '0'
-			|| is_player(content[row][col])))
-			col++;
+		while (content[j] && content[j + 1] && (content[j][i] == '0'
+			|| is_player(content[j][i])))
+			j++;
 	}
 	else if (dir == R_DIR)
 	{
-		while (content[row][col] && (content[row][col] == '0' || is_player(content[row][col])))
-			row++;
+		while (content[j][i] && (content[j][i] == '0' || is_player(content[j][i])))
+			i++;
 	}
 	else if (dir == L_DIR)
 	{
-		while (row && (content[row][col] == '0' || is_player(content[row][col])))
-			row--;
+		while (i && (content[j][i] == '0' || is_player(content[j][i])))
+			i--;
 	}
-	if (content[row][col] != '1')
+	if (content[j][i] != '1')
 		return (0);
 	return (1);
 }
@@ -61,13 +61,13 @@ int	is_map_closed(char **content, int start)
 	int	i;
 	int	j;
 
-	i = start;
-	while (content[i])
+	j = start;
+	while (content[j])
 	{
-		j = 0;
-		while (content[i][j])
+		i = 0;
+		while (content[j][i])
 		{
-			if (content[i][j] == '0' || is_player(content[i][j]))
+			if (content[j][i] == '0' || is_player(content[j][i]))
 			{
 				if (!check_wall(content, i, j, TOP_DIR)
 					|| !check_wall(content, i , j, BTM_DIR)
@@ -75,9 +75,9 @@ int	is_map_closed(char **content, int start)
 					|| !check_wall(content, i, j, L_DIR))
 					return (-1);
 				}
-				j++;
-			}
-		i++;
+				i++;
+		}
+		j++;
 	}
 	return (0);
 }
