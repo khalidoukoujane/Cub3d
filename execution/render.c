@@ -46,9 +46,7 @@ void	render(t_vars *vars)
 	mlx_clear_window(vars->mlx, vars->win);
 	while (x < WIDTH)
 	{
-		double camera_x = 2 * x / (double)WIDTH - 1;
-		theta = vars->player.angle + atan(camera_x * FOV);
-
+		theta = vars->player.angle + (x / WIDTH * FOV);
 		ray_init(&ray, vars->player.position, theta);
 		ray_cast(vars, &ray);
 		draw_line(vars, x, ray);

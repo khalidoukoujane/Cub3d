@@ -24,7 +24,7 @@
 # include "structs.h"
 # include "./mlx/mlx.h"
 # include <limits.h>
-# include <stdio.h> // need to remove later
+# include <stdio.h> // need to remove later, its okey cuz we got perror
 # include <fcntl.h>
 # include <math.h>
 
@@ -33,8 +33,7 @@
 # define R_DIR 2
 # define L_DIR 3
 
-# define PI 3.14159265
-# define FOV 0.66
+# define FOV 1.04 // field of view
 
 void	ft_error(char *arg);
 int		ft_parser(int ac, char **av, t_parsed **data);
