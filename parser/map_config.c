@@ -28,11 +28,11 @@ int	count_player(char *line)
 	return (count);
 }
 
-int	check_wall(char **content, int i, int j, int dir)
+int	check_wall(char **content, int i, int j, int dir, int start)
 {
 	if (dir == TOP_DIR)
 	{
-		while (j && (content[j][i] == '0' || is_player(content[j][i])))
+		while (j > start && (content[j][i] == '0' || is_player(content[j][i])))
 			j--;
 	}
 	else if (dir == BTM_DIR)
@@ -69,10 +69,10 @@ int	is_map_closed(char **content, int start)
 		{
 			if (content[j][i] == '0' || is_player(content[j][i]))
 			{
-				if (!check_wall(content, i, j, TOP_DIR)
-					|| !check_wall(content, i , j, BTM_DIR)
-					|| !check_wall(content, i, j, R_DIR)
-					|| !check_wall(content, i, j, L_DIR))
+				if (!check_wall(content, i, j, TOP_DIR, start)
+					|| !check_wall(content, i , j, BTM_DIR, start)
+					|| !check_wall(content, i, j, R_DIR, start)
+					|| !check_wall(content, i, j, L_DIR, start))
 					return (-1);
 				}
 				i++;
