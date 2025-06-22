@@ -14,17 +14,18 @@
 
 static void	do_checks(char **content, int *i, t_local_vars *v)
 {
-	if (!ft_strncmp(content[*i], "SO ", 3))
+	char *tmp = ft_strtrim(content[*i], " \t\n");
+	if (!ft_strncmp(tmp, "SO ", 3))
 		v->so_t++;
-	else if (!ft_strncmp(content[*i], "NO ", 3))
+	else if (!ft_strncmp(tmp, "NO ", 3))
 		v->no_t++;
-	else if(!ft_strncmp(content[*i], "WE ", 3))
+	else if(!ft_strncmp(tmp, "WE ", 3))
 		v->we_t++;
-	else if (!ft_strncmp (content[*i], "EA ", 3))
+	else if (!ft_strncmp (tmp, "EA ", 3))
 		v->ea_t++;
-	else if (!ft_strncmp(content[*i], "F ", 2))
+	else if (!ft_strncmp(tmp, "F ", 2))
 		v->f_color++;
-	else if (!ft_strncmp(content[*i], "C ", 2))
+	else if (!ft_strncmp(tmp, "C ", 2))
 		v->c_color++;
 	(*i)++;
 }

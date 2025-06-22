@@ -25,7 +25,8 @@ int	is_color_line(char *line)
 
 int	is_config_line(char *line)
 {
-	return (is_texture_line(line) || is_color_line(line));
+	char *tmp = ft_strtrim(line, " \t\n");
+	return (is_texture_line(tmp) || is_color_line(tmp));
 }
 
 int	is_only_whitespace(char *str)
