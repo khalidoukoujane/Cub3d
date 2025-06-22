@@ -19,7 +19,7 @@ void	failure_detect(t_status status)
 		while (status.sucesses-- > 2)
 			mlx_destroy_image(status.vars->mlx, status.vars->textures[status.sucesses - 1].ptr);
 	if (status.sucesses-- == 1)
-		mlx_destroy_display(status.vars->mlx);
+		// mlx_destroy_display(status.vars->mlx);
 		// or free, i dont know
 	ft_error(status.err_msg);
 	free(status.err_msg);
