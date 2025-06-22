@@ -43,6 +43,9 @@ int		handle_mouse_down(int button, int x, int y, void *param)
 {
 	t_vars  *vars;
 
+	(void)button;
+	(void)x;
+	(void)y;
 	vars = param;
 	vars->mouse_down = 1;
 	return (0);
@@ -52,6 +55,9 @@ int		handle_mouse_up(int button, int x, int y, void *param)
 {
 	t_vars  *vars;
 
+	(void)button;
+	(void)x;
+	(void)y;
 	vars = param;
 	vars->mouse_down = 0;
 	return (0);
@@ -64,6 +70,7 @@ int		handle_mouse_move(int x, int y, void *param)
 	double		dx;
 	double		speed;
 
+	(void)y;
 	speed = 0.01;
 	vars = param;
 	if (!vars->mouse_down)

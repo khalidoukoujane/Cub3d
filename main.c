@@ -9,6 +9,8 @@ int	main(int ac, char **av)
 		return (ft_error("faild to allocate"), 1);
 	// if (!ft_parser(ac, av, &vars.data))
 	// 	return (1);
+	(void)ac;
+	(void)av;
 	char *map[] = {
 		"11111111111111111",
 		"10000000000000001",

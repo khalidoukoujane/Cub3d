@@ -77,22 +77,22 @@ double	get_side_vec(t_ray *ray, t_vector vec);
 void	render(t_vars *vars);
 
 // events
-// # define ESC 65307
-// # define RIGHT 65363
-// # define LEFT 65361
+# define ESC 65307
+# define RIGHT 65363
+# define LEFT 65361
 
-// # define W 119
-// # define A 97
-// # define S 115
-// # define D 100
+# define W 119
+# define A 97
+# define S 115
+# define D 100
 
-# define ESC   53
-# define RIGHT 124
-# define LEFT  123
-# define W     13
-# define A     0
-# define S     1
-# define D     2
+// # define ESC   53
+// # define RIGHT 124
+// # define LEFT  123
+// # define W     13
+// # define A     0
+// # define S     1
+// # define D     2
 
 # define ON_MOUSEDOWN 4
 # define ON_MOUSEUP 5
