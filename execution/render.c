@@ -99,6 +99,7 @@ void	render(t_vars *vars)
 		theta = vars->player.angle + (x / WIDTH * FOV) - FOV / 2;
 		ray_init(&ray, vars->player.position, theta);
 		ray_cast(vars, &ray);
+		ray.distance *= cos(theta - vars->player.angle);
 		draw_line(vars, x, &ray);
 		x++;
 	}
