@@ -1,26 +1,29 @@
 #include "../cub.h"
 
-// int	get_wall_color(t_vars *vars, int px_x, int px_y, t_ray *ray)
+// int	get_wall_color(t_vars *vars, int px_y, t_ray *ray)
 // {
 // 	t_tex	texture;
 // 	int		decoder;
 // 	int		color;
+// 	int		x, y;
+// 	double	wall_x;
 // 	int		line_length;
-// 	int		x;
-// 	int		y;
 
-// 	decoder = (ray->direction.x < 0) * 2 + (ray->side == 1);
+// 	decoder = ray->side + (get_side_vec(ray, ray->direction) > 0) * 2;
 // 	texture = vars->textures[decoder];
-// 	line_length = ray->end - ray->start;
 
+// 	line_length = ray->end - ray->start + 1;
 // 	y = (int)(((double)(px_y - ray->start) / line_length) * (texture.height - 1));
-// 	if (ray->side == 1)
-// 		x = (int)(decimal_part(ray->side_dist.y) * texture.width);
-// 	else
-// 		x = (int)(decimal_part(ray->side_dist.x) * texture.width);
+
+// 	wall_x = get_side_vec(ray, ray->origin) + ray->distance * get_side_vec(ray, ray->direction);
+// 	wall_x -= floor(wall_x);
+
+// 	x = (int)(wall_x * texture.width);
+
 // 	color = texture.data[texture.width * y + x];
 // 	return (color);
 // }
+
 
 #define EAST_TEXTURE 0
 #define SOUTH_TEXTURE 1
@@ -37,56 +40,19 @@ int	get_wall_color(t_vars *vars, int px_y, t_ray *ray)
 	double	wall_x;
 	int		line_length;
 
-	// Select correct texture based on ray direction and side
-	// decoder = (ray->direction.y < 0) * 2 + (ray->side == 1);
-
-	if (ray->side == 0) // vertical wall
-	{
-		if (ray->direction.x > 0)
-			decoder = EAST_TEXTURE;  // define this as 0 or whatever index
-		else
-			decoder = WEST_TEXTURE;  // define this as 2
-	}
-	else // horizontal wall
-	{
-		if (ray->direction.y > 0)
-			decoder = SOUTH_TEXTURE; // e.g., 1
-		else
-			decoder = NORTH_TEXTURE; // e.g., 3
-	}
-
-
+	decoder = ray->side + (get_side_vec(ray, ray->direction) > 0) * 2; // need adjustment
 	texture = vars->textures[decoder];
 
-	// Prevent division by zero in line length
-	line_length = ray->end - ray->start;
-	if (line_length == 0)
-		line_length = 1;
-
-	// Y coordinate on texture
+	line_length = ray->end - ray->start + 1;
 	y = (int)(((double)(px_y - ray->start) / line_length) * (texture.height - 1));
 
-	// Compute exact wall hit point (wall_x) for texture X coordinate
-	if (ray->side == 0)
-		wall_x = ray->origin.y + ray->distance * ray->direction.y;
-	else
-		wall_x = ray->origin.x + ray->distance * ray->direction.x;
-	wall_x -= floor(wall_x); // Keep only the fractional part
+	ray->side = !ray->side;
+	wall_x = get_side_vec(ray, ray->origin) + ray->distance * get_side_vec(ray, ray->direction);
+	wall_x = decimal_part(wall_x);
+	ray->side = !ray->side;
 
-	x = (int)(wall_x * texture.width);
+	x = (int)(wall_x * (texture.width - 1));
 
-	// Flip texture X coordinate depending on side and direction
-	if ((ray->side == 0 && ray->direction.x > 0) ||
-		(ray->side == 1 && ray->direction.y < 0))
-		x = texture.width - x - 1;
-
-	// Clamp texture coordinates
-	if (x < 0) x = 0;
-	if (x >= texture.width) x = texture.width - 1;
-	if (y < 0) y = 0;
-	if (y >= texture.height) y = texture.height - 1;
-
-	// Get pixel color from texture
 	color = texture.data[texture.width * y + x];
 	return (color);
 }

@@ -74,6 +74,7 @@ double	zero_protect(double x);
 // ray casting
 void	ray_init(t_ray *ray, t_vector origin, double theta);
 void	ray_cast(t_vars *vars, t_ray *ray);
+double	get_side_vec(t_ray *ray, t_vector vec);
 void	render(t_vars *vars);
 
 // events

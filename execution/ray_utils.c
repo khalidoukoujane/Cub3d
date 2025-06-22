@@ -1,5 +1,12 @@
 #include "../cub.h"
 
+double	get_side_vec(t_ray *ray, t_vector vec)
+{
+	if (ray->side == 0)
+		return (vec.x);
+	return (vec.y);
+}
+
 void	ray_init(t_ray *ray, t_vector origin, double theta)
 {
 	ray->origin = origin;
@@ -26,32 +33,29 @@ void	ray_init(t_ray *ray, t_vector origin, double theta)
 
 }
 
-static double	ray_distance(t_ray ray)
-{
-	double	result;
+// static double	ray_distance(t_ray ray)
+// {
+// 	double	result;
 
-	// if (ray.side == 0)
-	// {
-	// 	result = ray.side_dist.x - ray.step.x;
-	// }
-	// else
-	// {
-	// 	result = ray.side_dist.y - ray.step.y;
-	// }
-	if (ray.side == 0)
-	{
-		result = ray.map.x - ray.origin.x;
-		result += (1 - ray.map_unit.x) / 2.0;
-		result /= ray.direction.x;
-	}
-	else
-	{
-		result = ray.map.y - ray.origin.y;
-		result += (1 - ray.map_unit.y) / 2.0;
-		result /= ray.direction.y;
-	}
-	return (result);
-}
+// 	if (ray.side == 0)
+// 		result = ray.side_dist.x - ray.step.x;
+// 	else
+// 		result = ray.side_dist.y - ray.step.y;
+// 	result = get_side_vec(*ray, );
+// 	// if (ray.side == 0)
+// 	// {
+// 	// 	result = ray.map.x - ray.origin.x;
+// 	// 	result += (1 - ray.map_unit.x) / 2.0;
+// 	// 	result /= ray.direction.x;
+// 	// }
+// 	// else
+// 	// {
+// 	// 	result = ray.map.y - ray.origin.y;
+// 	// 	result += (1 - ray.map_unit.y) / 2.0;
+// 	// 	result /= ray.direction.y;
+// 	// }
+// 	return (result);
+// }
 
 void	ray_cast(t_vars *vars, t_ray *ray)
 {
@@ -72,5 +76,5 @@ void	ray_cast(t_vars *vars, t_ray *ray)
 		}
 		ray->hit = vars->data->map[(int)ray->map.x][(int)ray->map.y] == '1';
 	}
-	ray->distance = ray_distance(*ray);
+	ray->distance = get_side_vec(ray, ray->side_dist) - get_side_vec(ray, ray->step);
 }
