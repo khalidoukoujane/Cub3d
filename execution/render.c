@@ -99,11 +99,8 @@ void	get_line_len(t_ray *ray)
 	if (ray->distance < 0.00001)
 		ray->distance = 0.00001;
 	line_length = HEIGHT / ray->distance;
-	if (line_length > HEIGHT)
-		line_length = HEIGHT;
 	ray->start = (HEIGHT - line_length) / 2;
 	ray->end = ray->start + line_length;
-	if (ray->end > HEIGHT) ray->end = HEIGHT;
 }
 
 void	draw_line(t_vars *vars, int x, t_ray *ray)
@@ -114,12 +111,12 @@ void	draw_line(t_vars *vars, int x, t_ray *ray)
 
 	y = 0;
 	get_line_len(ray);
-	while (y < ray->start)
-		my_mlx_pixel_put(&vars->img, x, y++, 0x0000ee);
-	while (y < ray->end)
+	while (y < ray->start && ray->start >= 0)
+		my_mlx_pixel_put(&vars->img, x, y++, 0x8dcaff);
+	while (y < ray->end && y < HEIGHT)
 		my_mlx_pixel_put(&vars->img, x, y++, get_wall_color(vars, y, ray));
 	while (y < HEIGHT)
-		my_mlx_pixel_put(&vars->img, x, y++, 0x0000aa);
+		my_mlx_pixel_put(&vars->img, x, y++, 0x2d608d);
 }
 
 void	render(t_vars *vars)
