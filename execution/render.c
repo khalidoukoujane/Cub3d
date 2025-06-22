@@ -129,7 +129,7 @@ void	render(t_vars *vars)
 	mlx_clear_window(vars->mlx, vars->win);
 	while (x < WIDTH)
 	{
-		theta = vars->player.angle + (x / WIDTH * FOV);
+		theta = vars->player.angle + (x / WIDTH * FOV) - FOV / 2;
 		ray_init(&ray, vars->player.position, theta);
 		ray_cast(vars, &ray);
 		draw_line(vars, x, &ray);

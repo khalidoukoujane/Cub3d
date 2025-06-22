@@ -34,6 +34,7 @@
 # define L_DIR 3
 
 # define FOV 1.04 // field of view
+# define PI 3.1415 // dak khona Pi
 
 void	ft_error(char *arg);
 int		ft_parser(int ac, char **av, t_parsed **data);
