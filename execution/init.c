@@ -43,4 +43,5 @@ void	init_program(t_vars *vars)
 	vars->img.ptr = ft_mlx_new_image(&status);
 	vars->img.px_buffer = mlx_get_data_addr(vars->img.ptr, &vars->img.bpp,
 			&vars->img.line_len, &vars->img.endian);
+	vars->mouse_down = 0;
 }

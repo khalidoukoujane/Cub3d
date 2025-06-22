@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: test <test@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:59:53 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/06/15 18:52:01 by test             ###   ########.fr       */
+/*   Updated: 2025/06/22 16:34:14 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@
 # define L_DIR 3
 
 # define FOV 1.04 // field of view
-# define PI 3.1415 // dak khona Pi
 
 void	ft_error(char *arg);
 int		ft_parser(int ac, char **av, t_parsed **data);
@@ -78,14 +77,30 @@ double	get_side_vec(t_ray *ray, t_vector vec);
 void	render(t_vars *vars);
 
 // events
-# define ESC 65307
-# define RIGHT 65363
-# define LEFT 65361
+// # define ESC 65307
+// # define RIGHT 65363
+// # define LEFT 65361
 
-# define W 119
-# define A 97
-# define S 115
-# define D 100
+// # define W 119
+// # define A 97
+// # define S 115
+// # define D 100
+
+# define ESC   53
+# define RIGHT 124
+# define LEFT  123
+# define W     13
+# define A     0
+# define S     1
+# define D     2
+
+# define ON_MOUSEDOWN 4
+# define ON_MOUSEUP 5
+# define ON_MOUSEMOVE 6
+
+int		handle_mouse_down(int button, int x, int y, void *param);
+int		handle_mouse_up(int button, int x, int y, void *param);
+int		handle_mouse_move(int x, int y, void *param);
 
 int	    key_hook(int keycode, void *param);
 

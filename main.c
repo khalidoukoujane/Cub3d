@@ -39,6 +39,9 @@ int	main(int ac, char **av)
 	render(&vars);
 	// hook
 	mlx_key_hook(vars.win, key_hook, &vars);
+	mlx_hook(vars.win, ON_MOUSEDOWN, 0, handle_mouse_down, &vars);
+	mlx_hook(vars.win, ON_MOUSEUP, 0, handle_mouse_up, &vars);
+	mlx_hook(vars.win, ON_MOUSEMOVE, 0, handle_mouse_move, &vars);
 	mlx_loop(vars.mlx);
 	// cleanup
 	return (EXIT_SUCCESS);

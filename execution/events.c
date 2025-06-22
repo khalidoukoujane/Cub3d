@@ -38,3 +38,40 @@ int	key_hook(int keycode, void *param)
 	render(vars);
 	return (0);
 }
+
+int		handle_mouse_down(int button, int x, int y, void *param)
+{
+	t_vars  *vars;
+
+	vars = param;
+	vars->mouse_down = 1;
+	return (0);
+}
+
+int		handle_mouse_up(int button, int x, int y, void *param)
+{
+	t_vars  *vars;
+
+	vars = param;
+	vars->mouse_down = 0;
+	return (0);
+}
+
+int		handle_mouse_move(int x, int y, void *param)
+{
+	t_vars  	*vars;
+	static int	first_x = -1;
+	double		dx;
+	double		speed;
+
+	speed = 0.01;
+	vars = param;
+	if (!vars->mouse_down)
+		return (first_x = -1, 1);
+	first_x = x * (first_x == -1) + first_x * (first_x != -1);
+	dx = x - first_x;
+	vars->player.angle += speed * radian(dx / WIDTH * 360);
+	render(vars);
+	return (0);
+}
+

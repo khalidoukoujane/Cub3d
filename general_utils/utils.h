@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khoukouj <khoukouj@student.42.fr>          #+#  +:+       +#+        */
+/*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-05-29 03:14:49 by khoukouj          #+#    #+#             */
-/*   Updated: 2025-05-29 03:14:49 by khoukouj         ###   ########.fr       */
+/*   Created: 2025/05/29 03:14:49 by khoukouj          #+#    #+#             */
+/*   Updated: 2025/06/22 16:42:42 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+
+# define PI 3.1415 // dak khona Pi
 
 // part 1
 int		ft_atoi(const char *str);
@@ -70,5 +72,6 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+double	radian(double angle);
 
 #endif
