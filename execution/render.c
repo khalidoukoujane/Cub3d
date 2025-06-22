@@ -31,7 +31,7 @@
 #define NORTH_TEXTURE 3
 
 
-int	get_wall_color(t_vars *vars, int px_y, t_ray *ray)
+int	get_wall_color(t_vars *vars, int *px_p, t_ray *ray)
 {
 	t_tex	texture;
 	int		decoder;
@@ -39,6 +39,9 @@ int	get_wall_color(t_vars *vars, int px_y, t_ray *ray)
 	int		x, y;
 	double	wall_x;
 	int		line_length;
+	int		px_y;
+
+	px_y = *px_p;
 
 	decoder = ray->side + (get_side_vec(ray, ray->direction) > 0) * 2; // need adjustment
 	texture = vars->textures[decoder];
@@ -54,6 +57,8 @@ int	get_wall_color(t_vars *vars, int px_y, t_ray *ray)
 	x = (int)(wall_x * (texture.width - 1));
 
 	color = texture.data[texture.width * y + x];
+	
+	(*px_p)++;
 	return (color);
 }
 
@@ -80,7 +85,7 @@ void	draw_line(t_vars *vars, int x, t_ray *ray)
 	while (y < ray->start && ray->start >= 0)
 		my_mlx_pixel_put(&vars->img, x, y++, 0x8dcaff);
 	while (y < ray->end && y < HEIGHT)
-		my_mlx_pixel_put(&vars->img, x, y++, get_wall_color(vars, y, ray));
+		my_mlx_pixel_put(&vars->img, x, y, get_wall_color(vars, &y, ray));
 	while (y < HEIGHT)
 		my_mlx_pixel_put(&vars->img, x, y++, 0x2d608d);
 }
