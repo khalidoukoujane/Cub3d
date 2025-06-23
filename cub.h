@@ -6,7 +6,7 @@
 /*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:59:53 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/06/22 16:34:14 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/06/23 08:29:29 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,14 @@
 # define RED "\033[31m"
 # define RESET "\033[0m"
 
-# define err_msg1 "MLX connection failure !"
-# define err_msg2 "Window creation failure !"
-# define err_msg3 "Image creation failure !"
+# define ERR_MSG1 "MLX connection failure !"
+# define ERR_MSG2 "Window creation failure !"
+# define ERR_MSG3 "Image creation failure !"
 
 # include "general_utils/utils.h"
 # include "structs.h"
 # include "./mlx/mlx.h"
 # include <limits.h>
-# include <stdio.h> // need to remove later, its okey cuz we got perror
 # include <fcntl.h>
 # include <math.h>
 
@@ -33,12 +32,12 @@
 # define R_DIR 2
 # define L_DIR 3
 
-# define FOV 1.04 // field of view
+# define FOV 1.04
 
 void	ft_error(char *arg);
 int		ft_parser(int ac, char **av, t_parsed **data);
 char	*get_next_line(int fd);
-int     check_config(char  **content);
+int		check_config(char **content);
 int		check_map(char **content, int start);
 int		is_player(char c);
 int		valid_line(char *line);
@@ -102,6 +101,6 @@ int		handle_mouse_down(int button, int x, int y, void *param);
 int		handle_mouse_up(int button, int x, int y, void *param);
 int		handle_mouse_move(int x, int y, void *param);
 
-int	    key_hook(int keycode, void *param);
+int		key_hook(int keycode, void *param);
 
 #endif

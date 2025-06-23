@@ -6,7 +6,7 @@
 /*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:59:53 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/06/22 16:22:24 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/06/23 08:26:42 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,15 +54,15 @@ typedef struct s_player
 	double		angle;
 }				t_player;
 
-typedef	struct s_local_vars
+typedef struct s_local_vars
 {
-	int	no_t;
-    int	so_t;
-    int	we_t;
-    int	ea_t;
-	int	f_color;
-    int	c_color;
-}		t_local_vars;
+	int			no_t;
+	int			so_t;
+	int			we_t;
+	int			ea_t;
+	int			f_color;
+	int			c_color;
+}				t_local_vars;
 
 typedef struct s_parsed
 {
@@ -117,6 +117,7 @@ typedef struct s_ray
 
 	int			start;
 	int			end;
+	int			line_len;
 }	t_ray;
 
 #endif

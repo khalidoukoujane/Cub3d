@@ -6,10 +6,9 @@
 /*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 03:14:49 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/06/22 16:42:42 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/06/23 08:23:41 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef UTILS_H
 # define UTILS_H

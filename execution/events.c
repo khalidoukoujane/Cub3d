@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   events.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/23 08:19:01 by ioulkhir          #+#    #+#             */
+/*   Updated: 2025/06/23 08:19:02 by ioulkhir         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../cub.h"
 
 static int	collision(t_vars *vars)
@@ -20,9 +32,9 @@ int	key_hook(int keycode, void *param)
 	new_pos = 0;
 	vars = param;
 	if (keycode == RIGHT)
-		(vars->player.angle += 0.1, speed = 0);
+		1 && (vars->player.angle += 0.1, speed = 0);
 	else if (keycode == LEFT)
-		(vars->player.angle -= 0.1, speed = 0);
+		1 && (vars->player.angle -= 0.1, speed = 0);
 	else if (keycode == D)
 		new_pos = vars->player.angle + PI / 2;
 	else if (keycode == A)
@@ -39,9 +51,9 @@ int	key_hook(int keycode, void *param)
 	return (0);
 }
 
-int		handle_mouse_down(int button, int x, int y, void *param)
+int	handle_mouse_down(int button, int x, int y, void *param)
 {
-	t_vars  *vars;
+	t_vars	*vars;
 
 	(void)button;
 	(void)x;
@@ -51,9 +63,9 @@ int		handle_mouse_down(int button, int x, int y, void *param)
 	return (0);
 }
 
-int		handle_mouse_up(int button, int x, int y, void *param)
+int	handle_mouse_up(int button, int x, int y, void *param)
 {
-	t_vars  *vars;
+	t_vars	*vars;
 
 	(void)button;
 	(void)x;
@@ -63,9 +75,9 @@ int		handle_mouse_up(int button, int x, int y, void *param)
 	return (0);
 }
 
-int		handle_mouse_move(int x, int y, void *param)
+int	handle_mouse_move(int x, int y, void *param)
 {
-	t_vars  	*vars;
+	t_vars		*vars;
 	static int	first_x = -1;
 	double		dx;
 	double		speed;
@@ -81,4 +93,3 @@ int		handle_mouse_move(int x, int y, void *param)
 	render(vars);
 	return (0);
 }
-
