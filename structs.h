@@ -6,7 +6,7 @@
 /*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:59:53 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/06/23 08:26:42 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/06/23 10:00:22 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,8 @@ typedef struct s_tex
 	int			height;
 }				t_tex;
 
+typedef struct s_status t_status;
+
 typedef struct s_vars
 {
 	void		*mlx;
@@ -92,6 +94,7 @@ typedef struct s_vars
 	t_img		img;
 	t_player	player;
 	t_tex		textures[4];
+	t_status	*status;
 	int			mouse_down;
 }				t_vars;
 

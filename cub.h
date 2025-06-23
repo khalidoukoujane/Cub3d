@@ -6,7 +6,7 @@
 /*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:59:53 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/06/23 08:29:29 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/06/23 10:06:58 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ double	get_side_vec(t_ray *ray, t_vector vec);
 void	render(t_vars *vars);
 
 // events
-# define ESC 65307
+# define ESC 53
 # define RIGHT 65363
 # define LEFT 65361
 

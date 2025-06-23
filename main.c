@@ -2,9 +2,11 @@
 
 int	main(int ac, char **av)
 {
-	t_vars  vars;
+	t_vars		vars;
+	t_status	status;
 
 	vars.data = malloc(sizeof(t_parsed));
+	vars.status = &status;
 	if (!vars.data)
 		return (ft_error("faild to allocate"), 1);
 	// if (!ft_parser(ac, av, &vars.data))
