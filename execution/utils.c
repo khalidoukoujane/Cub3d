@@ -6,7 +6,7 @@
 /*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 08:22:30 by ioulkhir          #+#    #+#             */
-/*   Updated: 2025/06/23 08:22:31 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/06/23 09:48:41 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	my_mlx_pixel_put(t_img *data, int x, int y, int color)
 
 double	decimal_part(double num)
 {
-	return (fabs(num - (int)num));
+	return (fabs(num) - (int)fabs(num));
 }
 
 double	zero_protect(double x)
