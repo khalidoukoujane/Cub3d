@@ -26,6 +26,7 @@
 # include <limits.h>
 # include <fcntl.h>
 # include <math.h>
+# include <stdio.h> //need to be removed later
 
 # define TOP_DIR 0
 # define BTM_DIR 1
@@ -35,6 +36,7 @@
 # define FOV 1.04
 
 void	ft_error(char *arg);
+int		is_match_of(char c, char *line);
 int		ft_parser(int ac, char **av, t_parsed **data);
 char	*get_next_line(int fd);
 int		check_config(char **content);

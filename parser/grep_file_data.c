@@ -51,9 +51,9 @@ int	put_data(t_parsed **info, char *line, int* i)
 		data = ft_spliter(line, " \t,\n");
 	if (!data || !*data)
 		return (-1);
-	if (is_texture_line(line) && count_splited(data) != 2)
+	if (is_match_of('T', data[0]) && count_splited(data) != 2)
 		return (ft_error("invalid textures"), -1);
-	else if (is_color_line(line) && count_splited(data) != 4)
+	else if (is_match_of('C', data[0]) && count_splited(data) != 4)
 		return (ft_error("invalid colors"), -1);
 	if (fill_data(info, data, line) == -1)
 		return (-1);

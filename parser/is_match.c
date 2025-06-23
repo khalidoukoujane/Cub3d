@@ -51,3 +51,11 @@ void	fill_colors(char **data, t_color *color)
 	color->g = ft_atoi(data[1]);
 	color->b = ft_atoi(data[2]);
 }
+
+int	is_match_of(char c, char *line)
+{
+	if (c == 'T')
+		return (!ft_strcmp("WE", line) || !ft_strcmp("SO", line)
+				|| !ft_strcmp("NO", line) || !ft_strcmp("EA", line));
+	return (!ft_strcmp("F", line) || !ft_strcmp("C", line));
+}
