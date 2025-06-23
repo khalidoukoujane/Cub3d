@@ -6,7 +6,7 @@
 /*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 08:16:47 by ioulkhir          #+#    #+#             */
-/*   Updated: 2025/06/23 08:17:34 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/06/23 09:51:03 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	failure_detect(t_status status)
 				status.vars->textures[status.sucesses - 1].ptr);
 	}
 	if (status.sucesses-- == 1)
-		free(NULL);
+		free(status.vars->mlx);
 	ft_error(status.err_msg);
 	free(status.err_msg);
 	status.err_msg = NULL;
