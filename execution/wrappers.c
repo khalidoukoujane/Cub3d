@@ -6,7 +6,7 @@
 /*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 08:22:08 by ioulkhir          #+#    #+#             */
-/*   Updated: 2025/06/23 08:28:18 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/06/23 09:54:22 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	*ft_mlx_init(t_status *status)
 	result = mlx_init();
 	status->fail |= result == NULL;
 	status->sucesses += result != NULL;
+	free(status->err_msg);
 	status->err_msg = ft_strdup(ERR_MSG1);
 	failure_detect(*status);
 	return (result);
@@ -31,6 +32,7 @@ void	*ft_mlx_new_window(t_status *status)
 	result = mlx_new_window(status->vars->mlx, WIDTH, HEIGHT, "Cub trwadi");
 	status->fail |= result == NULL;
 	status->sucesses += result != NULL;
+	free(status->err_msg);
 	status->err_msg = ft_strdup(ERR_MSG2);
 	failure_detect(*status);
 	return (result);
@@ -43,6 +45,7 @@ void	*ft_mlx_new_image(t_status *status)
 	result = mlx_new_image(status->vars->mlx, WIDTH, HEIGHT);
 	status->fail |= result == NULL;
 	status->sucesses += result != NULL;
+	free(status->err_msg);
 	status->err_msg = ft_strdup(ERR_MSG3);
 	failure_detect(*status);
 	return (result);
@@ -59,6 +62,7 @@ void	*ft_mlx_xpm_file_to_image(t_status *status, char *filename, t_tex *tex)
 			filename, &tex->width, &tex->height);
 	status->fail |= result == NULL;
 	status->sucesses += result != NULL;
+	free(status->err_msg);
 	status->err_msg = ft_strjoin(filename, ": Failed to load texture");
 	failure_detect(*status);
 	tex->ptr = result;
