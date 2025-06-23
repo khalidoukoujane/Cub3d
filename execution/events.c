@@ -6,7 +6,7 @@
 /*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 08:19:01 by ioulkhir          #+#    #+#             */
-/*   Updated: 2025/06/23 10:10:16 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/06/23 10:17:04 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	key_hook(int keycode, void *param)
 	speed = 0.2;
 	new_pos = 0;
 	vars = param;
-	if (keycode == ESC || 1==1)
+	if (keycode == ESC)
 		vars->status->fail = 314;
 	failure_detect(*vars->status);
 	if (keycode == RIGHT)
