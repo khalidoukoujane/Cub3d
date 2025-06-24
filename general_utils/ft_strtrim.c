@@ -40,10 +40,12 @@ char	*ft_strtrim(char const *s1, char const *set)
 		return (ft_strdup(""));
 	start = 0;
 	end = ft_strlen(s1) - 1;
-	while (check_letter_in_set(s1[start], set))
+	while (start <= end && check_letter_in_set(s1[start], set))
 		start++;
-	while (check_letter_in_set(s1[end], set))
+	while (end >= start && check_letter_in_set(s1[end], set))
 		end--;
+	if (start > end)
+		return (ft_strdup(""));
 	result = ft_substr(s1, start, end - start + 1);
 	return (result);
 }
