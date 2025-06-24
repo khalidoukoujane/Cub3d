@@ -6,7 +6,7 @@
 /*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 08:15:58 by ioulkhir          #+#    #+#             */
-/*   Updated: 2025/06/24 09:34:51 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/06/24 09:53:43 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,7 @@ int	get_wall_color(t_vars *vars, int px_y, t_ray *ray)
 	double	wall_y;
 	t_equ	equ;
 
-	decoder = ray->side + (get_side_vec(ray, ray->direction) > 0) * 2;
-	// E -- 0
-	// N -- 1
-	// W -- 2
-	// S -- 3
+	decoder = !ray->side + (get_side_vec(ray, ray->direction) > 0) * 2;
 	texture = vars->textures[decoder];
 	ray->line_len = ray->end - ray->start + 1;
 	wall_y = (int)(((double)(px_y - ray->start) / ray->line_len)

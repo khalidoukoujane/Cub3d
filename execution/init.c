@@ -6,7 +6,7 @@
 /*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 08:16:47 by ioulkhir          #+#    #+#             */
-/*   Updated: 2025/06/23 10:10:36 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/06/24 09:48:26 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,9 @@ void	init_program(t_vars *vars)
 		&vars->textures[0]);
 	ft_mlx_xpm_file_to_image(vars->status, vars->data->no_texture,
 		&vars->textures[1]);
-	ft_mlx_xpm_file_to_image(vars->status, vars->data->so_texture,
-		&vars->textures[2]);
 	ft_mlx_xpm_file_to_image(vars->status, vars->data->we_texture,
+		&vars->textures[2]);
+	ft_mlx_xpm_file_to_image(vars->status, vars->data->so_texture,
 		&vars->textures[3]);
 	vars->win = ft_mlx_new_window(vars->status);
 	vars->img.ptr = ft_mlx_new_image(vars->status);

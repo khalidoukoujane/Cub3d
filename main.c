@@ -18,7 +18,7 @@ int	main(int ac, char **av)
 		"10000000000000001",
 		"10000000001000001",
 		"10000000000000001",
-		"10000000000000001",
+		"10011110000000001",
 		"10000000000010001",
 		"10000000000010001",
 		"10000001000000001",
@@ -32,7 +32,10 @@ int	main(int ac, char **av)
 	vars.data->map = map;
 	vars.player.position.x = 7;
 	vars.player.position.y = 6;
-	vars.player.angle = 2;
+	vars.player.angle = E_ORIENTED;
+	vars.player.angle = W_ORIENTED;
+	vars.player.angle = S_ORIENTED;
+	vars.player.angle = N_ORIENTED;
 	vars.data->ea_texture = "texture/east_texture.xpm";
 	vars.data->no_texture = "texture/north_texture.xpm";
 	vars.data->so_texture = "texture/south_texture.xpm";
