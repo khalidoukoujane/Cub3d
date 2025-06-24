@@ -6,7 +6,7 @@
 /*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 08:15:58 by ioulkhir          #+#    #+#             */
-/*   Updated: 2025/06/23 10:29:51 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/06/24 09:34:51 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ int	get_wall_color(t_vars *vars, int px_y, t_ray *ray)
 {
 	t_tex	texture;
 	int		decoder;
-	int		x;
-	int		y;
 	double	wall_x;
+	double	wall_y;
+	t_equ	equ;
 
 	decoder = ray->side + (get_side_vec(ray, ray->direction) > 0) * 2;
 	// E -- 0
@@ -27,15 +27,12 @@ int	get_wall_color(t_vars *vars, int px_y, t_ray *ray)
 	// S -- 3
 	texture = vars->textures[decoder];
 	ray->line_len = ray->end - ray->start + 1;
-	y = (int)(((double)(px_y - ray->start) / ray->line_len)
+	wall_y = (int)(((double)(px_y - ray->start) / ray->line_len)
 			* (texture.height - 1));
-	ray->side = !ray->side;
-	wall_x = get_side_vec(ray, ray->origin) + ray->distance
-		* get_side_vec(ray, ray->direction);
-	wall_x = decimal_part(wall_x);
-	ray->side = !ray->side;
-	x = (int)(wall_x * (texture.width - 1));
-	return (texture.data[texture.width * y + x]);
+	equ = linear_equ(*ray);
+	wall_x = solve_equs(equ, *ray);
+	wall_x = (int)(decimal_part(wall_x) * (texture.width - 1));
+	return (texture.data[texture.width * (int)wall_y + (int)wall_x]);
 }
 
 void	get_line_len(t_ray *ray)

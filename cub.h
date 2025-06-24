@@ -6,7 +6,7 @@
 /*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:59:53 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/06/23 10:06:58 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/06/24 09:13:52 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,10 @@ void	ray_init(t_ray *ray, t_vector origin, double theta);
 void	ray_cast(t_vars *vars, t_ray *ray);
 double	get_side_vec(t_ray *ray, t_vector vec);
 void	render(t_vars *vars);
+
+// equations bro !!
+t_equ	linear_equ(t_ray ray);
+double	solve_equs(t_equ equ, t_ray ray);
 
 // events
 # define ESC 53

@@ -6,7 +6,7 @@
 /*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 08:20:49 by ioulkhir          #+#    #+#             */
-/*   Updated: 2025/06/23 08:20:50 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/06/24 09:05:10 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ double	get_side_vec(t_ray *ray, t_vector vec)
 void	ray_init(t_ray *ray, t_vector origin, double theta)
 {
 	ray->origin = origin;
+	ray->tangente = tan(theta);
 	ray->direction = (t_vector){cos(theta), sin(theta)};
 	ray->map = (t_vector){(int)origin.x, (int)origin.y};
 	ray->map_unit.x = (ray->direction.x < 0) * -2 + 1;

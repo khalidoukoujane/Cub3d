@@ -6,7 +6,7 @@
 /*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:59:53 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/06/23 10:00:22 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/06/24 09:13:42 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,6 @@
 
 # define WIDTH 1024
 # define HEIGHT 900
-
-enum {
-	ON_KEYDOWN = 2,
-	ON_KEYUP = 3,
-	ON_MOUSEDOWN = 4,
-	ON_MOUSEUP = 5,
-	ON_MOUSEMOVE = 6,
-	ON_EXPOSE = 12,
-	ON_DESTROY = 17
-};
 
 typedef struct s_img
 {
@@ -110,6 +100,7 @@ typedef struct s_ray
 {
 	t_vector	origin;
 	t_vector	direction;
+	double		tangente;
 	t_vector	step;
 	t_vector	map;
 	t_vector	map_unit;
@@ -122,5 +113,11 @@ typedef struct s_ray
 	int			end;
 	int			line_len;
 }	t_ray;
+
+typedef struct s_equ
+{
+	double		a;
+	double		b;
+}				t_equ;
 
 #endif
