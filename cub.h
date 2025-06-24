@@ -6,7 +6,7 @@
 /*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:59:53 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/06/24 09:13:52 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/06/24 09:42:46 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,11 @@
 # define ERR_MSG1 "MLX connection failure !"
 # define ERR_MSG2 "Window creation failure !"
 # define ERR_MSG3 "Image creation failure !"
+
+# define S_ORIENTED 0
+# define E_ORIENTED PI/2
+# define N_ORIENTED PI
+# define W_ORIENTED PI*3/2
 
 # include "general_utils/utils.h"
 # include "structs.h"
