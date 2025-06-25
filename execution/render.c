@@ -6,7 +6,7 @@
 /*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 08:15:58 by ioulkhir          #+#    #+#             */
-/*   Updated: 2025/06/24 10:33:06 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/06/25 14:02:25 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,9 @@ int	get_wall_color(t_vars *vars, int px_y, t_ray *ray)
 	ray->line_len = ray->end - ray->start;
 	wall_y = (int)(((double)(px_y - ray->start) / ray->line_len)
 			* (texture.height));
-
-	// // first approch
-	// equ = linear_equ(*ray);
-	// wall_x = solve_equs(equ, *ray);
-	// wall_x = (int)(decimal_part(wall_x) * (texture.width));
-
-	// second approch
-	ray->side = !ray->side;
-	wall_x = get_side_vec(ray, ray->origin) + ray->distance * get_side_vec(ray, ray->direction);
-	wall_x = decimal_part(wall_x) * (texture.width);
-	ray->side = !ray->side;
+	equ = linear_equ(*ray);
+	wall_x = solve_equs(equ, *ray);
+	wall_x = (int)(decimal_part(wall_x) * (texture.width));
 
 	return (texture.data[texture.width * (int)wall_y + (int)wall_x]);
 }

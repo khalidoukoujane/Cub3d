@@ -6,7 +6,7 @@
 /*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 08:19:01 by ioulkhir          #+#    #+#             */
-/*   Updated: 2025/06/24 09:16:29 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/06/25 14:00:50 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ double	solve_equs(t_equ equ, t_ray ray)
 	double	result;
 
 	if (ray.side == 0)
-		result = equ.a * ray.map.x + equ.b;
+		result = equ.a * (ray.map.x + (ray.map_unit.x < 0)) + equ.b;
 	else
-		result = (ray.map.y - equ.b) / equ.a;
+		result = (ray.map.y + (ray.map_unit.y < 0) - equ.b) / equ.a;
 	return (result);
 }
