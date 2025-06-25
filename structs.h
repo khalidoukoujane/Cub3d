@@ -6,7 +6,7 @@
 /*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:59:53 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/06/25 14:17:34 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/06/25 19:55:04 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ typedef struct s_tex
 	int			height;
 }				t_tex;
 
-typedef struct s_status t_status;
+typedef struct s_status	t_status;
 
 typedef struct s_vars
 {
