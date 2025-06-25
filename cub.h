@@ -6,15 +6,15 @@
 /*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:59:53 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/06/25 14:28:53 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/06/25 19:47:54 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB_H
 # define CUB_H
 
-# define WIDTH 3600
-# define HEIGHT 1000
+# define WIDTH 1400
+# define HEIGHT 900
 
 # define RED "\033[31m"
 # define RESET "\033[0m"
@@ -84,6 +84,7 @@ void	ray_init(t_ray *ray, t_vector origin, double theta);
 void	ray_cast(t_vars *vars, t_ray *ray);
 double	get_side_vec(t_ray *ray, t_vector vec);
 void	render(t_vars *vars);
+int		collision(t_vars *vars);
 
 // equations bro !!
 t_equ	linear_equ(t_ray ray);

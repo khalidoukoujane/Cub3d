@@ -6,20 +6,19 @@
 /*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 08:19:01 by ioulkhir          #+#    #+#             */
-/*   Updated: 2025/06/23 10:17:04 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/06/25 19:47:26 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub.h"
 
-static int	collision(t_vars *vars)
+static void	move_player(t_vars *vars, double speed, double new_pos)
 {
-	int	x;
-	int	y;
-
-	x = (int)vars->player.position.x;
-	y = (int)vars->player.position.y;
-	return (vars->data->map[x][y] == '1');
+	vars->player.position.x += speed * cos(new_pos);
+	vars->player.position.x -= collision(vars) * speed * cos(new_pos);
+	vars->player.position.y += speed * sin(new_pos);
+	vars->player.position.y -= collision(vars) * speed * sin(new_pos);
+	render(vars);
 }
 
 int	key_hook(int keycode, void *param)
@@ -46,11 +45,7 @@ int	key_hook(int keycode, void *param)
 		new_pos = vars->player.angle;
 	else if (keycode == S)
 		new_pos = vars->player.angle + PI;
-	vars->player.position.x += speed * cos(new_pos);
-	vars->player.position.x -= collision(vars) * speed * cos(new_pos);
-	vars->player.position.y += speed * sin(new_pos);
-	vars->player.position.y -= collision(vars) * speed * sin(new_pos);
-	render(vars);
+	move_player(vars, speed, new_pos);
 	return (0);
 }
 

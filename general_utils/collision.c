@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   equ_utils.c                                        :+:      :+:    :+:   */
+/*   collision.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/23 08:19:01 by ioulkhir          #+#    #+#             */
-/*   Updated: 2025/06/25 19:39:43 by ioulkhir         ###   ########.fr       */
+/*   Created: 2025/06/25 19:45:45 by ioulkhir          #+#    #+#             */
+/*   Updated: 2025/06/25 19:46:45 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub.h"
 
-t_equ	linear_equ(t_ray ray)
+int	collision(t_vars *vars)
 {
-	t_equ	equ;
+	int	x;
+	int	y;
 
-	equ.a = ray.tangente;
-	equ.b = ray.origin.y - ray.origin.x * equ.a;
-	return (equ);
-}
-
-double	solve_equs(t_equ equ, t_ray ray)
-{
-	double	result;
-
-	if (ray.side == 0)
-		result = equ.a * (ray.map.x + (ray.map_unit.x < 0)) + equ.b;
-	else
-		result = (ray.map.y + (ray.map_unit.y < 0) - equ.b) / equ.a;
-	return (result);
+	x = (int)vars->player.position.x;
+	y = (int)vars->player.position.y;
+	return (vars->data->map[x][y] == '1');
 }

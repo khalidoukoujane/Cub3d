@@ -6,7 +6,7 @@
 /*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 08:15:58 by ioulkhir          #+#    #+#             */
-/*   Updated: 2025/06/25 14:02:25 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/06/25 19:40:21 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ int	get_wall_color(t_vars *vars, int px_y, t_ray *ray)
 	equ = linear_equ(*ray);
 	wall_x = solve_equs(equ, *ray);
 	wall_x = (int)(decimal_part(wall_x) * (texture.width));
-
 	return (texture.data[texture.width * (int)wall_y + (int)wall_x]);
 }
 
