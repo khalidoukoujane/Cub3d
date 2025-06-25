@@ -77,6 +77,28 @@ static int	get_textures_and_colors(t_parsed **data, char **file, int *i)
 	return (0);
 }
 
+int	copy_map(t_parsed **data, char **content, int i)
+{
+	int	len;
+	int	start;
+
+	len = 0;
+	start = i;
+	while (valid_line(content[start]) && !is_only_whitespace(content[start]))
+		len += (start++, 1);
+	(*data)->map = malloc(sizeof(char*) * (len + 1));
+	if (!((*data)->map))
+		return (-1);
+	start = i;
+	len = 0;
+	while (valid_line(content[start]) && !is_only_whitespace(content[start]))
+	{
+		(*data)->map[len] = ft_strdup(content[start]);
+		len += (start++, 1);
+	}
+	(*data)->map[len] = NULL;
+	return (0);
+}
 int	grep_data(t_parsed **data)
 {
 	int	i;
@@ -84,6 +106,8 @@ int	grep_data(t_parsed **data)
 	i = 0;
 	skip_newlines((*data)->file_content, &i);
 	if (get_textures_and_colors(data, (*data)->file_content, &i) == -1)
+		return (-1);
+	if (copy_map(data, (*data)->file_content, i) == -1)
 		return (-1);
 	return (0);
 }
