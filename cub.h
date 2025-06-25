@@ -6,12 +6,15 @@
 /*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:59:53 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/06/24 09:42:46 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/06/25 14:28:53 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB_H
 # define CUB_H
+
+# define WIDTH 3600
+# define HEIGHT 1000
 
 # define RED "\033[31m"
 # define RESET "\033[0m"

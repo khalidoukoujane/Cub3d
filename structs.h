@@ -6,15 +6,12 @@
 /*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:59:53 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/06/24 09:13:42 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/06/25 14:17:34 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTS_H
 # define STRUCTS_H
-
-# define WIDTH 1024
-# define HEIGHT 900
 
 typedef struct s_img
 {
