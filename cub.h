@@ -6,7 +6,7 @@
 /*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:59:53 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/06/25 19:54:38 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/06/26 09:36:04 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 
 # include "general_utils/utils.h"
 # include "structs.h"
-# include "./mlx/mlx.h"
+# include <mlx.h>
 # include <limits.h>
 # include <fcntl.h>
 # include <math.h>
