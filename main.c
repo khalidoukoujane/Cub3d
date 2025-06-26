@@ -9,7 +9,7 @@ int	main(int ac, char **av)
 	vars.data = &data;
 	vars.status = &status;
 	if (!ft_parser(ac, av, &vars.data))
-		return (1);
+		return (EXIT_FAILURE);
 	// init
 	init_program(&vars);
 	// render
