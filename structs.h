@@ -6,7 +6,7 @@
 /*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:59:53 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/06/25 19:55:04 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/06/26 09:18:31 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,14 +53,16 @@ typedef struct s_local_vars
 
 typedef struct s_parsed
 {
-	char	*no_texture;
-	char	*so_texture;
-	char	*we_texture;
-	char	*ea_texture;
-	t_color	floor_color;
-	t_color	ceiling_color;
-	char	**file_content;
-	char	**map;
+	char		*no_texture;
+	char		*so_texture;
+	char		*we_texture;
+	char		*ea_texture;
+	t_color		floor_color;
+	t_color		ceiling_color;
+	char		**file_content;
+	char		**map;
+	t_vector	player_pos;
+	double		angle;
 }				t_parsed;
 
 typedef struct s_tex

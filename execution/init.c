@@ -6,7 +6,7 @@
 /*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 08:16:47 by ioulkhir          #+#    #+#             */
-/*   Updated: 2025/06/24 09:48:26 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/06/26 09:19:22 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,6 @@ void	init_program(t_vars *vars)
 	vars->img.px_buffer = mlx_get_data_addr(vars->img.ptr, &vars->img.bpp,
 			&vars->img.line_len, &vars->img.endian);
 	vars->mouse_down = 0;
+	vars->player.position = vars->data->player_pos;
+	vars->player.angle = vars->data->angle;
 }

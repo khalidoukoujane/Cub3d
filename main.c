@@ -3,43 +3,13 @@
 int	main(int ac, char **av)
 {
 	t_vars		vars;
+	t_parsed	data;
 	t_status	status;
 
-	vars.data = malloc(sizeof(t_parsed));
+	vars.data = &data;
 	vars.status = &status;
-	if (!vars.data)
-		return (ft_error("faild to allocate"), 1);
-	// if (!ft_parser(ac, av, &vars.data))
-	// 	return (1);
-	(void)ac;
-	(void)av;
-	char *map[] = {
-		"11111111111111111",
-		"10000000000000001",
-		"10000000001000001",
-		"10000000000000001",
-		"10011110000000001",
-		"10000000000010001",
-		"10000000000010001",
-		"10000001000000001",
-		"10000010000000001",
-		"10000100000010001",
-		"10000000000010001",
-		"10000000000010001",
-		"10000000000010001",
-		"11111111111111111",
-	};
-	vars.data->map = map;
-	vars.player.position.x = 5;
-	vars.player.position.y = 4.8;
-	vars.player.angle = E_ORIENTED;
-	vars.player.angle = W_ORIENTED;
-	vars.player.angle = S_ORIENTED;
-	vars.player.angle = N_ORIENTED;
-	vars.data->ea_texture = "texture/east_texture.xpm";
-	vars.data->no_texture = "texture/north_texture.xpm";
-	vars.data->so_texture = "texture/south_texture.xpm";
-	vars.data->we_texture = "texture/west_texture.xpm";
+	if (!ft_parser(ac, av, &vars.data))
+		return (1);
 	// init
 	init_program(&vars);
 	// render
