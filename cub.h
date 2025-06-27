@@ -6,7 +6,7 @@
 /*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:59:53 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/06/26 09:36:04 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/06/27 13:09:57 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,22 +91,13 @@ t_equ	linear_equ(t_ray ray);
 double	solve_equs(t_equ equ, t_ray ray);
 
 // events
-# define ESC 53
-# define RIGHT 65363
-# define LEFT 65361
-
-# define W 119
-# define A 97
-# define S 115
-# define D 100
-
-// # define ESC   53
-// # define RIGHT 124
-// # define LEFT  123
-// # define W     13
-// # define A     0
-// # define S     1
-// # define D     2
+# define ESC   53
+# define RIGHT 124
+# define LEFT  123
+# define W     13
+# define A     0
+# define S     1
+# define D     2
 
 # define ON_MOUSEDOWN 4
 # define ON_MOUSEUP 5

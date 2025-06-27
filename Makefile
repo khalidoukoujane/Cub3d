@@ -3,11 +3,9 @@ NAME = cub3D
 
 # Compilation
 CC = cc
-COMPL_FLAGS = -lmlx -framework OpenGL -framework AppKit
-COMPL_FLAGS = -I mlx -L mlx -lmlx -lXext -lX11 -lm
-COMPL_FLAGS =
-LINK_FLAGS = 
-# -g -fsanitize=thread
+COMPL_FLAGS = -Wall -Wextra -Werror
+COMPL_FLAGS = 
+LINK_FLAGS = -lmlx -framework OpenGL -framework AppKit -g -fsanitize=address
 
 COMPILE = $(CC) $(COMPL_FLAGS)
 LINK = $(CC) $(LINK_FLAGS)
