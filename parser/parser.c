@@ -94,11 +94,7 @@ int	ft_parser(int ac, char **av, t_parsed **data)
 		return (0);
 	if (grep_data(data) == -1)
 		return (0);
-	printf("%s\n", (*data)->no_texture);
-	printf("%s\n", (*data)->so_texture);
-	printf("%s\n", (*data)->we_texture);
-	printf("%s\n", (*data)->ea_texture);
-	printf("%d %d %d\n", (*data)->ceiling_color.r, (*data)->ceiling_color.g, (*data)->ceiling_color.b);
-	printf("%d %d %d\n", (*data)->floor_color.r, (*data)->floor_color.g, (*data)->floor_color.b);
+	if (do_conf_checks(data) == -1)
+		return (0);
 	return (1);
 }

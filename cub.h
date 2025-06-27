@@ -44,6 +44,7 @@
 # define FOV 1.04
 
 void	ft_error(char *arg);
+int     do_conf_checks(t_parsed **data);
 int		is_match_of(char c, char *line);
 int		ft_parser(int ac, char **av, t_parsed **data);
 char	*get_next_line(int fd);

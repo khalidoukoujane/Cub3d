@@ -27,6 +27,36 @@ void	ft_close_fds(int *fds)
 		close(fds[i++]);
 }
 
+int get_player_pos(t_parsed **data)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while ((*data)->map[i])
+	{
+		j = 0;
+		while ((*data)->map[i][j])
+		{
+			if (is_player((*data)->map[i][j]))
+			{
+				(*data)->player_pos.x = j;
+				(*data)->player_pos.y = i;
+				if ((*data)->map[i][j] == 'N')
+					(*data)->angle = N_ORIENTED;
+				else if ((*data)->map[i][j] == 'S')
+					(*data)->angle = S_ORIENTED;
+				else if ((*data)->map[i][j] == 'W')
+					(*data)->angle = W_ORIENTED;
+				else if ((*data)->map[i][j] == 'E')
+					(*data)->angle = E_ORIENTED;
+			}
+			j++;
+		}
+		i++;
+	}
+}
+
 int	do_textures_checks(t_parsed **data)
 {
 	int	fds[4];
@@ -39,7 +69,9 @@ int	do_textures_checks(t_parsed **data)
 		return (ft_close_fds(fds), -1);
 	return (ft_close_fds(fds), 0);
 }
-
+/*
+	#### return -1 on failure with an error msg
+*/
 int do_conf_checks(t_parsed **data)
 {
 	if (do_textures_checks(data) == -1)
