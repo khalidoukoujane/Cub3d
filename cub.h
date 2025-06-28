@@ -44,6 +44,7 @@
 # define FOV 1.04
 
 void	ft_error(char *arg);
+int		get_player_pos(t_parsed **data);
 int     do_conf_checks(t_parsed **data);
 int		is_match_of(char c, char *line);
 int		ft_parser(int ac, char **av, t_parsed **data);

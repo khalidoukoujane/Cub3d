@@ -16,6 +16,7 @@ int	do_colors_checks(t_parsed **data)
 		return (-1);
 	else if ((*data)->floor_color.r < 0 || (*data)->floor_color.r > 255)
 		return (-1);
+	return (0);
 }
 
 void	ft_close_fds(int *fds)
@@ -25,6 +26,18 @@ void	ft_close_fds(int *fds)
 	i = 0;
 	while (i < 4)
 		close(fds[i++]);
+}
+
+void	get_angle(t_parsed **data, int i, int j)
+{
+	if ((*data)->map[i][j] == 'N')
+		(*data)->angle = N_ORIENTED;
+	else if ((*data)->map[i][j] == 'S')
+		(*data)->angle = S_ORIENTED;
+	else if ((*data)->map[i][j] == 'W')
+		(*data)->angle = W_ORIENTED;
+	else if ((*data)->map[i][j] == 'E')
+		(*data)->angle = E_ORIENTED;
 }
 
 int get_player_pos(t_parsed **data)
@@ -42,19 +55,13 @@ int get_player_pos(t_parsed **data)
 			{
 				(*data)->player_pos.x = j;
 				(*data)->player_pos.y = i;
-				if ((*data)->map[i][j] == 'N')
-					(*data)->angle = N_ORIENTED;
-				else if ((*data)->map[i][j] == 'S')
-					(*data)->angle = S_ORIENTED;
-				else if ((*data)->map[i][j] == 'W')
-					(*data)->angle = W_ORIENTED;
-				else if ((*data)->map[i][j] == 'E')
-					(*data)->angle = E_ORIENTED;
+				get_angle(data, i, j);
 			}
 			j++;
 		}
 		i++;
 	}
+	return (0);
 }
 
 int	do_textures_checks(t_parsed **data)
@@ -78,5 +85,6 @@ int do_conf_checks(t_parsed **data)
 		return (ft_error("textures not found"), -1);
 	if (do_colors_checks(data) == -1)
 		return (ft_error("colors overflow error [0, 255]"), -1);
+	get_player_pos(data);
 	return (0);
 }
