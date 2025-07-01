@@ -5,7 +5,8 @@ NAME = cub3D
 CC = cc
 COMPL_FLAGS = -Wall -Wextra -Werror
 COMPL_FLAGS = 
-LINK_FLAGS = -lmlx -framework OpenGL -framework AppKit -g -fsanitize=address
+LINK_FLAGS = -lmlx -framework OpenGL -framework AppKit
+# -g -fsanitize=address
 
 COMPILE = $(CC) $(COMPL_FLAGS)
 LINK = $(CC) $(LINK_FLAGS)
@@ -43,22 +44,22 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@$(LINK) $(OBJ) -o $@
-	@echo "[CREATING the legendary executable $@...]"
+	@echo "[✅ BUILT $@]"
 
 $(OBJ_DIRS):
 	@mkdir -p $(OBJ_DIRS)
-	@echo "[CREATING object directories...]"
+	@echo "[📁 CREATING object directories]"
 
 $(OBJ_DIR)/%.o: %.c $(INC) | $(OBJ_DIRS)
 	@$(COMPILE) -c $< -o $@
-	@echo "[COMPILING $<...]"
+	@echo "[🔧 COMPILING $<]"
 
 clean:
 	@rm -rf $(OBJ_DIR)
-	@echo "[CLEANING object files...]"
+	@echo "[🧼 CLEANING object files]"
 
 fclean: clean
 	@rm -f $(NAME)
-	@echo "[CLEANING the executable...]"
+	@echo "[🧼 CLEANING the executable]"
 
 re: fclean all

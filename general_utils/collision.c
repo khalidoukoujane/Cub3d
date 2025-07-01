@@ -6,7 +6,7 @@
 /*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 19:45:45 by ioulkhir          #+#    #+#             */
-/*   Updated: 2025/06/25 19:46:45 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/06/30 13:11:45 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,5 @@ int	collision(t_vars *vars)
 
 	x = (int)vars->player.position.x;
 	y = (int)vars->player.position.y;
-	return (vars->data->map[x][y] == '1');
+	return (vars->data->map[y][x] == '1');
 }

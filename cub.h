@@ -6,7 +6,7 @@
 /*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:59:53 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/06/27 13:09:57 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/06/30 13:20:21 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@
 # define ERR_MSG2 "Window creation failure !"
 # define ERR_MSG3 "Image creation failure !"
 
-# define S_ORIENTED 0
-# define E_ORIENTED 1.57075 // pi/2
-# define N_ORIENTED PI
-# define W_ORIENTED 4.71225 // 3pi/2
+# define N_ORIENTED 4.71225 // 3pi/2
+# define E_ORIENTED PI
+# define S_ORIENTED 1.57075 // pi/2
+# define W_ORIENTED 0
 
 # include "general_utils/utils.h"
 # include "structs.h"

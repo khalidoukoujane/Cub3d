@@ -6,7 +6,7 @@
 /*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 08:20:49 by ioulkhir          #+#    #+#             */
-/*   Updated: 2025/06/24 09:05:10 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/06/30 13:11:09 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	ray_cast(t_vars *vars, t_ray *ray)
 			ray->map.y += ray->map_unit.y;
 			ray->side = 1;
 		}
-		ray->hit = vars->data->map[(int)ray->map.x][(int)ray->map.y] == '1';
+		ray->hit = vars->data->map[(int)ray->map.y][(int)ray->map.x] == '1';
 	}
 	ray->distance = get_side_vec(ray, ray->side_dist)
 		- get_side_vec(ray, ray->step);

@@ -53,8 +53,8 @@ int get_player_pos(t_parsed **data)
 		{
 			if (is_player((*data)->map[i][j]))
 			{
-				(*data)->player_pos.x = j;
-				(*data)->player_pos.y = i;
+				(*data)->player_pos.x = j + 0.5;
+				(*data)->player_pos.y = i + 0.5;
 				get_angle(data, i, j);
 			}
 			j++;

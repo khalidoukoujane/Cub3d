@@ -6,7 +6,7 @@
 /*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 08:16:47 by ioulkhir          #+#    #+#             */
-/*   Updated: 2025/06/27 13:10:30 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/06/30 13:11:04 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,4 @@ void	init_program(t_vars *vars)
 	vars->mouse_down = 0;
 	vars->player.position = vars->data->player_pos;
 	vars->player.angle = vars->data->angle;
-	vars->player.position.x = 2;
-	vars->player.position.y = 2;
-	vars->player.angle = W_ORIENTED;
 }
