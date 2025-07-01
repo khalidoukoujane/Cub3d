@@ -120,4 +120,10 @@ typedef struct s_equ
 	double		b;
 }				t_equ;
 
+typedef struct s_lv
+{
+	int	i;
+	int	j;
+}		t_lv;
+
 #endif
