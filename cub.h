@@ -30,12 +30,13 @@
 
 # include "general_utils/utils.h"
 # include "structs.h"
-# include <mlx.h>
+// # include <mlx.h>
 # include <limits.h>
 # include <fcntl.h>
 # include <math.h>
 # include <stdio.h> //need to be removed later
 
+# define MAP_ERR_MSG "Map error: invalid element in or after the map"
 # define TOP_DIR 0
 # define BTM_DIR 1
 # define R_DIR 2
@@ -44,6 +45,9 @@
 # define FOV 1.04
 
 void	ft_error(char *arg);
+void	ft_close_fds(int *fds);
+int		do_textures_checks(t_parsed **data);
+int		copy_map(t_parsed **data, char **content, int i);
 int		get_player_pos(t_parsed **data);
 int     do_conf_checks(t_parsed **data);
 int		is_match_of(char c, char *line);
