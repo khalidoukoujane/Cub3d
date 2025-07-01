@@ -35,23 +35,17 @@ int	check_wall(char **content, int dir, int start, t_lv v)
 			|| is_player(content[v.j][v.i])))
 			v.j--;
 	else if (dir == BTM_DIR)
-	{
 		while (content[v.j] && content[v.j + 1] && (content[v.j][v.i] == '0'
 			|| is_player(content[v.j][v.i])))
 			v.j++;
-	}
 	else if (dir == R_DIR)
-	{
 		while (content[v.j][v.i] && (content[v.j][v.i] == '0'
 			|| is_player(content[v.j][v.i])))
 			v.i++;
-	}
 	else if (dir == L_DIR)
-	{
 		while (v.i && (content[v.j][v.i] == '0'
 			|| is_player(content[v.j][v.i])))
 			v.i--;
-	}
 	if (content[v.j][v.i] != '1')
 		return (0);
 	return (1);
