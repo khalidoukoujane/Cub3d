@@ -1,4 +1,14 @@
-// header goes here
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   do_checks.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: khoukouj <khoukouj@student.42.fr>          #+#  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025-07-01 12:50:13 by khoukouj          #+#    #+#             */
+/*   Updated: 2025-07-01 12:50:13 by khoukouj         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../cub.h"
 
@@ -40,7 +50,7 @@ void	get_angle(t_parsed **data, int i, int j)
 		(*data)->angle = E_ORIENTED;
 }
 
-int get_player_pos(t_parsed **data)
+int	get_player_pos(t_parsed **data)
 {
 	int	i;
 	int	j;
@@ -64,22 +74,10 @@ int get_player_pos(t_parsed **data)
 	return (0);
 }
 
-int	do_textures_checks(t_parsed **data)
-{
-	int	fds[4];
-
-	fds[0] = open((*data)->no_texture, O_RDONLY);
-	fds[1] = open((*data)->so_texture, O_RDONLY);
-	fds[2] = open((*data)->we_texture, O_RDONLY);
-	fds[3] = open((*data)->ea_texture, O_RDONLY);
-	if (fds[0] < 0 || fds[1] < 0 || fds[2] < 0 || fds[3] < 0)
-		return (ft_close_fds(fds), -1);
-	return (ft_close_fds(fds), 0);
-}
 /*
 	#### return -1 on failure with an error msg
 */
-int do_conf_checks(t_parsed **data)
+int	do_conf_checks(t_parsed **data)
 {
 	if (do_textures_checks(data) == -1)
 		return (ft_error("textures not found"), -1);

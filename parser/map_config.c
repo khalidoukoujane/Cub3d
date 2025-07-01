@@ -28,56 +28,56 @@ int	count_player(char *line)
 	return (count);
 }
 
-int	check_wall(char **content, int i, int j, int dir, int start)
+int	check_wall(char **content, int dir, int start, t_lv v)
 {
 	if (dir == TOP_DIR)
-	{
-		while (j > start && (content[j][i] == '0' || is_player(content[j][i])))
-			j--;
-	}
+		while (v.j > start && (content[v.j][v.i] == '0'
+			|| is_player(content[v.j][v.i])))
+			v.j--;
 	else if (dir == BTM_DIR)
 	{
-		while (content[j] && content[j + 1] && (content[j][i] == '0'
-			|| is_player(content[j][i])))
-			j++;
+		while (content[v.j] && content[v.j + 1] && (content[v.j][v.i] == '0'
+			|| is_player(content[v.j][v.i])))
+			v.j++;
 	}
 	else if (dir == R_DIR)
 	{
-		while (content[j][i] && (content[j][i] == '0' || is_player(content[j][i])))
-			i++;
+		while (content[v.j][v.i] && (content[v.j][v.i] == '0'
+			|| is_player(content[v.j][v.i])))
+			v.i++;
 	}
 	else if (dir == L_DIR)
 	{
-		while (i && (content[j][i] == '0' || is_player(content[j][i])))
-			i--;
+		while (v.i && (content[v.j][v.i] == '0'
+			|| is_player(content[v.j][v.i])))
+			v.i--;
 	}
-	if (content[j][i] != '1')
+	if (content[v.j][v.i] != '1')
 		return (0);
 	return (1);
 }
 
 int	is_map_closed(char **content, int start)
 {
-	int	i;
-	int	j;
+	t_lv	v;
 
-	j = start;
-	while (content[j])
+	v.j = start;
+	while (content[v.j])
 	{
-		i = 0;
-		while (content[j][i])
+		v.i = 0;
+		while (content[v.j][v.i])
 		{
-			if (content[j][i] == '0' || is_player(content[j][i]))
+			if (content[v.j][v.i] == '0' || is_player(content[v.j][v.i]))
 			{
-				if (!check_wall(content, i, j, TOP_DIR, start)
-					|| !check_wall(content, i , j, BTM_DIR, start)
-					|| !check_wall(content, i, j, R_DIR, start)
-					|| !check_wall(content, i, j, L_DIR, start))
+				if (!check_wall(content, TOP_DIR, start, v)
+					|| !check_wall(content, BTM_DIR, start, v)
+					|| !check_wall(content, R_DIR, start, v)
+					|| !check_wall(content, L_DIR, start, v))
 					return (-1);
-				}
-				i++;
+			}
+			v.i++;
 		}
-		j++;
+		v.j++;
 	}
 	return (0);
 }
@@ -100,7 +100,7 @@ int	check_map(char **content, int start)
 			return (ft_error("Map error: found tab: line"), -1);
 		count += count_player(content[i]);
 		if (!valid_line(content[i]))
-			return (ft_error("Map error: invalid element in or after the map"), -1);
+			return (ft_error(MAP_ERR_MSG), -1);
 		if (count > 1)
 			return (ft_error("Map error: Player error"), -1);
 		if (count == 1 && !is_surrounded(content, i))

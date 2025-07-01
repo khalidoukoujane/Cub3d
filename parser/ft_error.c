@@ -32,7 +32,7 @@ int	is_in_set(char c)
 		|| c == '1' || c == ' ' || c == '\n');
 }
 
-int valid_line(char *line)
+int	valid_line(char *line)
 {
 	int	i;
 

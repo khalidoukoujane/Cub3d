@@ -14,12 +14,14 @@
 
 static void	do_checks(char **content, int *i, t_local_vars *v)
 {
-	char *tmp = ft_strtrim(content[*i], " \t\n");
+	char	*tmp;
+
+	tmp = ft_strtrim(content[*i], " \t\n");
 	if (!ft_strncmp(tmp, "SO ", 3))
 		v->so_t++;
 	else if (!ft_strncmp(tmp, "NO ", 3))
 		v->no_t++;
-	else if(!ft_strncmp(tmp, "WE ", 3))
+	else if (!ft_strncmp(tmp, "WE ", 3))
 		v->we_t++;
 	else if (!ft_strncmp (tmp, "EA ", 3))
 		v->ea_t++;
@@ -29,6 +31,7 @@ static void	do_checks(char **content, int *i, t_local_vars *v)
 		v->c_color++;
 	(*i)++;
 }
+
 void	init_local_vars(t_local_vars *vars)
 {
 	vars->c_color = 0;
@@ -39,13 +42,13 @@ void	init_local_vars(t_local_vars *vars)
 	vars->we_t = 0;
 }
 
-static int check_textures_n_colors(char **content, int *i)
+static int	check_textures_n_colors(char **content, int *i)
 {
 	t_local_vars	v;
 
 	init_local_vars(&v);
 	while (content[*i] && (is_config_line(content[*i])
-		|| is_only_whitespace(content[*i])))
+			|| is_only_whitespace(content[*i])))
 	{
 		if (is_config_line(content[*i]))
 			do_checks(content, i, &v);
@@ -65,20 +68,20 @@ static int check_textures_n_colors(char **content, int *i)
 
 void	skip_newlines(char **content, int *i)
 {
-    while (content[*i] && is_only_whitespace(content[*i]))
-        (*i)++;
+	while (content[*i] && is_only_whitespace(content[*i]))
+		(*i)++;
 }
 
-int check_config(char  **content)
+int	check_config(char **content)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    skip_newlines(content, &i);
-    if (check_textures_n_colors(content, &i) == -1)
-        return (-1);
-    if (!content[i])
-        return (ft_error("Map is missing"), -1);
+	i = 0;
+	skip_newlines(content, &i);
+	if (check_textures_n_colors(content, &i) == -1)
+		return (-1);
+	if (!content[i])
+		return (ft_error("Map is missing"), -1);
 	if (check_map(content, i) == -1)
 		return (-1);
 	return (0);

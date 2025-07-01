@@ -25,7 +25,9 @@ int	is_color_line(char *line)
 
 int	is_config_line(char *line)
 {
-	char *tmp = ft_strtrim(line, " \t\n");
+	char	*tmp;
+
+	tmp = ft_strtrim(line, " \t\n");
 	if (!tmp)
 		return (0);
 	return (is_texture_line(tmp) || is_color_line(tmp));
@@ -47,20 +49,10 @@ int	is_only_whitespace(char *str)
 	return (1);
 }
 
-void	fill_colors(char **data, t_color *color)
-{
-	color->r = ft_atoi(data[0]);
-	color->g = ft_atoi(data[1]);
-	color->b = ft_atoi(data[2]);
-	color->result = color->r << 16;
-	color->result |= color->g << 8;
-	color->result |= color->b;
-}
-
 int	is_match_of(char c, char *line)
 {
 	if (c == 'T')
 		return (!ft_strcmp("WE", line) || !ft_strcmp("SO", line)
-				|| !ft_strcmp("NO", line) || !ft_strcmp("EA", line));
+			|| !ft_strcmp("NO", line) || !ft_strcmp("EA", line));
 	return (!ft_strcmp("F", line) || !ft_strcmp("C", line));
 }
