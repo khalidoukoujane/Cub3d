@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   is_match.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khoukouj <khoukouj@student.42.fr>          #+#  +:+       +#+        */
+/*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-06-02 12:12:22 by khoukouj          #+#    #+#             */
-/*   Updated: 2025-06-02 12:12:22 by khoukouj         ###   ########.fr       */
+/*   Created: 2025/06/02 12:12:22 by khoukouj          #+#    #+#             */
+/*   Updated: 2025/07/01 10:32:32 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,9 @@ void	fill_colors(char **data, t_color *color)
 	color->r = ft_atoi(data[0]);
 	color->g = ft_atoi(data[1]);
 	color->b = ft_atoi(data[2]);
+	color->result = color->r << 16;
+	color->result |= color->g << 8;
+	color->result |= color->b;
 }
 
 int	is_match_of(char c, char *line)

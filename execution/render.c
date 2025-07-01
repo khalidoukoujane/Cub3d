@@ -6,7 +6,7 @@
 /*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 08:15:58 by ioulkhir          #+#    #+#             */
-/*   Updated: 2025/06/25 19:40:21 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/07/01 10:32:55 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,14 +53,14 @@ void	draw_line(t_vars *vars, int x, t_ray *ray)
 	y = 0;
 	get_line_len(ray);
 	while (y < ray->start && ray->start >= 0)
-		my_mlx_pixel_put(&vars->img, x, y++, 0x8dcaff);
+		my_mlx_pixel_put(&vars->img, x, y++, vars->data->ceiling_color.result);
 	while (y < ray->end && y < HEIGHT)
 	{
 		my_mlx_pixel_put(&vars->img, x, y, get_wall_color(vars, y, ray));
 		y++;
 	}
 	while (y < HEIGHT)
-		my_mlx_pixel_put(&vars->img, x, y++, 0x2d608d);
+		my_mlx_pixel_put(&vars->img, x, y++, vars->data->floor_color.result);
 }
 
 void	render(t_vars *vars)

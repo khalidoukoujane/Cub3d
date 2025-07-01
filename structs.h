@@ -6,7 +6,7 @@
 /*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:59:53 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/06/26 09:18:31 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/07/01 10:30:44 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_color
 	int		r;
 	int		g;
 	int		b;
+	int		result;
 }				t_color;
 
 typedef struct s_vector
