@@ -37,6 +37,8 @@ int	valid_line(char *line)
 	int	i;
 
 	i = 0;
+	if (!line)
+		return (0);
 	while (line[i])
 	{
 		if (!is_in_set(line[i]))

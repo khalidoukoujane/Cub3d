@@ -32,14 +32,14 @@ int	copy_map(t_parsed **data, char **content, int i)
 
 	len = 0;
 	start = i;
-	while (valid_line(content[start]) && !is_only_whitespace(content[start]))
+	while (valid_line(content[start]) || is_only_whitespace(content[start]))
 		len += (start++, 1);
 	(*data)->map = malloc(sizeof(char *) * (len + 1));
 	if (!((*data)->map))
 		return (-1);
 	start = i;
 	len = 0;
-	while (valid_line(content[start]) && !is_only_whitespace(content[start]))
+	while (valid_line(content[start]) || is_only_whitespace(content[start]))
 	{
 		(*data)->map[len] = ft_strdup(content[start]);
 		len += (start++, 1);
