@@ -29,6 +29,7 @@ static void	do_checks(char **content, int *i, t_local_vars *v)
 		v->f_color++;
 	else if (!ft_strncmp(tmp, "C ", 2))
 		v->c_color++;
+	free(tmp);
 	(*i)++;
 }
 

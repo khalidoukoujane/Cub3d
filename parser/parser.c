@@ -85,6 +85,7 @@ int	ft_parser(int ac, char **av, t_parsed **data)
 {
 	if (ac != 2)
 		return (ft_error("Invalid number of arguments"), 0);
+	init_data(data);
 	if (!check_dot_cub(av[1]))
 		return (ft_error("Invalid or missing file extension"), 0);
 	(*data)->file_content = get_file_content(av[1]);

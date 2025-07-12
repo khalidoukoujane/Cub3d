@@ -26,11 +26,14 @@ int	is_color_line(char *line)
 int	is_config_line(char *line)
 {
 	char	*tmp;
+	int		res;
 
 	tmp = ft_strtrim(line, " \t\n");
 	if (!tmp)
 		return (0);
-	return (is_texture_line(tmp) || is_color_line(tmp));
+	res = (is_texture_line(tmp) || is_color_line(tmp));
+	free(tmp);
+	return (res);
 }
 
 int	is_only_whitespace(char *str)
