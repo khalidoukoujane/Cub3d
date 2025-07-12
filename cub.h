@@ -30,7 +30,7 @@
 
 # include "general_utils/utils.h"
 # include "structs.h"
-// # include <mlx.h>
+# include <mlx.h>
 # include <limits.h>
 # include <fcntl.h>
 # include <math.h>
