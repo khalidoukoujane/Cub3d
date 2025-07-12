@@ -30,7 +30,7 @@
 
 # include "general_utils/utils.h"
 # include "structs.h"
-# include <mlx.h>
+// # include <mlx.h>
 # include <limits.h>
 # include <fcntl.h>
 # include <math.h>
@@ -45,6 +45,8 @@
 # define FOV 1.04
 
 void	ft_error(char *arg);
+void	init_data(t_parsed **data);
+void	free_data(t_vars *ptr);
 void	ft_close_fds(int *fds);
 int		do_textures_checks(t_parsed **data);
 int		copy_map(t_parsed **data, char **content, int i);
