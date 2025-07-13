@@ -31,6 +31,7 @@ INC = general_utils/utils.h gnl/get_next_line.h cub.h structs.h
 
 # SRC
 SRC = $(PARS)/config.c $(PARS)/ft_error.c $(PARS)/ft_spliter.c $(PARS)/grep_file_data.c $(PARS)/is_match.c $(PARS)/map_config.c $(PARS)/parser.c $(PARS)/do_checks.c \
+		$(PARS)/free_data.c $(PARS)/utils.c \
 		$(GNL)/get_next_line.c $(GNL)/get_next_line_utils.c \
 		$(UTILS) \
 		$(EXEC)/equ_utils.c $(EXEC)/events.c $(EXEC)/init.c $(EXEC)/ray_utils.c $(EXEC)/render.c $(EXEC)/utils.c $(EXEC)/wrappers.c \
