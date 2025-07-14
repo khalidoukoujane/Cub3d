@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: test <test@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:59:53 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/07/01 10:50:11 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/07/14 13:58:05 by test             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 
 # include "general_utils/utils.h"
 # include "structs.h"
-# include <mlx.h>
+# include "./minilibx-linux/mlx.h"
 # include <limits.h>
 # include <fcntl.h>
 # include <math.h>
@@ -99,13 +99,14 @@ t_equ	linear_equ(t_ray ray);
 double	solve_equs(t_equ equ, t_ray ray);
 
 // events
-# define ESC   53
-# define RIGHT 124
-# define LEFT  123
-# define W     13
-# define A     0
-# define S     1
-# define D     2
+#define ESC   65307   // Escape key
+#define RIGHT 65363   // Right arrow
+#define LEFT  65361   // Left arrow
+#define W     119     // 'w'
+#define A     97      // 'a'
+#define S     115     // 's'
+#define D     100     // 'd'
+
 
 # define ON_MOUSEDOWN 4
 # define ON_MOUSEUP 5
@@ -116,5 +117,10 @@ int		handle_mouse_up(int button, int x, int y, void *param);
 int		handle_mouse_move(int x, int y, void *param);
 
 int		key_hook(int keycode, void *param);
+
+// smooth keys 
+int		key_press(int keycode, t_vars *vars);
+int     key_release(int keycode, t_vars *vars);
+int     game_loop(t_vars *vars);
 
 #endif

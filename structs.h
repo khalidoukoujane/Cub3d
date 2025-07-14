@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: test <test@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:59:53 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/07/01 10:30:44 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/07/14 13:59:22 by test             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,12 @@ typedef struct s_vars
 	t_player	player;
 	t_tex		textures[4];
 	t_status	*status;
+	int			key_w;
+	int			key_s;
+	int			key_a;
+	int			key_d;
+    int			key_left;
+    int			key_right;
 	int			mouse_down;
 }				t_vars;
 
