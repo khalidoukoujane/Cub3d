@@ -30,6 +30,9 @@ int	key_press(int keycode, t_vars *vars)
 
 int	key_release(int keycode, t_vars *vars)
 {
+	if (keycode == ESC)
+		vars->status->fail = 314;
+	failure_detect(*vars->status);
 	if (keycode == W)
 		vars->key_w = 0;
 	else if (keycode == S)
