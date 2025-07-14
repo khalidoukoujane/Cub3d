@@ -6,7 +6,7 @@
 /*   By: test <test@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:59:53 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/07/14 13:58:05 by test             ###   ########.fr       */
+/*   Updated: 2025/07/14 16:25:53 by test             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 # define WIDTH 1400
 # define HEIGHT 900
 
+# define MINI_WIDTH WIDTH/4
+# define MINI_HEIGHT HEIGHT/4
+ 
 # define RED "\033[31m"
 # define RESET "\033[0m"
 

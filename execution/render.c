@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: test <test@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 08:15:58 by ioulkhir          #+#    #+#             */
-/*   Updated: 2025/07/01 10:32:55 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/07/14 16:25:09 by test             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,11 @@ void	draw_line(t_vars *vars, int x, t_ray *ray)
 	}
 	while (y < HEIGHT)
 		my_mlx_pixel_put(&vars->img, x, y++, vars->data->floor_color.result);
+	if (x >= MINI_WIDTH)
+		return ;
+	y = 0;
+	while (y < MINI_HEIGHT)
+		my_mlx_pixel_put(&vars->img, x, y++, get_minimap_color(vars, x, y));
 }
 
 void	render(t_vars *vars)
