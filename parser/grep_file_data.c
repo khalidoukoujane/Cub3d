@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   grep_file_data.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khoukouj <khoukouj@student.42.fr>          #+#  +:+       +#+        */
+/*   By: khoukouj <khoukouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-06-10 13:54:47 by khoukouj          #+#    #+#             */
-/*   Updated: 2025-06-10 13:54:47 by khoukouj         ###   ########.fr       */
+/*   Created: 2025/06/10 13:54:47 by khoukouj          #+#    #+#             */
+/*   Updated: 2025/07/15 08:59:03 by khoukouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	count_splited(char **s)
 	return (i);
 }
 
-static int	fill_data(t_parsed **info, char **data, char *line)
+static int	fill_data(t_parsed **info, char **data)
 {
 	if (!data || !*data)
 		return (-1);
@@ -55,7 +55,7 @@ int	put_data(t_parsed **info, char *line, int *i)
 		return (ft_error("invalid textures"), -1);
 	else if (is_match_of('C', data[0]) && count_splited(data) != 4)
 		return (ft_error("invalid colors"), -1);
-	if (fill_data(info, data, line) == -1)
+	if (fill_data(info, data) == -1)
 		return (-1);
 	free_splited(data);
 	(*i)++;
