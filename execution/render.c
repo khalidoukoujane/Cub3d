@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: test <test@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 08:15:58 by ioulkhir          #+#    #+#             */
-/*   Updated: 2025/07/14 16:25:09 by test             ###   ########.fr       */
+/*   Updated: 2025/07/15 08:50:58 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,20 @@ void	get_line_len(t_ray *ray)
 	ray->end = ray->start + line_length;
 }
 
+static void	fill_minimap(t_vars *vars, int x)
+{
+	int	y;
+
+	y = 0;
+	if (x >= MINI_WIDTH)
+		return ;
+	while (y < MINI_HEIGHT)
+	{
+		my_mlx_pixel_put(&vars->img, x, y, get_minimap_color(vars, x, y));
+		y++;
+	}
+}
+
 void	draw_line(t_vars *vars, int x, t_ray *ray)
 {
 	int	y;
@@ -61,11 +75,7 @@ void	draw_line(t_vars *vars, int x, t_ray *ray)
 	}
 	while (y < HEIGHT)
 		my_mlx_pixel_put(&vars->img, x, y++, vars->data->floor_color.result);
-	if (x >= MINI_WIDTH)
-		return ;
-	y = 0;
-	while (y < MINI_HEIGHT)
-		my_mlx_pixel_put(&vars->img, x, y++, get_minimap_color(vars, x, y));
+	fill_minimap(vars, x);
 }
 
 void	render(t_vars *vars)

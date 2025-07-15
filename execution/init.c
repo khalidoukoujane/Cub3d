@@ -6,11 +6,23 @@
 /*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 08:16:47 by ioulkhir          #+#    #+#             */
-/*   Updated: 2025/06/30 13:11:04 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/07/15 09:36:34 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub.h"
+
+static t_vector	calc_map_dimension(char **map)
+{
+	t_vector	dimension;
+
+	dimension.x = -1;
+	dimension.y = -1;
+	while (map[(int)++dimension.y])
+		;
+	dimension.y--;
+	return (dimension);
+}
 
 void	failure_detect(t_status status)
 {
@@ -57,4 +69,5 @@ void	init_program(t_vars *vars)
 	vars->mouse_down = 0;
 	vars->player.position = vars->data->player_pos;
 	vars->player.angle = vars->data->angle;
+	vars->data->map_dimension = calc_map_dimension(vars->data->map);
 }

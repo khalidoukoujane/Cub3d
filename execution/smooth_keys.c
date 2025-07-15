@@ -1,5 +1,16 @@
-#include "../cub.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   smooth_keys.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/15 08:55:56 by ioulkhir          #+#    #+#             */
+/*   Updated: 2025/07/15 08:55:57 by ioulkhir         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+#include "../cub.h"
 
 static void	move_player(t_vars *vars, double speed, double new_pos)
 {
@@ -8,7 +19,6 @@ static void	move_player(t_vars *vars, double speed, double new_pos)
 	vars->player.position.y += speed * sin(new_pos);
 	vars->player.position.y -= collision(vars) * speed * sin(new_pos);
 }
-
 
 int	key_press(int keycode, t_vars *vars)
 {
@@ -47,40 +57,23 @@ int	key_release(int keycode, t_vars *vars)
 	return (0);
 }
 
-int game_loop(t_vars *vars)
+int	game_loop(t_vars *vars)
 {
-    double speed = 0.05;
-    double new_pos = 0;
+	double	speed;
 
-    if (vars->key_left)
-    {
-        vars->player.angle -= 0.05;
-    }
-    if (vars->key_right)
-    {
-        vars->player.angle += 0.05;
-    }
-
-    if (vars->key_w)
-    {
-        new_pos = vars->player.angle;
-        move_player(vars, speed, new_pos);
-    }
-    if (vars->key_s)
-    {
-        new_pos = vars->player.angle + PI;
-        move_player(vars, speed, new_pos);
-    }
-    if (vars->key_d)
-    {
-        new_pos = vars->player.angle + PI / 2;
-        move_player(vars, speed, new_pos);
-    }
-    if (vars->key_a)
-    {
-        new_pos = vars->player.angle + PI / 2 + PI;
-        move_player(vars, speed, new_pos);
-    }
-    render(vars);
-    return (0);
+	speed = 0.05;
+	if (vars->key_left)
+		vars->player.angle -= 0.05;
+	if (vars->key_right)
+		vars->player.angle += 0.05;
+	if (vars->key_w)
+		move_player(vars, speed, vars->player.angle);
+	if (vars->key_s)
+		move_player(vars, speed, vars->player.angle + PI);
+	if (vars->key_d)
+		move_player(vars, speed, vars->player.angle + PI / 2);
+	if (vars->key_a)
+		move_player(vars, speed, vars->player.angle + PI / 2 + PI);
+	render(vars);
+	return (0);
 }
