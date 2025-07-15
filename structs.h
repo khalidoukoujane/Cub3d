@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: khoukouj <khoukouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:59:53 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/07/15 10:42:02 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/07/15 10:48:09 by khoukouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,18 @@ typedef struct s_local_vars
 	int			f_color;
 	int			c_color;
 }				t_local_vars;
+
+typedef struct s_animation
+{
+	t_img	frames[8];
+	t_img	scaled_frm;
+	int		frame_counter;
+	int		speed;
+	int		curr_frame;
+	int		win_w;
+	int		win_h;
+	int		frame_timer;
+}			t_animation;
 
 typedef struct s_parsed
 {
