@@ -6,7 +6,7 @@
 /*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:59:53 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/07/15 10:41:38 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/07/15 10:46:18 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,14 +112,16 @@ double	solve_equs(t_equ equ, t_ray ray);
 // #define D     100     // 'd'
 
 // events (macOS keycodes)
-# define ESC 53     
-# define RIGHT 124    
-# define LEFT 123    
-# define W 13     
-# define A 0      
-# define S 1      
-# define D 2      
+# define ESC 53
+# define RIGHT 124
+# define LEFT 123
+# define W 13
+# define A 0
+# define S 1
+# define D 2
 
+# define ON_KEYDOWN 2
+# define ON_KEYUP 3
 # define ON_MOUSEDOWN 4
 # define ON_MOUSEUP 5
 # define ON_MOUSEMOVE 6
