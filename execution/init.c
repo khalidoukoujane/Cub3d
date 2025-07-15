@@ -6,7 +6,7 @@
 /*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 08:16:47 by ioulkhir          #+#    #+#             */
-/*   Updated: 2025/07/15 09:36:34 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/07/15 10:59:57 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	failure_detect(t_status status)
 {
 	if (!status.fail)
 		return ;
+	free_data(status.vars);
 	if (status.sucesses-- == 7)
 		mlx_destroy_image(status.vars->mlx, status.vars->img.ptr);
 	if (status.sucesses-- == 6)

@@ -6,7 +6,7 @@
 /*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:59:53 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/07/15 10:46:18 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/07/15 11:04:55 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,12 +125,14 @@ double	solve_equs(t_equ equ, t_ray ray);
 # define ON_MOUSEDOWN 4
 # define ON_MOUSEUP 5
 # define ON_MOUSEMOVE 6
+# define ON_DESTROY	17
 
 int		handle_mouse_down(int button, int x, int y, void *param);
 int		handle_mouse_up(int button, int x, int y, void *param);
 int		handle_mouse_move(int x, int y, void *param);
+int		handle_close(t_vars *vars);
 
-// smooth keys 
+// smooth criminal 
 int		key_press(int keycode, t_vars *vars);
 int		key_release(int keycode, t_vars *vars);
 int		game_loop(t_vars *vars);

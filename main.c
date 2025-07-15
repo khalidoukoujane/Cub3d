@@ -6,14 +6,20 @@
 /*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 10:42:28 by ioulkhir          #+#    #+#             */
-/*   Updated: 2025/07/15 10:47:40 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/07/15 11:01:31 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
+void	f()
+{
+	system("leaks cub3D");
+}
+
 int	main(int ac, char **av)
 {
+	atexit(f);
 	t_vars		vars;
 	t_parsed	data;
 	t_status	status;
@@ -29,6 +35,7 @@ int	main(int ac, char **av)
 	mlx_hook(vars.win, ON_MOUSEDOWN, 0, handle_mouse_down, &vars);
 	mlx_hook(vars.win, ON_MOUSEUP, 0, handle_mouse_up, &vars);
 	mlx_hook(vars.win, ON_MOUSEMOVE, 0, handle_mouse_move, &vars);
+	mlx_hook(vars.win, ON_DESTROY, 0, handle_close, &vars);
 	mlx_loop_hook(vars.mlx, game_loop, &vars);
 	mlx_loop(vars.mlx);
 	return (EXIT_SUCCESS);
