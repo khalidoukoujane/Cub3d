@@ -6,7 +6,7 @@
 /*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 08:15:58 by ioulkhir          #+#    #+#             */
-/*   Updated: 2025/07/15 08:50:58 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/07/15 10:30:35 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void	get_line_len(t_ray *ray)
 
 static void	fill_minimap(t_vars *vars, int x)
 {
+	int	color;
 	int	y;
 
 	y = 0;
@@ -51,7 +52,8 @@ static void	fill_minimap(t_vars *vars, int x)
 		return ;
 	while (y < MINI_HEIGHT)
 	{
-		my_mlx_pixel_put(&vars->img, x, y, get_minimap_color(vars, x, y));
+		color = get_minimap_color(vars, x, y);
+		my_mlx_pixel_put(&vars->img, x, y, color);
 		y++;
 	}
 }

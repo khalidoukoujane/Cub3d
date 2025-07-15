@@ -6,15 +6,15 @@
 /*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:59:53 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/07/15 08:26:58 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/07/15 10:32:14 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB_H
 # define CUB_H
 
-# define WIDTH 1400
-# define HEIGHT 900
+# define WIDTH 2500
+# define HEIGHT 1900
 
 # define MINI_WIDTH WIDTH/4
 # define MINI_HEIGHT HEIGHT/4
