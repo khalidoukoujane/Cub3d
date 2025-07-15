@@ -6,20 +6,14 @@
 /*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 10:42:28 by ioulkhir          #+#    #+#             */
-/*   Updated: 2025/07/15 11:01:31 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/07/15 11:06:38 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub.h"
 
-void	f()
-{
-	system("leaks cub3D");
-}
-
 int	main(int ac, char **av)
 {
-	atexit(f);
 	t_vars		vars;
 	t_parsed	data;
 	t_status	status;
