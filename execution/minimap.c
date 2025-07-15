@@ -1,15 +1,6 @@
 
 #include "../cub.h"
 
-t_vector rotate_vector(t_vector v, double angle)
-{
-	t_vector rotated;
-
-	rotated.x = v.x * cos(angle) - v.y * sin(angle);
-	rotated.y = v.x * sin(angle) + v.y * cos(angle);
-	return rotated;
-}
-
 double	calc_distance(t_vector a, t_vector b)
 {
 	double dx;
@@ -32,8 +23,6 @@ int	get_minimap_color(t_vars *vars, int x, int y)
 	
 	px.x += ((double)(x - MINI_WIDTH / 2) / MINI_WIDTH) * 24 * view;
 	px.y += ((double)(y - MINI_HEIGHT / 2 )/ MINI_HEIGHT) * 14 * view;
-	
-	px = rotate_vector(px, vars->player.angle);
 
 	if (calc_distance(px, reference) < 0.05)
 		return (0xFF0000);

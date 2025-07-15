@@ -24,9 +24,9 @@ int	main(int ac, char **av)
 	// mlx_hook(vars.win, ON_MOUSEUP, 0, handle_mouse_up, &vars);
 	// mlx_hook(vars.win, ON_MOUSEMOVE, 0, handle_mouse_move, &vars);
 	
-	// mlx_hook(vars.win, ON_MOUSEDOWN, 1L << 2, handle_mouse_down, &vars);
-	// mlx_hook(vars.win, ON_MOUSEUP, 1L << 3, handle_mouse_up, &vars);
-	// mlx_hook(vars.win, ON_MOUSEMOVE, 1L << 6, handle_mouse_move, &vars);
+	mlx_hook(vars.win, ON_MOUSEDOWN, 1L << 2, handle_mouse_down, &vars);
+	mlx_hook(vars.win, ON_MOUSEUP, 1L << 3, handle_mouse_up, &vars);
+	mlx_hook(vars.win, ON_MOUSEMOVE, 1L << 6, handle_mouse_move, &vars);
 
     mlx_loop_hook(vars.mlx, game_loop, &vars);
 	mlx_loop(vars.mlx);

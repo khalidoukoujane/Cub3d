@@ -4,8 +4,7 @@ NAME = cub3D
 # Compilation
 CC = cc
 COMPL_FLAGS = -Wall -Wextra -Werror
-COMPL_FLAGS = 
-LINK_FLAGS = -lmlx -framework OpenGL -framework AppKit
+LINK_FLAGS = -lmlx -framework OpenGL -framework AppKit 
 # -g -fsanitize=address
 
 COMPILE = $(CC) $(COMPL_FLAGS)
@@ -34,7 +33,8 @@ SRC = $(PARS)/config.c $(PARS)/ft_error.c $(PARS)/ft_spliter.c $(PARS)/grep_file
 		$(PARS)/free_data.c $(PARS)/utils.c \
 		$(GNL)/get_next_line.c $(GNL)/get_next_line_utils.c \
 		$(UTILS) \
-		$(EXEC)/equ_utils.c $(EXEC)/events.c $(EXEC)/init.c $(EXEC)/ray_utils.c $(EXEC)/render.c $(EXEC)/utils.c $(EXEC)/wrappers.c \
+		$(EXEC)/equ_utils.c $(EXEC)/events.c $(EXEC)/init.c $(EXEC)/ray_utils.c \
+		$(EXEC)/render.c $(EXEC)/utils.c $(EXEC)/wrappers.c $(EXEC)/minimap.c $(EXEC)/smooth_keys.c \
 		main.c
 
 # OBJ

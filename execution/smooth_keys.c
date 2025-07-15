@@ -7,7 +7,6 @@ static void	move_player(t_vars *vars, double speed, double new_pos)
 	vars->player.position.x -= collision(vars) * speed * cos(new_pos);
 	vars->player.position.y += speed * sin(new_pos);
 	vars->player.position.y -= collision(vars) * speed * sin(new_pos);
-	render(vars);
 }
 
 
@@ -56,12 +55,10 @@ int game_loop(t_vars *vars)
     if (vars->key_left)
     {
         vars->player.angle -= 0.05;
-        render(vars);
     }
     if (vars->key_right)
     {
         vars->player.angle += 0.05;
-        render(vars);
     }
 
     if (vars->key_w)
@@ -84,5 +81,6 @@ int game_loop(t_vars *vars)
         new_pos = vars->player.angle + PI / 2 + PI;
         move_player(vars, speed, new_pos);
     }
+    render(vars);
     return (0);
 }
