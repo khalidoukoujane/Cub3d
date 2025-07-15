@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   events.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: khoukouj <khoukouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 08:19:01 by ioulkhir          #+#    #+#             */
-/*   Updated: 2025/07/15 11:04:33 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/07/15 13:59:22 by khoukouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	handle_close(t_vars *vars)
 {
-	vars->status->fail = 1;
+	vars->status->fail = 314;
 	failure_detect(*vars->status);
 	return (0);
 }
