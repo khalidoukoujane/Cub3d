@@ -6,19 +6,19 @@
 /*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:59:53 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/07/15 10:32:14 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/07/15 10:41:38 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB_H
 # define CUB_H
 
-# define WIDTH 2500
-# define HEIGHT 1900
+# define WIDTH 1400
+# define HEIGHT 900
 
-# define MINI_WIDTH WIDTH/4
-# define MINI_HEIGHT HEIGHT/4
- 
+# define MINI_WIDTH 400
+# define MINI_HEIGHT 200
+
 # define RED "\033[31m"
 # define RESET "\033[0m"
 
@@ -55,7 +55,7 @@ void	ft_close_fds(int *fds);
 int		do_textures_checks(t_parsed **data);
 int		copy_map(t_parsed **data, char **content, int i);
 int		get_player_pos(t_parsed **data);
-int     do_conf_checks(t_parsed **data);
+int		do_conf_checks(t_parsed **data);
 int		is_match_of(char c, char *line);
 int		ft_parser(int ac, char **av, t_parsed **data);
 char	*get_next_line(int fd);
@@ -112,14 +112,13 @@ double	solve_equs(t_equ equ, t_ray ray);
 // #define D     100     // 'd'
 
 // events (macOS keycodes)
-#define ESC   53     // Escape key
-#define RIGHT 124    // Right arrow
-#define LEFT  123    // Left arrow
-#define W     13     // 'w'
-#define A     0      // 'a'
-#define S     1      // 's'
-#define D     2      // 'd'
-
+# define ESC 53     
+# define RIGHT 124    
+# define LEFT 123    
+# define W 13     
+# define A 0      
+# define S 1      
+# define D 2      
 
 # define ON_MOUSEDOWN 4
 # define ON_MOUSEUP 5
@@ -131,8 +130,8 @@ int		handle_mouse_move(int x, int y, void *param);
 
 // smooth keys 
 int		key_press(int keycode, t_vars *vars);
-int     key_release(int keycode, t_vars *vars);
-int     game_loop(t_vars *vars);
+int		key_release(int keycode, t_vars *vars);
+int		game_loop(t_vars *vars);
 int		get_minimap_color(t_vars *vars, int x, int y);
 
 #endif

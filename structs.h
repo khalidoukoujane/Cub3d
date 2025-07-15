@@ -6,7 +6,7 @@
 /*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:59:53 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/07/15 09:19:24 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/07/15 10:42:02 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,8 @@ typedef struct s_vars
 	int			key_s;
 	int			key_a;
 	int			key_d;
-    int			key_left;
-    int			key_right;
+	int			key_left;
+	int			key_right;
 	int			mouse_down;
 }				t_vars;
 
