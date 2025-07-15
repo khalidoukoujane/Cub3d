@@ -6,7 +6,7 @@
 /*   By: khoukouj <khoukouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:59:53 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/07/15 10:48:09 by khoukouj         ###   ########.fr       */
+/*   Updated: 2025/07/15 10:49:50 by khoukouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ typedef struct s_img
 	int		bpp;
 	int		line_len;
 	int		endian;
+	int		w;
+	int		h;
 }				t_img;
 
 typedef struct s_color
@@ -95,6 +97,7 @@ typedef struct s_vars
 	void		*win;
 	t_parsed	*data;
 	t_img		img;
+	t_animation	anim;
 	t_player	player;
 	t_tex		textures[4];
 	t_status	*status;
