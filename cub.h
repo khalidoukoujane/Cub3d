@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: khoukouj <khoukouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:59:53 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/07/15 11:04:55 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/07/15 12:24:25 by khoukouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,12 @@
 # define L_DIR 3
 
 # define FOV 1.04
-
+// animation 
+void			ft_load_frames(t_vars *v);
+unsigned int	ft_get_color(t_img *img, int x, int y);
+void			setup_scaled_frame(t_vars *v);
+void	setup_animation(t_vars *v);
+void	animation(t_vars *v);
 void	ft_error(char *arg);
 void	init_data(t_parsed **data);
 void	free_data(t_vars *ptr);
