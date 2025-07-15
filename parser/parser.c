@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khoukouj <khoukouj@student.42.fr>          #+#  +:+       +#+        */
+/*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-05-24 13:35:34 by khoukouj          #+#    #+#             */
-/*   Updated: 2025-05-24 13:35:34 by khoukouj         ###   ########.fr       */
+/*   Created: 2025/05/24 13:35:34 by khoukouj          #+#    #+#             */
+/*   Updated: 2025/07/15 18:10:32 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,9 +83,9 @@ char	**get_file_content(char *filename)
 
 int	ft_parser(int ac, char **av, t_parsed **data)
 {
+	init_data(data);
 	if (ac != 2)
 		return (ft_error("Invalid number of arguments"), 0);
-	init_data(data);
 	if (!check_dot_cub(av[1]))
 		return (ft_error("Invalid or missing file extension"), 0);
 	(*data)->file_content = get_file_content(av[1]);
