@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   smooth_keys.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: khoukouj <khoukouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 08:55:56 by ioulkhir          #+#    #+#             */
-/*   Updated: 2025/07/15 08:55:57 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/07/15 14:58:35 by khoukouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,6 @@ int	game_loop(t_vars *vars)
 	if (vars->key_a)
 		move_player(vars, speed, vars->player.angle + PI / 2 + PI);
 	render(vars);
+	animation(vars);
 	return (0);
 }

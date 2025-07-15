@@ -6,7 +6,7 @@
 /*   By: khoukouj <khoukouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:59:53 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/07/15 12:19:07 by khoukouj         ###   ########.fr       */
+/*   Updated: 2025/07/15 16:03:28 by khoukouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -157,6 +157,6 @@ typedef struct s_ani_vars
 	int					i;
 	int					j;
 	unsigned int		color;
-}			f_lcl_anim;
+}			t_lcl_anim;
 
 #endif

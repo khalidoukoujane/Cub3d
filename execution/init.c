@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: khoukouj <khoukouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 08:16:47 by ioulkhir          #+#    #+#             */
-/*   Updated: 2025/07/15 10:59:57 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/07/15 14:49:27 by khoukouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,5 @@ void	init_program(t_vars *vars)
 	vars->player.position = vars->data->player_pos;
 	vars->player.angle = vars->data->angle;
 	vars->data->map_dimension = calc_map_dimension(vars->data->map);
+	setup_animation(vars);
 }
