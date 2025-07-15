@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   events.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khoukouj <khoukouj@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 08:19:01 by ioulkhir          #+#    #+#             */
-/*   Updated: 2025/07/15 13:59:22 by khoukouj         ###   ########.fr       */
+/*   Updated: 2025/07/15 18:06:31 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,6 @@ int	handle_mouse_move(int x, int y, void *param)
 	dx = x - first_x;
 	vars->player.angle += speed * radian(dx / WIDTH * 360);
 	render(vars);
+	animation(vars);
 	return (0);
 }

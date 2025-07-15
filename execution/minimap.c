@@ -6,7 +6,7 @@
 /*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 09:01:04 by ioulkhir          #+#    #+#             */
-/*   Updated: 2025/07/15 10:39:25 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/07/15 18:05:16 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	get_minimap_color(t_vars *vars, int x, int y)
 	t_vector	px;
 	double		view;
 
-	view = 10;
+	view = 20;
 	reference = vars->player.position;
 	px = reference;
 	px.y += ((double)(y - MINI_HEIGHT / 2) / MINI_WIDTH) * view;
