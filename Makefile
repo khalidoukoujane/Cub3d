@@ -13,8 +13,9 @@ LINK = $(CC) $(LINK_FLAGS)
 
 # obj dirs
 OBJ_DIR = obj
-OBJ_DIRS = $(OBJ_DIR)/parser $(OBJ_DIR)/execution $(OBJ_DIR)/general_utils $(OBJ_DIR)/gnl
+OBJ_DIRS = $(OBJ_DIR)/parser $(OBJ_DIR)/execution $(OBJ_DIR)/general_utils $(OBJ_DIR)/gnl $(OBJ_DIR)/animation
 PARS = parser
+ANIM = animation
 GNL = gnl
 EXEC = execution
 
@@ -35,6 +36,7 @@ SRC = $(PARS)/config.c $(PARS)/ft_error.c $(PARS)/ft_spliter.c $(PARS)/grep_file
 		$(UTILS) \
 		$(EXEC)/equ_utils.c $(EXEC)/events.c $(EXEC)/init.c $(EXEC)/ray_utils.c \
 		$(EXEC)/render.c $(EXEC)/utils.c $(EXEC)/wrappers.c $(EXEC)/minimap.c $(EXEC)/smooth_keys.c \
+		$(ANIM)/animation.c $(ANIM)/anim_utils.c \
 		main.c
 
 # OBJ
