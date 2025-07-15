@@ -6,7 +6,7 @@
 /*   By: khoukouj <khoukouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 08:16:47 by ioulkhir          #+#    #+#             */
-/*   Updated: 2025/07/15 14:49:27 by khoukouj         ###   ########.fr       */
+/*   Updated: 2025/07/15 17:08:15 by khoukouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ void	failure_detect(t_status status)
 		ft_error(status.err_msg);
 	free(status.err_msg);
 	status.err_msg = NULL;
+	if (status.fail == 314)
+		exit(EXIT_SUCCESS);
 	exit(EXIT_FAILURE);
 }
 
