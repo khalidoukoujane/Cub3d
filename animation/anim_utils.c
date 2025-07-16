@@ -6,7 +6,7 @@
 /*   By: khoukouj <khoukouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 10:07:44 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/07/15 16:04:47 by khoukouj         ###   ########.fr       */
+/*   Updated: 2025/07/16 09:17:23 by khoukouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,16 @@ void	setup_scaled_frame(t_vars *v)
 	v->anim.scaled_frm.h = v->anim.win_h;
 }
 
+static void	clean_up(t_vars *v, int i)
+{
+	while (--i >= 0)
+		mlx_destroy_image(v->mlx, v->anim.frames[i].ptr);
+	v->status->fail = 1;
+	v->status->err_msg = ft_strdup("memory error");
+	mlx_destroy_window(v->mlx, v->win);
+	failure_detect(*v->status);
+}
+
 void	ft_load_frames(t_vars *v)
 {
 	char	*frames[7];
@@ -54,7 +64,7 @@ void	ft_load_frames(t_vars *v)
 		v->anim.frames[i].ptr = mlx_xpm_file_to_image(v->mlx, frames[i], \
 							&v->anim.frames[i].w, &v->anim.frames[i].h);
 		if (!v->anim.frames[i].ptr)
-			exit(1);
+			clean_up(v, i);
 		v->anim.frames[i].px_buffer = mlx_get_data_addr(v->anim.frames[i].ptr, \
 					&v->anim.frames[i].bpp, \
 					&v->anim.frames[i].line_len, &v->anim.frames[i].endian);
