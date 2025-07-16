@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: khoukouj <khoukouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 03:14:49 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/06/25 19:47:00 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/07/16 10:12:27 by khoukouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define UTILS_H
 
 # include <stdlib.h>
+# include <limits.h>
 # include <unistd.h>
 
 # define PI 3.1415 // dak khona Pi
