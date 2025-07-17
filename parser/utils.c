@@ -6,7 +6,7 @@
 /*   By: khoukouj <khoukouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 12:51:38 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/07/17 11:07:15 by khoukouj         ###   ########.fr       */
+/*   Updated: 2025/07/17 11:10:35 by khoukouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,8 @@ int	copy_map(t_parsed **data, char **content, int i)
 void	fill_colors(char **data, t_color *color)
 {
 	color->r = ft_atoi(data[0]);
-	printf("%d\n", color->r);
 	color->g = ft_atoi(data[1]);
-	printf("%d\n", color->g);
 	color->b = ft_atoi(data[2]);
-	printf("%d\n", color->b);
 	color->result = color->r << 16;
 	color->result |= color->g << 8;
 	color->result |= color->b;

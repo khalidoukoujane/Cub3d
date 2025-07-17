@@ -6,13 +6,13 @@
 /*   By: khoukouj <khoukouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 13:54:47 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/07/17 11:06:40 by khoukouj         ###   ########.fr       */
+/*   Updated: 2025/07/17 11:09:36 by khoukouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub.h"
 
-static int	count_splited(char **s)
+int	count_splited(char **s)
 {
 	int	i;
 
