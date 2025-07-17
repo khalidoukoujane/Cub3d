@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khoukouj <khoukouj@student.42.fr>          #+#  +:+       +#+        */
+/*   By: khoukouj <khoukouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-07-01 12:51:38 by khoukouj          #+#    #+#             */
-/*   Updated: 2025-07-01 12:51:38 by khoukouj         ###   ########.fr       */
+/*   Created: 2025/07/01 12:51:38 by khoukouj          #+#    #+#             */
+/*   Updated: 2025/07/17 11:07:15 by khoukouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,41 @@ int	copy_map(t_parsed **data, char **content, int i)
 void	fill_colors(char **data, t_color *color)
 {
 	color->r = ft_atoi(data[0]);
+	printf("%d\n", color->r);
 	color->g = ft_atoi(data[1]);
+	printf("%d\n", color->g);
 	color->b = ft_atoi(data[2]);
+	printf("%d\n", color->b);
 	color->result = color->r << 16;
 	color->result |= color->g << 8;
 	color->result |= color->b;
+}
+
+char	**handle_clr_part(char *line)
+{
+	char	**data;
+	char	**clrs;
+	char	**res;
+	int		it;
+
+	it = 0;
+	data = ft_spliter(line, " \t\n");
+	if (!data || !data[0] || !data[1])
+		return (NULL);
+	clrs = ft_spliter(data[1], ",");
+	if (!clrs)
+		return (free_splited(data), NULL);
+	res = malloc(sizeof(char *) * (count_splited(clrs) + 2));
+	if (!res)
+		return (free_splited(clrs), free_splited(data), NULL);
+	res[0] = ft_strdup(data[0]);
+	if (!res[0])
+		return (free(res), free_splited(clrs), free_splited(data), NULL);
+	while (it < count_splited(clrs))
+	{
+		res[it + 1] = ft_strdup(clrs[it]);
+		it++;
+	}
+	res[count_splited(clrs) + 1] = NULL;
+	return (free_splited(data), free_splited(clrs), res);
 }

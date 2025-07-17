@@ -6,7 +6,7 @@
 /*   By: khoukouj <khoukouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 13:54:47 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/07/15 08:59:03 by khoukouj         ###   ########.fr       */
+/*   Updated: 2025/07/17 11:06:40 by khoukouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	put_data(t_parsed **info, char *line, int *i)
 	if (is_texture_line(line))
 		data = ft_spliter(line, " \t\n");
 	else
-		data = ft_spliter(line, " \t,\n");
+		data = handle_clr_part(line);
 	if (!data || !*data)
 		return (-1);
 	if (is_match_of('T', data[0]) && count_splited(data) != 2)
