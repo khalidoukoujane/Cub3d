@@ -6,7 +6,7 @@
 /*   By: khoukouj <khoukouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:59:53 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/07/17 11:08:09 by khoukouj         ###   ########.fr       */
+/*   Updated: 2025/07/17 11:09:52 by khoukouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@
 // animation 
 void			ft_load_frames(t_vars *v);
 char			**handle_clr_part(char *line);
+int				count_splited(char **s);
 unsigned int	ft_get_color(t_img *img, int x, int y);
 void			setup_scaled_frame(t_vars *v);
 void			setup_animation(t_vars *v);
