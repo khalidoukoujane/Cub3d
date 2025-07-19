@@ -6,7 +6,7 @@
 /*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 08:55:56 by ioulkhir          #+#    #+#             */
-/*   Updated: 2025/07/19 09:29:29 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/07/19 12:06:15 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,15 +69,15 @@ int	game_loop(t_vars *vars)
 {
 	double	speed;
 
-	speed = 0.12;
+	speed = 0.1;
 	if (vars->key_left)
-		vars->player.angle -= 0.05;
+		vars->player.angle -= 0.06;
 	if (vars->key_right)
-		vars->player.angle += 0.05;
+		vars->player.angle += 0.06;
 	if (vars->key_up)
 		vars->view++;
 	if (vars->key_down)
-		vars->view--;
+		vars->view -= vars->view >= 2;
 	if (vars->key_w)
 		move_player(vars, speed, vars->player.angle);
 	if (vars->key_s)
