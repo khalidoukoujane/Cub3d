@@ -6,7 +6,7 @@
 /*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 08:16:47 by ioulkhir          #+#    #+#             */
-/*   Updated: 2025/07/19 09:22:34 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/07/19 09:25:48 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,6 @@ void	init_program(t_vars *vars)
 	vars->player.position = vars->data->player_pos;
 	vars->player.angle = vars->data->angle;
 	vars->data->map_dimension = calc_map_dimension(vars->data->map);
+	vars->view = 20;
 	setup_animation(vars);
 }

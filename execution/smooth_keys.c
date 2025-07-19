@@ -6,7 +6,7 @@
 /*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 08:55:56 by ioulkhir          #+#    #+#             */
-/*   Updated: 2025/07/19 09:22:40 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/07/19 09:29:29 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,10 @@ int	key_press(int keycode, t_vars *vars)
 		vars->key_right = 1;
 	else if (keycode == LEFT)
 		vars->key_left = 1;
+	else if (keycode == UP)
+		vars->key_up = 1;
+	else if (keycode == DOWN)
+		vars->key_down = 1;
 	return (0);
 }
 
@@ -54,6 +58,10 @@ int	key_release(int keycode, t_vars *vars)
 		vars->key_right = 0;
 	else if (keycode == LEFT)
 		vars->key_left = 0;
+	else if (keycode == UP)
+		vars->key_up = 0;
+	else if (keycode == DOWN)
+		vars->key_down = 0;
 	return (0);
 }
 
@@ -66,6 +74,10 @@ int	game_loop(t_vars *vars)
 		vars->player.angle -= 0.05;
 	if (vars->key_right)
 		vars->player.angle += 0.05;
+	if (vars->key_up)
+		vars->view++;
+	if (vars->key_down)
+		vars->view--;
 	if (vars->key_w)
 		move_player(vars, speed, vars->player.angle);
 	if (vars->key_s)

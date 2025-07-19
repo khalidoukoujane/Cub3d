@@ -6,7 +6,7 @@
 /*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 09:01:04 by ioulkhir          #+#    #+#             */
-/*   Updated: 2025/07/15 18:05:16 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/07/19 09:27:40 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,11 @@ int	get_minimap_color(t_vars *vars, int x, int y)
 {
 	t_vector	reference;
 	t_vector	px;
-	double		view;
 
-	view = 20;
 	reference = vars->player.position;
 	px = reference;
-	px.y += ((double)(y - MINI_HEIGHT / 2) / MINI_WIDTH) * view;
-	px.x += ((double)(x - MINI_WIDTH / 2) / MINI_WIDTH) * view;
+	px.y += ((double)(y - MINI_HEIGHT / 2) / MINI_WIDTH) * vars->view;
+	px.x += ((double)(x - MINI_WIDTH / 2) / MINI_WIDTH) * vars->view;
 	if (calc_distance(px, reference) < 0.05)
 		return (0xFF0000);
 	if (out_of_map(vars->data->map, (int)vars->data->map_dimension.y, px))

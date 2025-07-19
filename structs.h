@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khoukouj <khoukouj@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:59:53 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/07/15 16:03:28 by khoukouj         ###   ########.fr       */
+/*   Updated: 2025/07/19 09:28:12 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,10 @@ typedef struct s_vars
 	int			key_d;
 	int			key_left;
 	int			key_right;
+	int			key_up;
+	int			key_down;
 	int			mouse_down;
+	int			view;
 }				t_vars;
 
 typedef struct s_status

@@ -6,7 +6,7 @@
 /*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:59:53 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/07/19 09:22:49 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/07/19 09:30:13 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,17 +113,9 @@ int				collision(t_vars *vars);
 t_equ			linear_equ(t_ray ray);
 double			solve_equs(t_equ equ, t_ray ray);
 
-// events
-// #define ESC   65307   // Escape key
-// #define RIGHT 65363   // Right arrow
-// #define LEFT  65361   // Left arrow
-// #define W     119     // 'w'
-// #define A     97      // 'a'
-// #define S     115     // 's'
-// #define D     100     // 'd'
-
-// events (macOS keycodes)
 # define ESC 53
+# define UP 126
+# define DOWN 125
 # define RIGHT 124
 # define LEFT 123
 # define W 13
