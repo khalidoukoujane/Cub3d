@@ -6,7 +6,7 @@
 /*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 08:15:58 by ioulkhir          #+#    #+#             */
-/*   Updated: 2025/07/15 10:30:35 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/07/19 08:14:05 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,9 @@ void	draw_line(t_vars *vars, int x, t_ray *ray)
 void	render(t_vars *vars)
 {
 	t_ray	ray;
-	double	x;
 	double	theta;
+	double	x;
+	int		i;
 
 	x = 0;
 	mlx_clear_window(vars->mlx, vars->win);
@@ -94,8 +95,10 @@ void	render(t_vars *vars)
 		ray_init(&ray, vars->player.position, theta);
 		ray_cast(vars, &ray);
 		ray.distance *= cos(theta - vars->player.angle);
-		draw_line(vars, x, &ray);
-		x++;
+		i = 0;
+		while (i < LINE_WIDTH)
+			draw_line(vars, x + (i++), &ray);
+		x += LINE_WIDTH;
 	}
 	mlx_put_image_to_window(vars->mlx, vars->win, vars->img.ptr, 0, 0);
 }

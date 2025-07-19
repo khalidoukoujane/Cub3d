@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khoukouj <khoukouj@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:59:53 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/07/17 11:09:52 by khoukouj         ###   ########.fr       */
+/*   Updated: 2025/07/19 08:13:36 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # define WIDTH 1400
 # define HEIGHT 900
+
+# define LINE_WIDTH 1
 
 # define MINI_WIDTH 400
 # define MINI_HEIGHT 200
