@@ -6,7 +6,7 @@
 /*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 08:19:01 by ioulkhir          #+#    #+#             */
-/*   Updated: 2025/07/15 18:06:31 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/07/19 09:22:29 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	handle_close(t_vars *vars)
 {
-	vars->status->fail = 314;
+	vars->status->fail = NO_ERR;
 	failure_detect(*vars->status);
 	return (0);
 }

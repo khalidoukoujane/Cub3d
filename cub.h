@@ -6,7 +6,7 @@
 /*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:59:53 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/07/19 08:13:36 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/07/19 09:22:49 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # define HEIGHT 900
 
 # define LINE_WIDTH 1
+# define NO_ERR 314
 
 # define MINI_WIDTH 400
 # define MINI_HEIGHT 200

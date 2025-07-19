@@ -6,7 +6,7 @@
 /*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 08:22:30 by ioulkhir          #+#    #+#             */
-/*   Updated: 2025/06/23 09:48:41 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/07/19 09:21:58 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ double	zero_protect(double x)
 {
 	double	anything;
 
-	anything = 314;
+	anything = 3.14 / 3.14;
 	if (x == 0)
 		return (anything);
 	return (x);

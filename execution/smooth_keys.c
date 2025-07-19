@@ -6,7 +6,7 @@
 /*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 08:55:56 by ioulkhir          #+#    #+#             */
-/*   Updated: 2025/07/15 18:08:29 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/07/19 09:22:40 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	key_press(int keycode, t_vars *vars)
 int	key_release(int keycode, t_vars *vars)
 {
 	if (keycode == ESC)
-		vars->status->fail = 314;
+		vars->status->fail = NO_ERR;
 	failure_detect(*vars->status);
 	if (keycode == W)
 		vars->key_w = 0;

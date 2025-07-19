@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khoukouj <khoukouj@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 08:16:47 by ioulkhir          #+#    #+#             */
-/*   Updated: 2025/07/15 17:08:15 by khoukouj         ###   ########.fr       */
+/*   Updated: 2025/07/19 09:22:34 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,11 @@ void	failure_detect(t_status status)
 	}
 	if (status.sucesses-- == 1)
 		free(status.vars->mlx);
-	if (status.err_msg && status.fail != 314)
+	if (status.err_msg && status.fail != NO_ERR)
 		ft_error(status.err_msg);
 	free(status.err_msg);
 	status.err_msg = NULL;
-	if (status.fail == 314)
+	if (status.fail == NO_ERR)
 		exit(EXIT_SUCCESS);
 	exit(EXIT_FAILURE);
 }
