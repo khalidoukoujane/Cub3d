@@ -6,18 +6,18 @@
 /*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 08:55:56 by ioulkhir          #+#    #+#             */
-/*   Updated: 2025/07/19 12:06:15 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/07/19 14:45:43 by ioulkhir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub.h"
 
-static void	move_player(t_vars *vars, double speed, double new_pos)
+static void	move_player(t_vars *vars, double speed, double direction)
 {
-	vars->player.position.x += speed * cos(new_pos);
-	vars->player.position.x -= collision(vars) * speed * cos(new_pos);
-	vars->player.position.y += speed * sin(new_pos);
-	vars->player.position.y -= collision(vars) * speed * sin(new_pos);
+	vars->player.position.x += speed * cos(direction);
+	vars->player.position.x -= collision(vars) * speed * cos(direction);
+	vars->player.position.y += speed * sin(direction);
+	vars->player.position.y -= collision(vars) * speed * sin(direction);
 }
 
 int	key_press(int keycode, t_vars *vars)
