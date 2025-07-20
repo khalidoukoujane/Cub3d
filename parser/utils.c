@@ -6,7 +6,7 @@
 /*   By: khoukouj <khoukouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 12:51:38 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/07/20 08:46:55 by khoukouj         ###   ########.fr       */
+/*   Updated: 2025/07/20 10:26:35 by khoukouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,4 +85,54 @@ char	**handle_clr_part(char *line)
 	}
 	res[count_splited(clrs) + 1] = NULL;
 	return (free_splited(data), free_splited(clrs), res);
+}
+
+char	*ft_grep_path(char *line)
+{
+	char	*path_start;
+	char	*path;
+	int		len;
+	int		i;
+
+	path_start = line;
+	while (*path_start && !(*path_start == ' ' || *path_start == '\t'))
+		path_start++;
+	while (*path_start && (*path_start == ' ' || *path_start == '\t'))
+		path_start++;
+	len = ft_strlen(path_start);
+	if (len > 0 && path_start[len - 1] == '\n')
+		len--;
+	path = malloc(len + 1);
+	if (!path)
+		return (NULL);
+	i = 0;
+	while (i < len)
+	{
+		path[i] = path_start[i];
+		i++;
+	}
+	return (path[len] = '\0', path);
+}
+
+char	**handle_text_part(char *line)
+{
+	char	**res;
+	char	**data;
+	char	*path;
+
+	path = NULL;
+	data = ft_spliter(line, " \t\n");
+	if (!data)
+		return (NULL);
+	path = ft_grep_path(line);
+	printf("%s\n", path);
+	if (!path)
+		return (free_splited(data), NULL);
+	res = malloc(sizeof(char *) * 3);
+	if (!res)
+		return (free_splited(data), free(path), NULL);
+	res[0] = ft_strdup(data[0]);
+	res[1] = path;
+	res[2] = NULL;
+	return (free_splited(data), res);
 }
