@@ -6,7 +6,7 @@
 /*   By: khoukouj <khoukouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:59:53 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/07/20 10:10:58 by khoukouj         ###   ########.fr       */
+/*   Updated: 2025/07/20 11:02:10 by khoukouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,9 @@
 # define L_DIR 3
 
 # define FOV 1.04
-// animation 
+
 void			ft_load_frames(t_vars *v);
+char			*ft_grep_path(char *line);
 char			**handle_text_part(char *line);
 char			**handle_clr_part(char *line);
 int				count_splited(char **s);
