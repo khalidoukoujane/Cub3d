@@ -6,7 +6,7 @@
 /*   By: khoukouj <khoukouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 12:51:38 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/07/17 11:10:35 by khoukouj         ###   ########.fr       */
+/*   Updated: 2025/07/20 08:46:55 by khoukouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,8 @@ char	**handle_clr_part(char *line)
 	if (!data || !data[0] || !data[1])
 		return (NULL);
 	clrs = ft_spliter(data[1], ",");
-	if (!clrs)
-		return (free_splited(data), NULL);
+	if (!clrs || count_splited(clrs) != 3)
+		return (free_splited(data), free_splited(clrs), NULL);
 	res = malloc(sizeof(char *) * (count_splited(clrs) + 2));
 	if (!res)
 		return (free_splited(clrs), free_splited(data), NULL);
