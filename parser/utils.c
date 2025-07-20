@@ -6,7 +6,7 @@
 /*   By: khoukouj <khoukouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 12:51:38 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/07/20 13:02:39 by khoukouj         ###   ########.fr       */
+/*   Updated: 2025/07/20 13:08:36 by khoukouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,6 @@ char	**handle_text_part(char *line)
 	if (!data)
 		return (NULL);
 	path = ft_grep_path(line);
-	printf("%s\n", path);
 	if (!path)
 		return (free_splited(data), NULL);
 	res = malloc(sizeof(char *) * 3);
