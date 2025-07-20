@@ -6,7 +6,7 @@
 /*   By: khoukouj <khoukouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 12:51:38 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/07/20 10:26:35 by khoukouj         ###   ########.fr       */
+/*   Updated: 2025/07/20 11:00:43 by khoukouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,33 +85,6 @@ char	**handle_clr_part(char *line)
 	}
 	res[count_splited(clrs) + 1] = NULL;
 	return (free_splited(data), free_splited(clrs), res);
-}
-
-char	*ft_grep_path(char *line)
-{
-	char	*path_start;
-	char	*path;
-	int		len;
-	int		i;
-
-	path_start = line;
-	while (*path_start && !(*path_start == ' ' || *path_start == '\t'))
-		path_start++;
-	while (*path_start && (*path_start == ' ' || *path_start == '\t'))
-		path_start++;
-	len = ft_strlen(path_start);
-	if (len > 0 && path_start[len - 1] == '\n')
-		len--;
-	path = malloc(len + 1);
-	if (!path)
-		return (NULL);
-	i = 0;
-	while (i < len)
-	{
-		path[i] = path_start[i];
-		i++;
-	}
-	return (path[len] = '\0', path);
 }
 
 char	**handle_text_part(char *line)
