@@ -6,7 +6,7 @@
 /*   By: khoukouj <khoukouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 13:54:47 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/07/20 10:11:03 by khoukouj         ###   ########.fr       */
+/*   Updated: 2025/07/20 12:45:35 by khoukouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,13 @@ int	put_data(t_parsed **info, char *line, int *i)
 	char	**data;
 
 	if (is_texture_line(line))
-		data = handle_text_part(line);
+		data = ft_spliter(line, " \t\n");
 	else
 		data = handle_clr_part(line);
 	if (!data || !*data)
 		return (ft_error("invalid format"), -1);
 	if (is_match_of('T', data[0]) && count_splited(data) != 2)
-		return (ft_error("invalid textures"), -1);
+		return (ft_error("invalid textures"), free_splited(data), -1);
 	else if (is_match_of('C', data[0]) && count_splited(data) != 4)
 		return (ft_error("invalid or missing colors"), -1);
 	if (fill_data(info, data) == -1)
