@@ -6,7 +6,7 @@
 /*   By: khoukouj <khoukouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:59:53 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/07/20 13:04:11 by khoukouj         ###   ########.fr       */
+/*   Updated: 2025/07/20 13:09:05 by khoukouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@
 # include <limits.h>
 # include <fcntl.h>
 # include <math.h>
-# include <stdio.h> //need to be removed later
 
 # define MAP_ERR_MSG "Map error: invalid element in or after the map"
 # define TOP_DIR 0
