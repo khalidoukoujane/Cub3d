@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: khoukouj <khoukouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:59:53 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/07/19 09:30:13 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/07/20 10:10:58 by khoukouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@
 # define FOV 1.04
 // animation 
 void			ft_load_frames(t_vars *v);
+char			**handle_text_part(char *line);
 char			**handle_clr_part(char *line);
 int				count_splited(char **s);
 unsigned int	ft_get_color(t_img *img, int x, int y);
