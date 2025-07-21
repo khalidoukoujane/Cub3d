@@ -6,11 +6,27 @@
 /*   By: khoukouj <khoukouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 11:01:09 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/07/20 13:03:17 by khoukouj         ###   ########.fr       */
+/*   Updated: 2025/07/21 17:46:14 by khoukouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub.h"
+
+int	count_commas(char *line)
+{
+	int	i;
+	int	count;
+
+	i = 0;
+	count = 0;
+	while (line[i])
+	{
+		if (line[i] == ',')
+			count++;
+		i++;
+	}
+	return (count);
+}
 
 char	*ft_grep_path(char *line)
 {

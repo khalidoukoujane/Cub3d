@@ -6,7 +6,7 @@
 /*   By: khoukouj <khoukouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 12:59:53 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/07/20 13:09:05 by khoukouj         ###   ########.fr       */
+/*   Updated: 2025/07/21 17:46:32 by khoukouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@
 # define FOV 1.04
 
 void			ft_load_frames(t_vars *v);
+int				count_commas(char *line);
 char			*ft_grep_path(char *line);
 char			**handle_text_part(char *line);
 char			*ft_grep_path(char *line);

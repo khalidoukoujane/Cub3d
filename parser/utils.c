@@ -6,7 +6,7 @@
 /*   By: khoukouj <khoukouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 12:51:38 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/07/20 13:08:36 by khoukouj         ###   ########.fr       */
+/*   Updated: 2025/07/21 17:47:10 by khoukouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,10 +67,10 @@ char	**handle_clr_part(char *line)
 
 	it = 0;
 	data = ft_spliter(line, " \t\n");
-	if (!data || !data[0] || !data[1])
+	if (!data || !data[0] || !data[1] || count_splited(data) != 2)
 		return (NULL);
 	clrs = ft_spliter(data[1], ",");
-	if (!clrs || count_splited(clrs) != 3)
+	if (!clrs || count_splited(clrs) != 3 || count_commas(data[1]) != 2)
 		return (free_splited(data), free_splited(clrs), NULL);
 	res = malloc(sizeof(char *) * (count_splited(clrs) + 2));
 	if (!res)
@@ -104,7 +104,7 @@ char	**handle_text_part(char *line)
 	if (!res)
 		return (free_splited(data), free(path), NULL);
 	res[0] = ft_strdup(data[0]);
-	res[1] = path;
+	res[1] = ft_strtrim(path, " \t");
 	res[2] = NULL;
 	return (free_splited(data), res);
 }
