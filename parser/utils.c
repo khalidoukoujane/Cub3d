@@ -6,7 +6,7 @@
 /*   By: khoukouj <khoukouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 12:51:38 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/07/22 08:25:44 by khoukouj         ###   ########.fr       */
+/*   Updated: 2025/07/22 09:33:56 by khoukouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ char	**handle_clr_part(char *line)
 	it = 0;
 	data = ft_spliter(line, " \t\n");
 	if (!data || !data[0] || !data[1] || count_splited(data) != 2)
-		return (NULL);
+		return (free_splited(data), NULL);
 	clrs = ft_spliter(data[1], ",");
 	if (!clrs || count_splited(clrs) != 3 || count_commas(data[1]) != 2)
 		return (free_splited(data), free_splited(clrs), NULL);

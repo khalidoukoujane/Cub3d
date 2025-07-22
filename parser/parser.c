@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ioulkhir <ioulkhir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: khoukouj <khoukouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 13:35:34 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/07/15 18:10:32 by ioulkhir         ###   ########.fr       */
+/*   Updated: 2025/07/22 09:34:53 by khoukouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ int	free_splited(char **ss)
 	int	i;
 
 	i = -1;
+	if (!ss)
+		return (0);
 	while (ss[++i])
 		free(ss[i]);
 	free(ss);
