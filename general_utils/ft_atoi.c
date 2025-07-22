@@ -6,7 +6,7 @@
 /*   By: khoukouj <khoukouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 11:44:15 by ioulkhir          #+#    #+#             */
-/*   Updated: 2025/07/17 09:46:00 by khoukouj         ###   ########.fr       */
+/*   Updated: 2025/07/22 09:23:29 by khoukouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,20 @@ static int	check_ulong(unsigned long result, char s)
 	return (0);
 }
 
+static void	init(unsigned long *r, int *i, int *s)
+{
+	*r = 0;
+	*s = 1;
+	*i = 0;
+}
+
 int	ft_atoi(const char *str)
 {
 	unsigned long	result;
 	int				i;
 	int				sign;
 
-	result = 0;
-	i = 0;
-	sign = 1;
+	init(&result, &i, &sign);
 	while (str[i] == ' ' || (9 <= str[i] && str[i] <= 13))
 		i++;
 	if (str[i] == '+' || str[i] == '-')
@@ -54,6 +59,8 @@ int	ft_atoi(const char *str)
 		result = result * 10 + (str[i] - '0');
 		i++;
 	}
+	if (str[i])
+		return (-1);
 	if (check_limits(result, sign) == -1)
 		return (-1);
 	return (result * sign);
