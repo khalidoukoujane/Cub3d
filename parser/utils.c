@@ -6,7 +6,7 @@
 /*   By: khoukouj <khoukouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 12:51:38 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/07/21 17:47:10 by khoukouj         ###   ########.fr       */
+/*   Updated: 2025/07/22 08:25:44 by khoukouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,5 +106,6 @@ char	**handle_text_part(char *line)
 	res[0] = ft_strdup(data[0]);
 	res[1] = ft_strtrim(path, " \t");
 	res[2] = NULL;
+	free(path);
 	return (free_splited(data), res);
 }
