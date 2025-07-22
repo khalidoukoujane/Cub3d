@@ -6,7 +6,7 @@
 /*   By: khoukouj <khoukouj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 13:35:34 by khoukouj          #+#    #+#             */
-/*   Updated: 2025/07/22 09:34:53 by khoukouj         ###   ########.fr       */
+/*   Updated: 2025/07/22 09:59:10 by khoukouj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,16 @@ int	check_dot_cub(char *str)
 {
 	int		i;
 
-	i = 0;
-	while (str[i] && str[i] != '.')
-		i++;
-	if (i == 0)
+	i = ft_strlen(str) - 1;
+	while (i > 0)
+	{
+		if (str[i] == '.')
+			break ;
+		i--;
+	}
+	if (ft_strcmp(&str[i], ".cub"))
 		return (0);
-	if (!ft_strcmp(&str[i], ".cub"))
-		return (1);
-	return (0);
+	return (1);
 }
 
 int	get_content_len(char *file)
